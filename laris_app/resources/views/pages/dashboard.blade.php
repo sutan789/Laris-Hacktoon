@@ -126,7 +126,10 @@
         <div class="kpi-card card-panel">
             <div class="kpi-top">
                 <span class="kpi-title">Kesehatan Stok Gudang</span>
-                <span class="kpi-badge badge-optimal">✔ Optimal</span>
+                <span class="kpi-badge badge-optimal">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Optimal</span>
+                </span>
             </div>
             <div class="kpi-value-row">
                 <h2 class="kpi-val" id="kpi-stock-health">{{ $kpiData['stock_health_pct'] }}%</h2>
@@ -148,7 +151,7 @@
                 <div class="score-pill" id="kpi-opp-score">{{ $kpiData['opportunity_score'] }}</div>
                 <div class="score-desc">
                     <div class="score-head">Potensi Penjualan Tinggi</div>
-                    <div class="score-sub">Top category: Stationery & Hobby</div>
+                    <div class="score-sub">Top category: Stationery &amp; Hobby</div>
                 </div>
             </div>
             <div class="kpi-status-foot">
@@ -179,10 +182,19 @@
                     </div>
                     <div style="position: relative;">
                         <button type="button" class="btn-more" onclick="toggleRadarMenu()" title="Opsi Radar">•••</button>
-                        <div id="radar-dropdown-menu" class="timeframe-popup-menu" style="display: none; width: 200px;">
-                            <a href="javascript:void(0)" onclick="refreshRadarVisual()" class="menu-item">🔄 Pindai Ulang Radar</a>
-                            <a href="{{ route('trends.index') }}" class="menu-item">📈 Buka Trend Hunter</a>
-                            <a href="{{ route('predict.index') }}" class="menu-item">🎯 Buka Simulator Predict</a>
+                        <div id="radar-dropdown-menu" class="timeframe-popup-menu" style="display: none; width: 220px;">
+                            <a href="javascript:void(0)" onclick="refreshRadarVisual()" class="menu-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align:-2px;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                <span>Pindai Ulang Radar</span>
+                            </a>
+                            <a href="{{ route('trends.index') }}" class="menu-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align:-2px;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                <span>Buka Trend Hunter</span>
+                            </a>
+                            <a href="{{ route('predict.index') }}" class="menu-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px; vertical-align:-2px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                <span>Buka Simulator Predict</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -357,8 +369,9 @@
                             </div>
                         </div>
                     @empty
-                        <div style="padding: 20px; text-align: center; color: #16A34A; background: #DCFCE7; border-radius: 12px; font-weight: 600;">
-                            ✔ Semua peringatan operasional telah terselesaikan! Operasional berjalan optimal.
+                        <div style="padding: 18px; text-align: center; color: #16A34A; background: #DCFCE7; border-radius: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Semua peringatan operasional telah terselesaikan! Operasional berjalan optimal.</span>
                         </div>
                     @endforelse
                 </div>
@@ -1523,7 +1536,7 @@
             const res = await response.json();
             if (res.status === 'success') {
                 await pollLiveTelemetry();
-                showToast(`✔ ${res.message}`);
+                showToast(res.message);
             }
         } catch (e) {
             console.error(e);
@@ -1547,7 +1560,7 @@
             sweep.offsetHeight; // trigger reflow
             sweep.style.animation = null;
         }
-        showToast('📡 Radar berhasil memindai 4 sinyal tren baru di marketplace!');
+        showToast('Radar berhasil memindai 4 sinyal tren baru di marketplace!');
     }
 
     // Close radar menu on outside click

@@ -6,7 +6,9 @@
     <!-- TOP NOTICE STRIP -->
     <div class="insight-strip-dark">
         <div class="strip-left">
-            <div class="strip-icon-box">💡</div>
+            <div class="strip-icon-box">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
+            </div>
             <div>
                 <div class="strip-tag">Juragan AI Insight Strip •</div>
                 <p>Pasar perlengkapan viral di area tokomu naik <strong>+142%</strong> pekan ini. Gunakan simulator di bawah untuk mengukur proyeksi laba bersih.</p>
@@ -119,16 +121,24 @@
                         <label>Target Saluran Penjualan</label>
                         <div class="channels-checkbox-grid">
                             <label class="channel-pill active">
-                                <input type="checkbox" checked> ✔ Shopee
+                                <input type="checkbox" checked>
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                <span>Shopee</span>
                             </label>
                             <label class="channel-pill active">
-                                <input type="checkbox" checked> ✔ TikTok Shop
+                                <input type="checkbox" checked>
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                <span>TikTok Shop</span>
                             </label>
                             <label class="channel-pill active">
-                                <input type="checkbox" checked> ✔ Tokopedia
+                                <input type="checkbox" checked>
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                <span>Tokopedia</span>
                             </label>
                             <label class="channel-pill active">
-                                <input type="checkbox" checked> ✔ Offline Store
+                                <input type="checkbox" checked>
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                <span>Offline Store</span>
                             </label>
                         </div>
                     </div>
@@ -160,14 +170,19 @@
                     <span class="res-sub-head">HASIL PREDIKSI KECERDASAN BUATAN</span>
                     <div class="flex-align gap-8">
                         <h2 class="res-title">Skor Potensi Produk</h2>
-                        <span class="verified-icon">✔</span>
+                        <span class="verified-icon">
+                            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
                     </div>
                 </div>
 
                 <div class="result-top-metrics">
                     <div class="score-banner-box">
                         <div class="confidence-strip">
-                            <span>🔒 88.2% Confidence</span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px;">
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+                                88.2% Confidence
+                            </span>
                             <span class="conf-lbl">Tingkat Keyakinan</span>
                         </div>
                         <div class="big-score-num">
@@ -179,7 +194,10 @@
                         <div class="f-metric-card">
                             <span class="f-lbl">Estimasi Permintaan Awal</span>
                             <h3 class="f-val">38 - 52 <small>pcs</small></h3>
-                            <span class="f-sub text-green">📈 Terjual dalam 14 hari pertama</span>
+                            <span class="f-sub text-green" style="display: inline-flex; align-items: center; gap: 4px;">
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/></svg>
+                                Terjual dalam 14 hari pertama
+                            </span>
                         </div>
 
                         <div class="f-metric-card">
@@ -231,7 +249,9 @@
                 <!-- KEY INSIGHTS & REKOMENDASI JURAGAN AI -->
                 <div class="insights-box">
                     <div class="ins-title-row">
-                        <div class="ins-icon">💡</div>
+                        <div class="ins-icon">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
+                        </div>
                         <div>
                             <h4>Key Insights & Rekomendasi Juragan AI</h4>
                             <p class="sub-muted">Analisis prediktif berbasis lokasi tokomu di Jabodetabek</p>
@@ -243,7 +263,9 @@
                         <div class="ins-item">
                             <div class="ins-item-head">
                                 <div class="flex-align gap-8">
-                                    <span class="check-green">✔</span>
+                                    <span class="check-green">
+                                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                                    </span>
                                     <strong>High Demand, Low Competition in your local sub-district.</strong>
                                 </div>
                                 <span class="badge-gold">PELUANG EMAS</span>
@@ -255,7 +277,9 @@
                         <div class="ins-item">
                             <div class="ins-item-head">
                                 <div class="flex-align gap-8">
-                                    <span class="bolt-lime">⚡</span>
+                                    <span class="bolt-lime">
+                                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                                    </span>
                                     <strong>Viral velocity on TikTok Shop: +142% search queries this week.</strong>
                                 </div>
                                 <span class="badge-black">VIRAL SPIKE</span>
@@ -267,7 +291,9 @@
                         <div class="ins-item">
                             <div class="ins-item-head">
                                 <div class="flex-align gap-8">
-                                    <span class="star-icon">📦</span>
+                                    <span class="star-icon">
+                                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                                    </span>
                                     <strong>Recommended Bundle: Pair with Labubu Pencil Case to boost AOV by 25%.</strong>
                                 </div>
                                 <span class="badge-green-sm">+25% AOV</span>
@@ -907,7 +933,7 @@
     }
 
     function runPrediction() {
-        showPredictToast('⚡ Simulasi AI sedang memproses data pasar terkini...');
+        showPredictToast('Simulasi AI sedang memproses data pasar terkini...');
     }
 
     function openHistoryModal() {
@@ -920,7 +946,7 @@
 
     function saveSimulationDraft() {
         const prod = document.getElementById('productName').value || 'Produk Tanpa Nama';
-        showPredictToast(`💾 Skenario simulasi "${prod}" berhasil disimpan ke riwayat Juragan!`);
+        showPredictToast(`Skenario simulasi "${prod}" berhasil disimpan ke riwayat Juragan!`);
     }
 
     function exportSimulationReport() {
@@ -947,7 +973,7 @@
         a.click();
         document.body.removeChild(a);
 
-        showPredictToast('📄 Laporan simulasi berhasil diunduh!');
+        showPredictToast('Laporan simulasi berhasil diunduh!');
     }
 
     function loadSimHistory(name, cost, sell, cat) {
@@ -957,7 +983,7 @@
         document.getElementById('productCategory').value = cat;
         calculateMargin();
         closeHistoryModal();
-        showPredictToast(`🔄 Parameter simulasi "${name}" dimuat kembali!`);
+        showPredictToast(`Parameter simulasi "${name}" dimuat kembali!`);
     }
 
     function showPredictToast(msg) {
@@ -989,7 +1015,10 @@
 <div id="modal-predict-history" class="laris-modal-overlay" style="position: fixed; inset: 0; background: rgba(11, 18, 21, 0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px;">
     <div style="background: #FFFFFF; border-radius: 16px; width: 100%; max-width: 560px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); overflow: hidden;">
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
-            <h3 style="font-size: 16px; font-weight: 700; color: #0F172A; margin: 0;">📜 Riwayat Simulasi Produk Terakhir</h3>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" fill="none" stroke="#0F172A" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                <h3 style="font-size: 16px; font-weight: 700; color: #0F172A; margin: 0;">Riwayat Simulasi Produk Terakhir</h3>
+            </div>
             <button type="button" onclick="closeHistoryModal()" style="background: none; border: none; font-size: 22px; color: #64748B; cursor: pointer;">&times;</button>
         </div>
         <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; max-height: 400px; overflow-y: auto;">

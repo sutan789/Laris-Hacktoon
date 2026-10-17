@@ -1059,27 +1059,47 @@
     <header class="store-hero">
         <div class="hero-inner">
             <div class="store-main-info">
-                <div class="store-avatar-box">🏪</div>
+                <div class="store-avatar-box">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72m-13.5 8.651h.008v.008H6.75v-.008Zm0 3h.008v.008H6.75v-.008Zm0 3h.008v.008H6.75v-.008Z"/></svg>
+                </div>
                 <div>
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
                         <h1 class="store-title-h1">{{ $store->name ?? 'Toko Berkah Utama' }}</h1>
-                        <span class="badge-verified">✔ Terverifikasi LARIS</span>
+                        <span class="badge-verified">
+                            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                            <span>Terverifikasi LARIS</span>
+                        </span>
                     </div>
                     <div class="store-meta-p">
-                        <span>📍 {{ $store->address ?? 'Jl. Braga No. 45, Bandung, Jawa Barat' }}</span>
-                        <span>⏱ {{ $store->operating_hours ?? '08:00 - 22:00 WIB' }}</span>
-                        <span>📞 {{ $store->phone ?? '0812-3456-7890' }}</span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                            {{ $store->address ?? 'Jl. Braga No. 45, Bandung, Jawa Barat' }}
+                        </span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                            {{ $store->operating_hours ?? '08:00 - 22:00 WIB' }}
+                        </span>
+                        <span style="display: inline-flex; align-items: center; gap: 4px;">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                            {{ $store->phone ?? '0812-3456-7890' }}
+                        </span>
                     </div>
                 </div>
             </div>
 
             <div class="hero-quick-badges">
                 <div class="badge-pill-dark">
-                    <span>⚡ Pembayaran:</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                        Pembayaran:
+                    </span>
                     <strong>QRIS &amp; Tunai</strong>
                 </div>
                 <div class="badge-pill-dark">
-                    <span>🛡 Garansi Stok:</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px;">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                        Garansi Stok:
+                    </span>
                     <strong>Real-time AI Sync</strong>
                 </div>
             </div>
@@ -1099,9 +1119,12 @@
 
         @if(session('success_coupon'))
             <div style="background: #FEF3C7; border: 1px solid #FCD34D; color: #92400E; padding: 14px 18px; border-radius: 12px; font-size: 13px; font-weight: 600; display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <strong>🎉 {{ session('success_coupon')['item'] }}:</strong>
-                    <span>{{ session('success_coupon')['message'] }}</span>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" fill="none" stroke="#D97706" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"/></svg>
+                    <div>
+                        <strong>{{ session('success_coupon')['item'] }}:</strong>
+                        <span>{{ session('success_coupon')['message'] }}</span>
+                    </div>
                 </div>
                 <button onclick="this.parentElement.remove()" style="background:none; border:none; font-size:18px; cursor:pointer; color:#92400E;">&times;</button>
             </div>
@@ -1111,7 +1134,9 @@
         <section class="flash-sale-panel" id="cuci-rak-section">
             <div class="fs-header">
                 <div class="fs-title-box">
-                    <span class="fs-icon-flame">🔥</span>
+                    <span class="fs-icon-flame">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/></svg>
+                    </span>
                     <div>
                         <h3 class="fs-main-title">Flash Sale Cuci Rak Jam 7 Malam (Anti-Basi)</h3>
                         <p class="fs-sub-desc">Diskon kilat 30% - 50% untuk produk roti, susu segar &amp; buah siap santap sebelum toko tutup. Hemat belanja warga, bebas buang makanan!</p>
@@ -1137,9 +1162,13 @@
                                 <span class="fs-price-now">Rp {{ number_format($fs['discount_price'], 0, ',', '.') }}</span>
                                 <span class="fs-price-old">Rp {{ number_format($fs['original_price'], 0, ',', '.') }}</span>
                             </div>
-                            <span class="fs-reason-tag">💡 {{ $fs['reason'] }}</span>
-                            <div style="font-size: 11px; color: #DC2626; font-weight: 700; margin-top: 4px;">
-                                ⚠️ Sisa {{ $fs['stock_left'] }} {{ $fs['unit'] }} di rak toko
+                            <span class="fs-reason-tag">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right:3px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
+                                {{ $fs['reason'] }}
+                            </span>
+                            <div style="font-size: 11px; color: #DC2626; font-weight: 700; margin-top: 4px; display: flex; align-items: center; gap: 4px;">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+                                Sisa {{ $fs['stock_left'] }} {{ $fs['unit'] }} di rak toko
                             </div>
                         </div>
                         <div class="fs-card-action">
@@ -1257,14 +1286,19 @@
         <!-- PRE-ORDER ACTIVE QUEUE -->
         <div class="po-history-box">
             <h4 class="po-hist-title">
-                <span>📋 Antrean Titip Kulakan Warga Terkini</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
+                    Antrean Titip Kulakan Warga Terkini
+                </span>
                 <span style="font-size: 11px; background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 99px; font-weight: 700;">Auto-Sync ke HP Juragan</span>
             </h4>
             <div class="po-list">
                 @foreach($preOrders as $po)
                     <div class="po-item-row">
                         <div class="po-item-left">
-                            <div class="po-icon-circle">📦</div>
+                            <div class="po-icon-circle">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                            </div>
                             <div>
                                 <div class="po-item-name">{{ $po['item_name'] }} ({{ $po['quantity'] }} pcs)</div>
                                 <div class="po-cust-meta">Pemesan: {{ $po['customer_name'] }} ({{ $po['phone'] }}) • {{ $po['time'] }}</div>
@@ -1376,15 +1410,17 @@
                         </div>
                     </div>
 
-                    <div style="background: #DCFCE7; color: #15803D; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 6px;">
-                        🎉 Kupon Diskon Tetangga Rp 2.500 Otomatis Terpasang!
+                    <div style="background: #DCFCE7; color: #15803D; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 6px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z"/></svg>
+                        <span>Kupon Diskon Tetangga Rp 2.500 Otomatis Terpasang!</span>
                     </div>
                 </div>
             </div>
             <div class="modal-bottom">
                 <button type="button" class="btn-cancel" onclick="closeQrisModal()">Tutup</button>
-                <button type="button" class="btn-filter-submit" style="background: #0B1215; color: #CCFF00;" onclick="simulateQrisSuccess()">
-                    Simulasikan Pembayaran Selesai ✔
+                <button type="button" class="btn-filter-submit" style="background: #0B1215; color: #CCFF00; display: inline-flex; align-items: center; gap: 6px;" onclick="simulateQrisSuccess()">
+                    <span>Simulasikan Pembayaran Selesai</span>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
                 </button>
             </div>
         </div>
@@ -1433,7 +1469,7 @@
 
         function simulateQrisSuccess() {
             closeQrisModal();
-            alert('🎉 Pembayaran QRIS Sukses Terverifikasi! Struk transaksi telah dikirimkan ke mesin kasir Toko Berkah Utama.');
+            alert('Pembayaran QRIS Sukses Terverifikasi! Struk transaksi telah dikirimkan ke mesin kasir Toko Berkah Utama.');
         }
 
         // Close on escape

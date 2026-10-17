@@ -158,9 +158,9 @@
             <div class="form-group">
                 <label class="form-label">Peran Pengguna (Role)</label>
                 <select name="role" class="form-select">
-                    <option value="owner" selected>👑 Pemilik Toko (Juragan / Full Access)</option>
-                    <option value="staff_cashier">🛒 Kasir Toko (Smart POS Only)</option>
-                    <option value="staff_inventory">📦 Pengelola Stok (Smart Inventory Only)</option>
+                    <option value="owner" selected>Pemilik Toko (Juragan / Akses Eksekutif & AI)</option>
+                    <option value="staff_cashier">Kasir Toko (Frontliner / Smart POS)</option>
+                    <option value="staff_inventory">Staf Gudang (Logistik & Manajemen Stok)</option>
                 </select>
             </div>
 

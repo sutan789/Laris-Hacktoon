@@ -207,9 +207,18 @@
         <div class="quick-accounts">
             <div class="qa-title">Pilih Akun Demo Cepat</div>
             <div class="qa-chips">
-                <button type="button" class="qa-btn" id="qa-owner" onclick="fillAccount('juragan@laris.id', 'owner', this)">👑 Juragan (Owner)</button>
-                <button type="button" class="qa-btn" id="qa-cashier" onclick="fillAccount('kasir@laris.id', 'cashier', this)">🛒 Kasir Toko</button>
-                <button type="button" class="qa-btn" id="qa-inventory" onclick="fillAccount('gudang@laris.id', 'inventory', this)">📦 Staf Gudang</button>
+                <button type="button" class="qa-btn" id="qa-owner" onclick="fillAccount('juragan@laris.id', 'owner', this)">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                    <span>Juragan (Owner)</span>
+                </button>
+                <button type="button" class="qa-btn" id="qa-cashier" onclick="fillAccount('kasir@laris.id', 'cashier', this)">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    <span>Kasir Toko</span>
+                </button>
+                <button type="button" class="qa-btn" id="qa-inventory" onclick="fillAccount('gudang@laris.id', 'inventory', this)">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                    <span>Staf Gudang</span>
+                </button>
             </div>
             <div id="qa-hint" style="font-size: 11px; color: #94A3B8; text-align: center; margin-top: 10px;">
                 Login sebagai <strong>Owner Toko</strong> &rarr; Masuk ke Business Dashboard &amp; Prediksi AI

@@ -36,7 +36,9 @@
                     <div>
                         <div class="profile-name-flex">
                             <h4>Juragan Bambang</h4>
-                            <span class="badge-verified">✔</span>
+                            <span class="badge-verified">
+                                <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                            </span>
                         </div>
                         <div class="profile-store-id">Toko Berkah Utama • ID #88412</div>
                     </div>
@@ -57,12 +59,16 @@
             <div class="card-panel">
                 <div class="topic-header">
                     <span>TOPIK PERCAKAPAN CEPAT</span>
-                    <span class="bolt-icon">⚡</span>
+                    <span class="bolt-icon">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                    </span>
                 </div>
 
                 <div class="topic-buttons-list">
                     <button class="topic-btn" onclick="sendQuickPrompt('Analisis Omzet Bulan Ini')">
-                        <div class="topic-btn-icon">💡</div>
+                        <div class="topic-btn-icon">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+                        </div>
                         <div class="topic-btn-text">
                             <strong>Analisis Omzet Bulan Ini</strong>
                             <span>Review performa kotor vs target</span>
@@ -70,7 +76,9 @@
                     </button>
 
                     <button class="topic-btn" onclick="sendQuickPrompt('Cek Produk Menjelang Habis')">
-                        <div class="topic-btn-icon">📦</div>
+                        <div class="topic-btn-icon">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                        </div>
                         <div class="topic-btn-text">
                             <strong>Cek Produk Menjelang Habis</strong>
                             <span>Deteksi 4 SKU stok kritis</span>
@@ -78,7 +86,9 @@
                     </button>
 
                     <button class="topic-btn" onclick="sendQuickPrompt('Rekomendasi Flash Sale Akhir Pekan')">
-                        <div class="topic-btn-icon">⚡</div>
+                        <div class="topic-btn-icon">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                        </div>
                         <div class="topic-btn-text">
                             <strong>Rekomendasi Flash Sale Akhir Pekan</strong>
                             <span>Simulasi kenaikan laba bersih</span>
@@ -86,7 +96,9 @@
                     </button>
 
                     <button class="topic-btn" onclick="sendQuickPrompt('Catat Transaksi Offline Cepat')">
-                        <div class="topic-btn-icon">📝</div>
+                        <div class="topic-btn-icon">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
+                        </div>
                         <div class="topic-btn-text">
                             <strong>Catat Transaksi Offline Cepat</strong>
                             <span>Voice atau upload foto struk nota</span>
@@ -146,7 +158,9 @@
             <!-- CHAT TOP BAR -->
             <div class="chat-top-header">
                 <div class="chat-copilot-title">
-                    <div class="copilot-avatar">🤖</div>
+                    <div class="copilot-avatar">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+                    </div>
                     <div>
                         <div class="flex-align gap-8">
                             <h3>Juragan AI</h3>
@@ -170,9 +184,11 @@
 
                 <!-- AI GREETING MESSAGE -->
                 <div class="message-row ai-row">
-                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-avatar">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                    </div>
                     <div class="msg-bubble ai-bubble">
-                        <p>Halo <strong>Juragan Bambang!</strong> 👋 Selamat datang kembali. Berdasarkan rekonsiliasi data kasir dan marketplace hari ini, omzet bulanan sudah mencapai <strong>Rp 12.4M (+18% MoM)</strong>. Ada 3 insight penting untuk dievaluasi.</p>
+                        <p>Halo <strong>Juragan Bambang!</strong> Selamat datang kembali. Berdasarkan rekonsiliasi data kasir dan marketplace hari ini, omzet bulanan sudah mencapai <strong>Rp 12.4M (+18% MoM)</strong>. Ada 3 insight penting untuk dievaluasi.</p>
                         <span class="msg-time">09:12 • Terverifikasi data live</span>
                     </div>
                 </div>
@@ -188,11 +204,15 @@
 
                 <!-- RICH AI RECOMMENDATION MESSAGE -->
                 <div class="message-row ai-row">
-                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-avatar">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                    </div>
                     <div class="msg-bubble ai-bubble rich-bubble">
                         
                         <div class="rich-header">
-                            <span class="lightbulb">💡</span>
+                            <span class="lightbulb">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
+                            </span>
                             <h4>Fokus pada produk margin tinggi dengan sinyal permintaan kuat:</h4>
                         </div>
 
@@ -206,7 +226,9 @@
                                     <span class="r-badge-green">+22% Basket</span>
                                 </div>
                                 <div class="r-product-title">
-                                    <span class="coffee-icon">☕</span>
+                                    <span class="coffee-icon">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+                                    </span>
                                     <strong>Kopi Arabica Gayo</strong>
                                 </div>
                                 <p class="r-desc">Sisa stok <strong>24 unit</strong>. Lakukan bundling dengan <strong>Sirup Caramel</strong> untuk mendongkrak rata-rata nilai transaksi belanja tanpa memicu sensitivitas harga.</p>
@@ -220,10 +242,15 @@
                             <div class="rich-card">
                                 <div class="rich-card-top">
                                     <span class="r-badge-dark">RADAR TREN #1</span>
-                                    <span class="r-badge-lime">⚡ Skor 87/100</span>
+                                    <span class="r-badge-lime">
+                                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right: 2px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                                        Skor 87/100
+                                    </span>
                                 </div>
                                 <div class="r-product-title">
-                                    <span class="pencil-icon">✏</span>
+                                    <span class="pencil-icon">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125"/></svg>
+                                    </span>
                                     <strong>Pensil Labubu Series</strong>
                                 </div>
                                 <p class="r-desc">Tingkat permintaan lokal sedang melonjak <strong>82%</strong>. Naikkan harga dari Rp 17.500 ke <strong>Rp 18.500</strong> tanpa menurunkan konversi pembelian.</p>
@@ -916,9 +943,11 @@
         const loadingId = 'aiLoading_' + Date.now();
         const loadingHtml = `
             <div id="${loadingId}" class="message-row ai-row">
-                <div class="msg-avatar">🤖</div>
+                <div class="msg-avatar">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                </div>
                 <div class="msg-bubble ai-bubble" style="color: #94A3B8; font-style: italic;">
-                    <p>⚡ Juragan AI sedang menganalisis data toko...</p>
+                    <p>Juragan AI sedang menganalisis data toko...</p>
                 </div>
             </div>
         `;
@@ -953,7 +982,9 @@
 
             const aiHtml = `
                 <div class="message-row ai-row">
-                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-avatar">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                    </div>
                     <div class="msg-bubble ai-bubble" style="line-height: 1.6;">
                         <p>${replyText}</p>
                         <span class="msg-time">${data.timestamp || 'Baru saja'} • Live Gemini 3.8 Flash</span>
@@ -969,7 +1000,9 @@
 
             const errorHtml = `
                 <div class="message-row ai-row">
-                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-avatar">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                    </div>
                     <div class="msg-bubble ai-bubble" style="border-left: 3px solid #DC2626;">
                         <p>Koneksi ke AI Cloud terputus. Silakan ulangi pertanyaan Anda, Juragan.</p>
                         <span class="msg-time">Gagal sinkronisasi</span>

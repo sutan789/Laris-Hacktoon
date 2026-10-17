@@ -18,28 +18,36 @@
     <!-- 4 FEATURE GUIDE PILLARS -->
     <div class="guide-grid">
         <div class="guide-card card-panel">
-            <div class="guide-icon-badge">🎯</div>
+            <div class="guide-icon-badge">
+                <svg width="22" height="22" fill="none" stroke="#2563EB" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6m15 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            </div>
             <h3>LARIS Predict</h3>
             <p>Fitur "What If I Sell This?" untuk memprediksi probabilitas sukses produk baru sebelum belanja modal stok.</p>
             <a href="{{ route('predict.index') }}" class="guide-link">Buka Fitur &rarr;</a>
         </div>
 
         <div class="guide-card card-panel">
-            <div class="guide-icon-badge">📈</div>
+            <div class="guide-icon-badge">
+                <svg width="22" height="22" fill="none" stroke="#16A34A" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/></svg>
+            </div>
             <h3>Trend Hunter</h3>
             <p>Radar pemantau lonjakan tren viral marketplace lokal dengan perhitungan Growth Velocity &amp; Viral Score.</p>
             <a href="{{ route('trends.index') }}" class="guide-link">Buka Fitur &rarr;</a>
         </div>
 
         <div class="guide-card card-panel">
-            <div class="guide-icon-badge">📦</div>
+            <div class="guide-icon-badge">
+                <svg width="22" height="22" fill="none" stroke="#D97706" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
+            </div>
             <h3>Smart Inventory</h3>
             <p>Autonomous PO Bundling yang menggabungkan pengadaan stok kritis dari supplier sama untuk hemat ongkir 18%.</p>
             <a href="{{ route('inventory.index') }}" class="guide-link">Buka Fitur &rarr;</a>
         </div>
 
         <div class="guide-card card-panel">
-            <div class="guide-icon-badge">🤖</div>
+            <div class="guide-icon-badge">
+                <svg width="22" height="22" fill="none" stroke="#7C3AED" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+            </div>
             <h3>Juragan AI Copilot</h3>
             <p>Konsultan bisnis cerdas berbasis Gemini 3.8 Flash yang memahami data telemetri penjualan toko Anda.</p>
             <a href="{{ route('juragan.index') }}" class="guide-link">Buka Fitur &rarr;</a>

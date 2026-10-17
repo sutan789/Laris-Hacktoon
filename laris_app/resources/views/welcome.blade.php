@@ -249,6 +249,45 @@
             color: #64748B;
             font-size: 13px;
         }
+
+        @media (max-width: 900px) {
+            .landing-nav {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links {
+                gap: 18px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-section {
+                padding: 60px 20px 40px 20px;
+            }
+            .hero-title {
+                font-size: 32px;
+                line-height: 1.25;
+            }
+            .hero-sub {
+                font-size: 14px;
+            }
+            .roles-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+                gap: 12px;
+            }
+            .btn-hero-main, .btn-hero-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -276,7 +315,8 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="hero-tag">
-            <span>⚡ MEUKARYA TEAM • INFEST HACKATHON 2026</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -2px; margin-right: 4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>MEUKARYA TEAM • INFEST HACKATHON 2026</span>
         </div>
         <h1 class="hero-title">
             AI Business Intelligence &<br>
@@ -294,14 +334,18 @@
     <!-- 3 ROLES SECTION -->
     <section id="roles" class="roles-section">
         <h2 class="sec-title">Dashboard Disesuaikan untuk Setiap Peran</h2>
-        <p class="sec-sub">Setiap anggota tim toko memiliki dashboard kerja yang akurat dan terfokus</p>
+        <p class="sec-sub">Setiap anggota tim toko memiliki dashboard kerja yang akurat, intuitif, dan terfokus</p>
 
         <div class="roles-grid">
             <!-- 1. OWNER -->
             <div class="role-card">
                 <div>
-                    <div class="role-icon">👑</div>
-                    <span class="role-badge badge-owner">Juragan / Owner</span>
+                    <div class="role-icon" style="background: rgba(204, 255, 0, 0.12); color: #CCFF00; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                    </div>
+                    <div>
+                        <span class="role-badge badge-owner">Juragan / Owner</span>
+                    </div>
                     <h3 class="role-title">Business Dashboard</h3>
                     <p class="role-desc">Pusat kendali eksekutif: Telemetri omzet harian, Opportunity Radar, simulasi "What If I Sell This?" (LARIS Predict), dan asisten Copilot Juragan AI.</p>
                 </div>
@@ -311,8 +355,12 @@
             <!-- 2. CASHIER -->
             <div class="role-card">
                 <div>
-                    <div class="role-icon">🛒</div>
-                    <span class="role-badge badge-cashier">Kasir / Frontliner</span>
+                    <div class="role-icon" style="background: rgba(56, 189, 248, 0.12); color: #38BDF8; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </div>
+                    <div>
+                        <span class="role-badge badge-cashier">Kasir / Frontliner</span>
+                    </div>
                     <h3 class="role-title">Smart POS Cashier</h3>
                     <p class="role-desc">Antarmuka kasir cepat tanpa loading rumit. Pindai produk, transaksi QRIS/Tunai langsung motong stok atomik secara real-time dan rekap shift kasir.</p>
                 </div>
@@ -322,10 +370,14 @@
             <!-- 3. INVENTORY -->
             <div class="role-card">
                 <div>
-                    <div class="role-icon">📦</div>
-                    <span class="role-badge badge-inventory">Staf Gudang & Logistik</span>
+                    <div class="role-icon" style="background: rgba(251, 146, 60, 0.12); color: #FB923C; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                    </div>
+                    <div>
+                        <span class="role-badge badge-inventory">Staf Gudang & Logistik</span>
+                    </div>
                     <h3 class="role-title">Smart Inventory Control</h3>
-                    <p class="role-desc">Pemantauan stok fisik, peringatan barang kritis (< 4 hari stok), auto-bundle draf Purchase Order ke supplier dan tracking barang masuk.</p>
+                    <p class="role-desc">Pemantauan stok fisik, peringatan barang kritis (&lt; 4 hari stok), auto-bundle draf Purchase Order ke supplier dan tracking barang masuk.</p>
                 </div>
                 <a href="{{ route('login') }}" class="role-btn">Masuk sebagai Staf Gudang &rarr;</a>
             </div>

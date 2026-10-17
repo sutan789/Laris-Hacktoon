@@ -62,7 +62,8 @@
         <!-- KATALOG PRODUK CEPAT -->
         <div class="card-panel">
             <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                <span>🛒</span> Katalog Produk Siap Jual
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+                <span>Katalog Produk Siap Jual</span>
             </h3>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
@@ -85,8 +86,9 @@
         <!-- STRUK CHECKOUT KASIR -->
         <div class="card-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-                <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
-                    🧾 Struk Transaksi Baru
+                <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                    <span>Struk Transaksi Baru</span>
                 </h3>
 
                 <div id="cartItems" style="display: flex; flex-direction: column; gap: 10px; max-height: 280px; overflow-y: auto; margin-bottom: 16px;">
@@ -98,7 +100,7 @@
                 <!-- VOICE ORDER SIMULATOR -->
                 <div style="margin-bottom: 12px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;">
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 16px;">🎙️</span>
+                        <svg width="16" height="16" fill="none" stroke="#64748B" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v7.5a3 3 0 0 1-3 3Z"/></svg>
                         <div>
                             <span style="font-size: 11px; font-weight: 700; color: #0F172A; display: block;">Voice-to-Receipt (Multi-Dialek)</span>
                             <span style="font-size: 10px; color: #64748B;">Input suara instan tanpa ketik</span>
@@ -139,7 +141,8 @@
                         Plafon Utang Maksimal: <strong>Rp 350.000</strong> • Utang Berjalan: <strong>Rp 45.000</strong>
                     </div>
                     <button type="button" onclick="previewWhatsappReminder()" style="margin-top: 8px; width: 100%; background: #16A34A; color: #FFFFFF; border: none; padding: 6px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
-                        <span>💬</span> Draf Pengingat WA 1-Klik
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a.75.75 0 0 1-.974-.944 6.345 6.345 0 0 0 .806-2.91C3.844 15.68 3 13.93 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/></svg>
+                        <span>Draf Pengingat WA 1-Klik</span>
                     </button>
                 </div>
 
@@ -225,7 +228,7 @@
                 const method = document.getElementById('payMethod').value;
                 if (method === 'Kasbon') {
                     const cust = document.getElementById('kasbonCustomer').value;
-                    alert('✅ Transaksi Kasbon Berhasil Dicatat!\n\nStruk: ' + data.data.order_number + '\nPelanggan: ' + cust + '\nTotal Utang Baru: Rp ' + data.data.total_amount.toLocaleString('id-ID') + '\n\nAI telah memperbarui limit kredit pelanggan.');
+                    alert('Transaksi Kasbon Berhasil Dicatat!\n\nStruk: ' + data.data.order_number + '\nPelanggan: ' + cust + '\nTotal Utang Baru: Rp ' + data.data.total_amount.toLocaleString('id-ID') + '\n\nAI telah memperbarui limit kredit pelanggan.');
                 } else {
                     alert('Transaksi Kasir Berhasil! Struk ' + data.data.order_number + ' senilai Rp ' + data.data.total_amount.toLocaleString('id-ID') + ' tercatat.');
                 }
@@ -243,7 +246,7 @@
         const btn = document.getElementById('btnSubmitCheckout');
         if (method === 'Kasbon') {
             panel.style.display = 'block';
-            btn.innerHTML = '📝 CATAT KASBON (AI RISK APPROVED) &rarr;';
+            btn.innerHTML = 'CATAT KASBON (AI RISK APPROVED) &rarr;';
             btn.style.background = '#F59E0B';
             btn.style.color = '#FFFFFF';
             updateKasbonCustomer();
@@ -282,12 +285,12 @@
         const opt = sel.options[sel.selectedIndex];
         const name = opt.value;
         const debt = parseInt(opt.getAttribute('data-debt') || 0);
-        const msg = `Halo ${name}, salam hangat dari Toko Berkah Utama 🙏. Sekadar info santai bahwa catatan kasbon berjalan sebesar Rp ${debt.toLocaleString('id-ID')} siap diterima saat mampir kembali ya. Terima kasih banyak juragan!`;
+        const msg = `Halo ${name}, salam hangat dari Toko Berkah Utama. Sekadar info santai bahwa catatan kasbon berjalan sebesar Rp ${debt.toLocaleString('id-ID')} siap diterima saat mampir kembali ya. Terima kasih banyak juragan!`;
         alert(`[Draf WhatsApp Otomatis AI]\n\nKepada: ${opt.getAttribute('data-phone')}\n\nPesan:\n"${msg}"`);
     }
 
     function simulateVoiceOrder() {
-        alert('🎙️ AI Voice Listener mendengarkan: "Kopi Arabika satu, Pensil Labubu dua ya mas..."');
+        alert('AI Voice Listener mendengarkan: "Kopi Arabika satu, Pensil Labubu dua ya mas..."');
         const prodButtons = document.querySelectorAll('.card-panel button');
         if (prodButtons.length > 0) prodButtons[0].click();
         if (prodButtons.length > 1) {

@@ -46,7 +46,10 @@
             </div>
 
             <div class="hero-stage-badge-box">
-                <span class="badge-stage-lime">⚡ EARLY STAGE</span>
+                <span class="badge-stage-lime">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span>EARLY STAGE</span>
+                </span>
                 <span class="stage-sub">Optimal Seller Entry Point</span>
             </div>
         </div>
@@ -129,7 +132,9 @@
         <!-- STRATEGIC RECOMMENDATION STRIP -->
         <div class="strategic-rec-banner">
             <div class="rec-left">
-                <div class="rec-ai-box">🤖</div>
+                <div class="rec-ai-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                </div>
                 <div>
                     <div class="flex-align gap-8">
                         <span class="rec-tag">LARIS STRATEGIC RECOMMENDATION</span>
@@ -751,7 +756,7 @@
         if (growthEl) {
             growthEl.textContent = days === 7 ? '+284%' : (days === 30 ? '+612%' : '+1.450%');
         }
-        showTrendToast(`📅 Menampilkan data tren ${days} hari terakhir.`);
+        showTrendToast(`Menampilkan data tren ${days} hari terakhir.`);
     }
 
     function filterTrendCategory(category) {
@@ -766,16 +771,16 @@
                 c.style.display = 'none';
             }
         });
-        showTrendToast(`🔍 Filter diterapkan: ${category} (${visibleCount} produk terpantau)`);
+        showTrendToast(`Filter diterapkan: ${category} (${visibleCount} produk terpantau)`);
     }
 
     function rescanMarketplaceRadar() {
         const btn = document.getElementById('btn-rescan-radar');
-        if (btn) btn.innerHTML = '<span>⏳ Memindai...</span>';
+        if (btn) btn.innerHTML = '<span>Memindai...</span>';
 
         setTimeout(() => {
             if (btn) btn.innerHTML = `<svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg><span>Pindai Ulang</span>`;
-            showTrendToast('📡 Radar AI berhasil memindai ulang 24.800 kata kunci marketplace lokal!');
+            showTrendToast('Radar AI berhasil memindai ulang 24.800 kata kunci marketplace lokal!');
         }, 800);
     }
 

@@ -46,7 +46,10 @@
                 </div>
                 <p class="em-desc"><span class="text-red">Prediksi Habis dalam 4 Hari</span> (Laju penjualan rata-rata 6 unit/hari berdasarkan tren akhir pekan).</p>
                 <div class="em-supp-info">
-                    <span>📦 Rekomendasi Restock: <strong>50 unit</strong> dari Supplier PT Kopi Nusantara (Lead time 2 hari kerja)</span>
+                    <span style="display:inline-flex; align-items:center; gap:6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                        <span>Rekomendasi Restock: <strong>50 unit</strong> dari Supplier PT Kopi Nusantara (Lead time 2 hari kerja)</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -75,7 +78,9 @@
             <div class="card-panel health-card border-green-top">
                 <div class="hc-top">
                     <span class="hc-pill pill-green">● Healthy</span>
-                    <span class="check-icon-circle">✔</span>
+                    <span class="check-icon-circle">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
                 </div>
                 <div class="hc-val">85%</div>
                 <div class="hc-foot">
@@ -215,7 +220,10 @@
         </div>
 
         <div class="table-foot-row">
-            <span class="foot-ai-hint">⚡ AI merekomendasikan reorder batch malam ini untuk menghemat ongkir supplier s.d. 18%</span>
+            <span class="foot-ai-hint" style="display:inline-flex; align-items:center; gap:6px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <span>AI merekomendasikan reorder batch malam ini untuk menghemat ongkir supplier s.d. 18%</span>
+            </span>
             <div class="pagination-row">
                 <span class="page-meta">Menampilkan {{ $products->count() }} dari {{ $totalSku }} SKU</span>
                 <div class="page-btns">
@@ -231,13 +239,15 @@
     <!-- JURAGAN AI RESTOCK OPTIMIZER AUTO-BUNDLE -->
     <div class="auto-bundle-card">
         <div class="ab-left">
-            <div class="ab-icon-box">💡</div>
+            <div class="ab-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+            </div>
             <div>
                 <div class="flex-align gap-8">
                     <h4 class="ab-title">Juragan AI Restock Optimizer</h4>
                     <span class="ab-tag-lime">AUTO-BUNDLE</span>
                 </div>
-                <p class="ab-desc">Ada 2 item Critical (Kopi Arabica & Susu UHT) yang berasal dari distributor regional sama di Bandung. Menggabungkan pesanan ini ke satu PO akan mencegah potensi <strong>lost-sales sebesar Rp 2.850.000</strong> akhir pekan ini.</p>
+                <p class="ab-desc">Ada 2 item Critical (Kopi Arabica &amp; Susu UHT) yang berasal dari distributor regional sama di Bandung. Menggabungkan pesanan ini ke satu PO akan mencegah potensi <strong>lost-sales sebesar Rp 2.850.000</strong> akhir pekan ini.</p>
             </div>
         </div>
         <form action="{{ route('inventory.auto_bundle') }}" method="POST">
@@ -255,7 +265,10 @@
             <div>
                 <div class="kulakan-badge-row">
                     <span class="badge-kulakan">B2B COLLECTIVE RESTOCK POOL</span>
-                    <span class="badge-district">📍 KECAMATAN BANDUNG WETAN</span>
+                    <span class="badge-district">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:3px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>KECAMATAN BANDUNG WETAN</span>
+                    </span>
                 </div>
                 <h3 class="kulakan-title">Kulakan Bareng Antar-Warung Tetangga</h3>
                 <p class="kulakan-desc">
@@ -275,7 +288,10 @@
             <div class="pool-card">
                 <div class="pool-top">
                     <span class="pool-supplier-tag">Wilmar Distributor Resmi</span>
-                    <span class="pool-timer-tag">⏱ Sisa 4j 20m</span>
+                    <span class="pool-timer-tag">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Sisa 4j 20m</span>
+                    </span>
                 </div>
                 <h4 class="pool-item-name">Minyak Goreng Sawit 2L (Pouch)</h4>
                 <div class="pool-price-box">
@@ -296,7 +312,8 @@
                         <div class="pool-progress-fill bg-green" style="width: 78%;"></div>
                     </div>
                     <div class="pool-participants">
-                        👥 <strong>14 Warung</strong> tetangga telah bergabung
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:3px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span><strong>14 Warung</strong> tetangga telah bergabung</span>
                     </div>
                 </div>
 
@@ -310,7 +327,10 @@
             <div class="pool-card">
                 <div class="pool-top">
                     <span class="pool-supplier-tag">Koperasi Beras Cianjur</span>
-                    <span class="pool-timer-tag">⏱ Sisa 7j 15m</span>
+                    <span class="pool-timer-tag">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Sisa 7j 15m</span>
+                    </span>
                 </div>
                 <h4 class="pool-item-name">Beras Premium Setra Ramos 5kg</h4>
                 <div class="pool-price-box">
@@ -331,7 +351,8 @@
                         <div class="pool-progress-fill bg-green" style="width: 74%;"></div>
                     </div>
                     <div class="pool-participants">
-                        👥 <strong>19 Warung</strong> tetangga telah bergabung
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:3px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span><strong>19 Warung</strong> tetangga telah bergabung</span>
                     </div>
                 </div>
 
@@ -345,7 +366,10 @@
             <div class="pool-card pool-card-hot">
                 <div class="pool-top">
                     <span class="pool-supplier-tag">Indofood Direct Regional</span>
-                    <span class="pool-timer-tag hot-tag">🔥 Sisa 1j 10m (Hampir Penuh!)</span>
+                    <span class="pool-timer-tag hot-tag">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:3px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                        <span>Sisa 1j 10m (Hampir Penuh!)</span>
+                    </span>
                 </div>
                 <h4 class="pool-item-name">Indomie Goreng Spesial 40x85g (Dus)</h4>
                 <div class="pool-price-box">
@@ -366,7 +390,8 @@
                         <div class="pool-progress-fill bg-lime" style="width: 95%;"></div>
                     </div>
                     <div class="pool-participants">
-                        👥 <strong>27 Warung</strong> tetangga telah bergabung
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:3px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span><strong>27 Warung</strong> tetangga telah bergabung</span>
                     </div>
                 </div>
 
@@ -1280,8 +1305,9 @@
                     <span>H-3</span><span>H-2</span><span>H-1</span><span>Hari Ini</span><span>Besok</span><span>Sabtu*</span><span>Minggu*</span>
                 </div>
             </div>
-            <p style="font-size: 12px; color: #64748B; line-height: 1.4;">
-                💡 <strong>Catatan AI:</strong> Permintaan akhir pekan meningkat tajam. Stok saat ini aman dan belum membutuhkan pemesanan ulang darurat.
+            <p style="font-size: 12px; color: #64748B; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span><strong>Catatan AI:</strong> Permintaan akhir pekan meningkat tajam. Stok saat ini aman dan belum membutuhkan pemesanan ulang darurat.</span>
             </p>
         </div>
         <div class="laris-modal-footer">
@@ -1345,8 +1371,9 @@
                         <span style="color: #94A3B8;">Estimasi Penghematan Margin:</span>
                         <strong id="join-calc-savings" style="font-size: 14px; color: #CCFF00;">+ Rp 55.000</strong>
                     </div>
-                    <div style="font-size: 10px; color: #64748B; margin-top: 8px; line-height: 1.4;">
-                        ⚡ <em>Pesanan otomatis digabungkan dengan pesanan 14 warung tetangga. Pengiriman dijadwalkan langsung ke toko Anda tanpa tambahan ongkir.</em>
+                    <div style="font-size: 11px; color: #94A3B8; margin-top: 8px; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <em>Pesanan otomatis digabungkan dengan pesanan 14 warung tetangga. Pengiriman dijadwalkan langsung ke toko Anda tanpa tambahan ongkir.</em>
                     </div>
                 </div>
             </div>
@@ -1397,8 +1424,9 @@
                     <label>Rekomendasi Distributor / Pabrik (Opsional)</label>
                     <input type="text" id="prop-distributor" placeholder="Misal: PT Perkebunan Nusantara / Distributor Gula Rajawali">
                 </div>
-                <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.4;">
-                    💡 Usulan pool akan disiarkan oleh AI LARIS ke 35 warung terdekat di Kecamatan Bandung Wetan. Jika kuota minimum tercapai dalam 24 jam, order langsung dieksekusi.
+                <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <span>Usulan pool akan disiarkan oleh AI LARIS ke 35 warung terdekat di Kecamatan Bandung Wetan. Jika kuota minimum tercapai dalam 24 jam, order langsung dieksekusi.</span>
                 </p>
             </div>
             <div class="laris-modal-footer">
@@ -1557,7 +1585,7 @@
         const myQty = document.getElementById('prop-my-qty').value;
 
         closeProposePoolModal();
-        alert('🎉 Usulan Pool Kulakan untuk "' + itemName + '" (Target: ' + targetQty + ' ' + unit + ', Komitmen Anda: ' + myQty + ') berhasil disiarkan ke 35 warung tetangga di Kecamatan Bandung Wetan!');
+        alert('Usulan Pool Kulakan untuk "' + itemName + '" (Target: ' + targetQty + ' ' + unit + ', Komitmen Anda: ' + myQty + ') berhasil disiarkan ke 35 warung tetangga di Kecamatan Bandung Wetan!');
     }
 </script>
 @endpush
