@@ -1,0 +1,25 @@
+# Dependencies
+/laris_app/vendor/
+/laris_app/node_modules/
+/laris_app/public/build/
+/laris_app/public/hot/
+/laris_app/public/storage/
+
+# Caches & Logs
+/laris_app/storage/logs/*.log
+/laris_app/storage/framework/cache/data/*
+/laris_app/storage/framework/sessions/*
+/laris_app/storage/framework/views/*
+!/laris_app/storage/framework/views/.gitkeep
+!/laris_app/storage/framework/cache/.gitkeep
+!/laris_app/storage/framework/sessions/.gitkeep
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Ensure database is tracked as requested
+!/laris_app/database/database.sqlite
+!/laris_app/database/database_dump.sql
+!/laris_database_dump.sql
