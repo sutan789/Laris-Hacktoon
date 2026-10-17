@@ -52,7 +52,7 @@ class AuthController extends Controller
             'store_name' => 'required|string|max:120',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|string|in:owner,staff_cashier,staff_inventory',
+            'role' => 'required|string|in:owner,staff_cashier,staff_inventory,customer',
         ]);
 
         $store = Store::firstOrCreate(
@@ -111,6 +111,7 @@ class AuthController extends Controller
         return match ($user->role) {
             'staff_cashier' => redirect()->route('cashier.dashboard'),
             'staff_inventory' => redirect()->route('inventory_staff.dashboard'),
+            'customer' => redirect()->route('customer.dashboard'),
             default => redirect()->route('dashboard'),
         };
     }

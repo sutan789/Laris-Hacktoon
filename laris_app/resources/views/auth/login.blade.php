@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0B1215;
-            --accent-lime: #CCFF00;
-            --accent-lime-hover: #B4F000;
+            --bg-dark: #080E14;
+            --accent-brand: #10B981;
+            --accent-brand-hover: #059669;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #080D0F radial-gradient(circle at 50% 0%, rgba(204, 255, 0, 0.12) 0%, transparent 60%);
+            background: #080E14 radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -28,11 +28,11 @@
         .auth-card {
             width: 100%;
             max-width: 440px;
-            background: #0E161A;
-            border: 1px solid #1E2D33;
+            background: #0F1A24;
+            border: 1px solid #1E3347;
             border-radius: 20px;
             padding: 36px 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
         .auth-logo {
             display: flex;
@@ -41,7 +41,7 @@
         }
         .auth-logo img {
             height: 42px;
-            filter: drop-shadow(0 0 12px rgba(204, 255, 0, 0.5));
+            filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.45));
         }
         .auth-title {
             font-size: 22px;
@@ -67,8 +67,8 @@
         }
         .form-input {
             width: 100%;
-            background: #141E24;
-            border: 1px solid #24353E;
+            background: #142332;
+            border: 1px solid #1E3347;
             color: #FFFFFF;
             padding: 12px 16px;
             border-radius: 10px;
@@ -77,13 +77,13 @@
             transition: all 0.2s;
         }
         .form-input:focus {
-            border-color: var(--accent-lime);
-            box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.2);
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
         .btn-submit {
             width: 100%;
-            background: var(--accent-lime);
-            color: #000000;
+            background: #10B981;
+            color: #FFFFFF;
             border: none;
             padding: 13px;
             border-radius: 10px;
@@ -92,9 +92,10 @@
             cursor: pointer;
             transition: all 0.2s;
             margin-top: 10px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
         }
         .btn-submit:hover {
-            background: var(--accent-lime-hover);
+            background: #059669;
             transform: translateY(-1px);
         }
         .quick-accounts {
@@ -219,6 +220,10 @@
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
                     <span>Staf Gudang</span>
                 </button>
+                <button type="button" class="qa-btn" id="qa-customer" onclick="fillAccount('konsumen@laris.id', 'customer', this)">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Konsumen Warga</span>
+                </button>
             </div>
             <div id="qa-hint" style="font-size: 11px; color: #94A3B8; text-align: center; margin-top: 10px;">
                 Login sebagai <strong>Owner Toko</strong> &rarr; Masuk ke Business Dashboard &amp; Prediksi AI
@@ -234,7 +239,8 @@
         const hints = {
             'owner': 'Login sebagai <strong>Owner Toko (Juragan)</strong> &rarr; Masuk ke Business Dashboard &amp; Prediksi AI',
             'cashier': 'Login sebagai <strong>Kasir Toko (Smart POS)</strong> &rarr; Masuk langsung ke Antarmuka POS &amp; Kasbon',
-            'inventory': 'Login sebagai <strong>Staf Logistik/Gudang</strong> &rarr; Masuk langsung ke Monitoring Stok &amp; PO Supplier'
+            'inventory': 'Login sebagai <strong>Staf Logistik/Gudang</strong> &rarr; Masuk langsung ke Monitoring Stok &amp; PO Supplier',
+            'customer': 'Login sebagai <strong>Konsumen / Warga</strong> &rarr; Masuk ke Portal Belanja, Cuci Rak &amp; Titip Kulakan'
         };
 
         function fillAccount(email, role, btnEl) {
@@ -248,9 +254,9 @@
             });
 
             if (btnEl) {
-                btnEl.style.borderColor = '#CCFF00';
-                btnEl.style.color = '#000000';
-                btnEl.style.background = '#CCFF00';
+                btnEl.style.borderColor = '#10B981';
+                btnEl.style.color = '#FFFFFF';
+                btnEl.style.background = '#10B981';
             }
 
             const hintEl = document.getElementById('qa-hint');

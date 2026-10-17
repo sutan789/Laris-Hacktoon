@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0B1215;
-            --accent-lime: #CCFF00;
-            --accent-lime-hover: #B4F000;
+            --bg-dark: #080E14;
+            --accent-brand: #10B981;
+            --accent-brand-hover: #059669;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #080D0F radial-gradient(circle at 50% 0%, rgba(204, 255, 0, 0.12) 0%, transparent 60%);
+            background: #080E14 radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -28,11 +28,11 @@
         .auth-card {
             width: 100%;
             max-width: 480px;
-            background: #0E161A;
-            border: 1px solid #1E2D33;
+            background: #0F1A24;
+            border: 1px solid #1E3347;
             border-radius: 20px;
             padding: 36px 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
         .auth-logo {
             display: flex;
@@ -41,7 +41,7 @@
         }
         .auth-logo img {
             height: 40px;
-            filter: drop-shadow(0 0 12px rgba(204, 255, 0, 0.5));
+            filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.45));
         }
         .auth-title {
             font-size: 22px;
@@ -67,8 +67,8 @@
         }
         .form-input, .form-select {
             width: 100%;
-            background: #141E24;
-            border: 1px solid #24353E;
+            background: #142332;
+            border: 1px solid #1E3347;
             color: #FFFFFF;
             padding: 11px 14px;
             border-radius: 10px;
@@ -77,13 +77,13 @@
             transition: all 0.2s;
         }
         .form-input:focus, .form-select:focus {
-            border-color: var(--accent-lime);
-            box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.2);
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
         .btn-submit {
             width: 100%;
-            background: var(--accent-lime);
-            color: #000000;
+            background: #10B981;
+            color: #FFFFFF;
             border: none;
             padding: 13px;
             border-radius: 10px;
@@ -92,9 +92,10 @@
             cursor: pointer;
             transition: all 0.2s;
             margin-top: 10px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
         }
         .btn-submit:hover {
-            background: var(--accent-lime-hover);
+            background: #059669;
             transform: translateY(-1px);
         }
         .auth-footer {
@@ -161,6 +162,7 @@
                     <option value="owner" selected>Pemilik Toko (Juragan / Akses Eksekutif & AI)</option>
                     <option value="staff_cashier">Kasir Toko (Frontliner / Smart POS)</option>
                     <option value="staff_inventory">Staf Gudang (Logistik & Manajemen Stok)</option>
+                    <option value="customer">Pelanggan / Konsumen (Warga Sekitar Toko)</option>
                 </select>
             </div>
 

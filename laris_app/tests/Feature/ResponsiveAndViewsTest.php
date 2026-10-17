@@ -43,6 +43,18 @@ class ResponsiveAndViewsTest extends TestCase
         );
     }
 
+    protected function getCustomerUser(): User
+    {
+        return User::firstOrCreate(
+            ['email' => 'konsumen@laris.id'],
+            [
+                'name' => 'Siti Pelanggan (Warga)',
+                'password' => bcrypt('password123'),
+                'role' => 'customer',
+            ]
+        );
+    }
+
     public function test_unauthenticated_user_is_redirected_to_login_for_protected_pages(): void
     {
         $protectedUrls = [
@@ -55,6 +67,7 @@ class ResponsiveAndViewsTest extends TestCase
             '/settings',
             '/cashier/dashboard',
             '/inventory/dashboard',
+            '/customer/dashboard',
         ];
 
         foreach ($protectedUrls as $url) {
@@ -142,6 +155,21 @@ class ResponsiveAndViewsTest extends TestCase
         $this->assertTrue(strlen($responseWh->getContent()) > 500);
     }
 
+    public function test_customer_redirection_and_access(): void
+    {
+        $customer = $this->getCustomerUser();
+
+        // When customer visits home '/', they should be smartly redirected to customer dashboard
+        $responseHome = $this->actingAs($customer)->get('/');
+        $responseHome->assertStatus(302);
+        $responseHome->assertRedirect(route('customer.dashboard'));
+
+        // Direct access to customer dashboard should succeed
+        $responseCust = $this->actingAs($customer)->get('/customer/dashboard');
+        $responseCust->assertStatus(200);
+        $this->assertTrue(strlen($responseCust->getContent()) > 500);
+    }
+
     public function test_login_post_and_role_redirects(): void
     {
         // 1. Owner Login -> redirects to /dashboard
@@ -170,6 +198,37 @@ class ResponsiveAndViewsTest extends TestCase
         $respGudang->assertStatus(302);
         $respGudang->assertRedirect(route('inventory_staff.dashboard'));
         $this->assertAuthenticated();
+
+        // 4. Customer Login -> redirects to /customer/dashboard
+        $respCustomer = $this->post('/login', [
+            'email' => 'konsumen@laris.id',
+            'password' => 'password123',
+        ]);
+        $respCustomer->assertStatus(302);
+        $respCustomer->assertRedirect(route('customer.dashboard'));
+        $this->assertAuthenticated();
+    }
+
+    public function test_strict_role_sidebar_isolation(): void
+    {
+        $owner = $this->getOwnerUser();
+        $cashier = $this->getCashierUser();
+        $customer = $this->getCustomerUser();
+
+        // Owner should see executive menu and not cashier/customer headings
+        $ownerHtml = $this->actingAs($owner)->get('/dashboard')->getContent();
+        $this->assertStringContainsString('Menu Eksekutif', $ownerHtml);
+        $this->assertStringNotContainsString('Portal Konsumen Warga', $ownerHtml);
+
+        // Cashier should see cashier operations and not owner executive menu
+        $cashierHtml = $this->actingAs($cashier)->get('/cashier/dashboard')->getContent();
+        $this->assertStringContainsString('Operasional Kasir', $cashierHtml);
+        $this->assertStringNotContainsString('Menu Eksekutif', $cashierHtml);
+
+        // Customer should see customer portal and not owner executive menu
+        $customerHtml = $this->actingAs($customer)->get('/customer/dashboard')->getContent();
+        $this->assertStringContainsString('Portal Konsumen Warga', $customerHtml);
+        $this->assertStringNotContainsString('Menu Eksekutif', $customerHtml);
     }
 
     public function test_logout_flow_and_relogin_protection(): void

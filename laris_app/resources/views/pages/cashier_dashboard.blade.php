@@ -40,19 +40,19 @@
 <div style="display: flex; flex-direction: column; gap: 24px;">
 
     <!-- TOP BAR KASIR -->
-    <div class="pos-top-bar">
+    <div class="pos-top-bar" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border: 1px solid #334155; border-radius: 16px; padding: 22px 26px;">
         <div>
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(204, 255, 0, 0.15); color: #CCFF00; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 6px;">
-                <span style="width: 7px; height: 7px; background: #CCFF00; border-radius: 50%;"></span>
-                SMART POS KASIR ONLINE
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.2); color: #34D399; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <span style="width: 7px; height: 7px; background: #34D399; border-radius: 50%;"></span>
+                <span>SMART POS KASIR • OFFLINE SYNC READY</span>
             </div>
-            <h1 style="font-size: 22px; font-weight: 800;">Mesin Kasir Cepat (Point of Sale)</h1>
-            <p style="color: #94A3B8; font-size: 13px;">Shift Aktif: <strong>Rian Kasir</strong> • Kasir Standby Siap Transaksi</p>
+            <h1 style="font-size: 22px; font-weight: 800; color: #FFFFFF;">Terminal Kasir Pintar (Smart POS)</h1>
+            <p style="color: #CBD5E1; font-size: 13px;">Shift Aktif: <strong>Rian Kasir</strong> • Kasir Siap Melayani Transaksi Cepat</p>
         </div>
         <div style="text-align: right;">
             <span style="font-size: 11px; color: #94A3B8; text-transform: uppercase; font-weight: 700;">Omzet Kasir Hari Ini</span>
-            <h2 style="font-size: 26px; font-weight: 800; color: #CCFF00;">Rp {{ number_format($todayTotal, 0, ',', '.') }}</h2>
-            <span style="font-size: 12px; color: #94A3B8;">{{ $todayCount }} Struk Transaksi Selesai</span>
+            <h2 style="font-size: 26px; font-weight: 800; color: #34D399;">Rp {{ number_format($todayTotal, 0, ',', '.') }}</h2>
+            <span style="font-size: 12px; color: #CBD5E1;">{{ $todayCount }} Struk Transaksi Selesai</span>
         </div>
     </div>
 
@@ -68,14 +68,14 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
                 @foreach($products as $prod)
-                    <div style="border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; background: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s;" onmouseover="this.style.borderColor='#CCFF00'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#E2E8F0'; this.style.transform='none'">
+                    <div style="border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; background: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s;" onmouseover="this.style.borderColor='#10B981'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#E2E8F0'; this.style.transform='none'">
                         <div>
                             <span style="font-size: 11px; color: #64748B; font-weight: 600;">SKU: {{ $prod->sku }}</span>
                             <h4 style="font-size: 13px; font-weight: 700; margin: 4px 0 8px 0; color: #0F172A;">{{ $prod->name }}</h4>
-                            <div style="font-size: 15px; font-weight: 800; color: #16A34A;">Rp {{ number_format($prod->selling_price, 0, ',', '.') }}</div>
+                            <div style="font-size: 15px; font-weight: 800; color: #10B981;">Rp {{ number_format($prod->selling_price, 0, ',', '.') }}</div>
                             <span style="font-size: 11px; color: #64748B;">Sisa Stok: <strong>{{ $prod->current_stock }} unit</strong></span>
                         </div>
-                        <button onclick="quickAdd({{ $prod->id }}, '{{ addslashes($prod->name) }}', {{ $prod->selling_price }})" style="margin-top: 12px; width: 100%; background: #0B1215; color: #CCFF00; border: none; padding: 8px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;">
+                        <button onclick="quickAdd({{ $prod->id }}, '{{ addslashes($prod->name) }}', {{ $prod->selling_price }})" style="margin-top: 12px; width: 100%; background: #0F172A; color: #34D399; border: 1px solid #1E293B; padding: 8px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer;">
                             + Tambah ke Struk
                         </button>
                     </div>

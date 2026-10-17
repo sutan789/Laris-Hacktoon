@@ -35,17 +35,18 @@
 <div style="display: flex; flex-direction: column; gap: 24px;">
 
     <!-- TOP BAR GUDANG -->
-    <div class="wh-top-bar">
+    <div class="wh-top-bar" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border: 1px solid #334155; border-radius: 16px; padding: 22px 26px;">
         <div>
-            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.2); color: #60A5FA; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 6px;">
-                <span style="width: 7px; height: 7px; background: #60A5FA; border-radius: 50%;"></span>
-                LOGISTICS & STOCK CONTROL
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(2, 132, 199, 0.2); color: #38BDF8; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 8px; border: 1px solid rgba(2, 132, 199, 0.3);">
+                <span style="width: 7px; height: 7px; background: #38BDF8; border-radius: 50%;"></span>
+                <span>LOGISTICS &amp; STOCK CONTROL • OFFLINE-READY</span>
             </div>
-            <h1 style="font-size: 22px; font-weight: 800;">Pusat Manajemen Gudang & Stok</h1>
-            <p style="color: #94A3B8; font-size: 13px;">Petugas Gudang: <strong>Doni Staf Gudang</strong> • Pantau Stok Kritis & Kiriman Masuk</p>
+            <h1 style="font-size: 22px; font-weight: 800; color: #FFFFFF;">Pusat Manajemen Gudang &amp; Stok</h1>
+            <p style="color: #CBD5E1; font-size: 13px;">Petugas Gudang: <strong>Doni Staf Gudang</strong> • Pantau Stok Kritis &amp; Kiriman Masuk</p>
         </div>
         <div style="display: flex; gap: 12px;">
-            <a href="{{ route('inventory.index') }}" class="btn-lime">
+            <a href="{{ route('inventory.index') }}" class="btn-soft-primary" style="background: #0284C7; color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 10px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
                 <span>Buka Smart Inventory &rarr;</span>
             </a>
         </div>

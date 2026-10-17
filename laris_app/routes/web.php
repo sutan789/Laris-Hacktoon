@@ -20,6 +20,7 @@ Route::get('/', function () {
         return match ($user->role) {
             'staff_cashier' => redirect()->route('cashier.dashboard'),
             'staff_inventory' => redirect()->route('inventory_staff.dashboard'),
+            'customer' => redirect()->route('customer.dashboard'),
             default => redirect()->route('dashboard'),
         };
     }
@@ -50,50 +51,64 @@ Route::get('/api/pos/recent-orders', [\App\Http\Controllers\PosController::class
 Route::get('/api/telemetry/live', [DashboardController::class, 'telemetryApi'])->name('telemetry.live');
 Route::post('/api/telemetry/simulate-webhook', [DashboardController::class, 'simulateWebhook'])->name('telemetry.simulate_webhook');
 
-// Authenticated Routes (Requires Login)
+// Authenticated Routes (Strict Role-Separated Dashboards & Features)
 Route::middleware(['auth'])->group(function () {
-    // 1. Business Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/business-dashboard', [DashboardController::class, 'index']);
-    Route::get('/dashboard/download-summary', [DashboardController::class, 'downloadSummary'])->name('dashboard.download_summary');
-    Route::post('/operational-alerts/{id}/resolve', [DashboardController::class, 'resolveAlert'])->name('alerts.resolve');
 
-    // Dedicated Role Dashboards
-    Route::get('/cashier/dashboard', [RoleDashboardController::class, 'cashierDashboard'])->name('cashier.dashboard');
-    Route::get('/inventory/dashboard', [RoleDashboardController::class, 'inventoryDashboard'])->name('inventory_staff.dashboard');
+    // === ROLE: OWNER (JURAGAN) DASHBOARD & AI MANAGEMENT ===
+    Route::middleware(['role:owner'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/business-dashboard', [DashboardController::class, 'index']);
+        Route::get('/dashboard/download-summary', [DashboardController::class, 'downloadSummary'])->name('dashboard.download_summary');
+        Route::post('/operational-alerts/{id}/resolve', [DashboardController::class, 'resolveAlert'])->name('alerts.resolve');
 
-    // 2. LARIS Predict ("What If I Sell This?")
-    Route::get('/laris-predict', [PredictController::class, 'index'])->name('predict.index');
-    Route::post('/laris-predict/simulate', [PredictController::class, 'simulate'])->name('predict.simulate');
-    Route::post('/laris-predict/add-to-inventory', [PredictController::class, 'addToInventory'])->name('predict.add_to_inventory');
+        // LARIS Predict ("What If I Sell This?")
+        Route::get('/laris-predict', [PredictController::class, 'index'])->name('predict.index');
+        Route::post('/laris-predict/simulate', [PredictController::class, 'simulate'])->name('predict.simulate');
+        Route::post('/laris-predict/add-to-inventory', [PredictController::class, 'addToInventory'])->name('predict.add_to_inventory');
 
-    // 3. Trend Hunter
-    Route::get('/trend-hunter', [TrendController::class, 'index'])->name('trends.index');
+        // Trend Hunter
+        Route::get('/trend-hunter', [TrendController::class, 'index'])->name('trends.index');
 
-    // 4. Smart Inventory
-    Route::get('/smart-inventory', [InventoryController::class, 'index'])->name('inventory.index');
-    Route::post('/smart-inventory/reorder/{id}', [InventoryController::class, 'reorder'])->name('inventory.reorder');
-    Route::post('/smart-inventory/auto-bundle', [InventoryController::class, 'createAutoBundlePO'])->name('inventory.auto_bundle');
-    Route::post('/smart-inventory/kulakan-bareng/join', [InventoryController::class, 'joinCollectivePool'])->name('inventory.kulakan_join');
+        // Juragan AI Copilot
+        Route::get('/juragan-ai', [JuraganAiController::class, 'index'])->name('juragan.index');
+        Route::post('/juragan-ai/chat', [JuraganAiController::class, 'chat'])->name('juragan.chat');
 
-    // 5. Juragan AI Copilot
-    Route::get('/juragan-ai', [JuraganAiController::class, 'index'])->name('juragan.index');
-    Route::post('/juragan-ai/chat', [JuraganAiController::class, 'chat'])->name('juragan.chat');
+        // Business Report (Monthly Business Review)
+        Route::get('/business-report', [ReportController::class, 'index'])->name('report.index');
+        Route::get('/business-report/whatsapp-summary', [ReportController::class, 'exportWhatsapp'])->name('report.whatsapp');
 
-    // 6. Business Report (Monthly Business Review)
-    Route::get('/business-report', [ReportController::class, 'index'])->name('report.index');
-    Route::get('/business-report/whatsapp-summary', [ReportController::class, 'exportWhatsapp'])->name('report.whatsapp');
+        // Konfigurasi Sistem & Settings
+        Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+        Route::post('/settings/store', [SettingsController::class, 'updateStore'])->name('settings.update_store');
+        Route::post('/settings/ai', [SettingsController::class, 'updateAi'])->name('settings.update_ai');
+        Route::post('/settings/toggle-channel/{channel}', [SettingsController::class, 'toggleChannel'])->name('settings.toggle_channel');
+    });
 
-    // 8. Konfigurasi Sistem & Settings
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
-    Route::post('/settings/store', [SettingsController::class, 'updateStore'])->name('settings.update_store');
-    Route::post('/settings/ai', [SettingsController::class, 'updateAi'])->name('settings.update_ai');
-    Route::post('/settings/toggle-channel/{channel}', [SettingsController::class, 'toggleChannel'])->name('settings.toggle_channel');
+    // === ROLE: SMART INVENTORY (OWNER & INVENTORY STAFF) ===
+    Route::middleware(['role:owner,staff_inventory'])->group(function () {
+        Route::get('/smart-inventory', [InventoryController::class, 'index'])->name('inventory.index');
+        Route::post('/smart-inventory/reorder/{id}', [InventoryController::class, 'reorder'])->name('inventory.reorder');
+        Route::post('/smart-inventory/auto-bundle', [InventoryController::class, 'createAutoBundlePO'])->name('inventory.auto_bundle');
+        Route::post('/smart-inventory/kulakan-bareng/join', [InventoryController::class, 'joinCollectivePool'])->name('inventory.kulakan_join');
+    });
 
-    // 9. Pusat Bantuan & Help Center
+    // === ROLE: CASHIER DASHBOARD (OWNER & CASHIER) ===
+    Route::middleware(['role:owner,staff_cashier'])->group(function () {
+        Route::get('/cashier/dashboard', [RoleDashboardController::class, 'cashierDashboard'])->name('cashier.dashboard');
+    });
+
+    // === ROLE: INVENTORY STAFF DASHBOARD (OWNER & INVENTORY STAFF) ===
+    Route::middleware(['role:owner,staff_inventory'])->group(function () {
+        Route::get('/inventory/dashboard', [RoleDashboardController::class, 'inventoryDashboard'])->name('inventory_staff.dashboard');
+    });
+
+    // === ROLE: CUSTOMER DASHBOARD (OWNER & CUSTOMER) ===
+    Route::middleware(['role:owner,customer'])->group(function () {
+        Route::get('/customer/dashboard', [RoleDashboardController::class, 'customerDashboard'])->name('customer.dashboard');
+    });
+
+    // Common Authenticated Routes
     Route::get('/help', [HelpController::class, 'index'])->name('help.index');
-
-    // Logout
     Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
