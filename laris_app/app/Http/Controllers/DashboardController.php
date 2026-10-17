@@ -21,6 +21,18 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('info', 'Silakan masuk terlebih dahulu untuk mengakses sistem LARIS.');
+        }
+
+        $user = auth()->user();
+        if ($user->role === 'staff_cashier') {
+            return redirect()->route('cashier.dashboard');
+        }
+        if ($user->role === 'staff_inventory') {
+            return redirect()->route('inventory_staff.dashboard');
+        }
+
         $timeframe = $request->query('timeframe', 'today');
         $store = Store::first();
         $alerts = OperationalAlert::where('is_resolved', false)->get();

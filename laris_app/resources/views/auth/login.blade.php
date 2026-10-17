@@ -171,13 +171,21 @@
             </div>
         @endif
 
-        @if(session('success'))
-            <div style="background: rgba(34, 197, 94, 0.2); border: 1px solid #22C55E; color: #4ADE80; padding: 10px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 18px;">
-                {{ session('success') }}
+        @if(session('info'))
+            <div style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #7DD3FC; padding: 10px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>{{ session('info') }}</span>
             </div>
         @endif
 
-        <form action="{{ route('login.post') }}" method="POST">
+        @if(session('success'))
+            <div style="background: rgba(34, 197, 94, 0.2); border: 1px solid #22C55E; color: #4ADE80; padding: 10px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
+        <form action="{{ route('login.post') }}" method="POST" id="form-login">
             @csrf
             <div class="form-group">
                 <label class="form-label">Email Usaha</label>
@@ -192,16 +200,19 @@
                 <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" value="password123" required>
             </div>
 
-            <button type="submit" class="btn-submit">Masuk ke Dashboard &rarr;</button>
+            <button type="submit" class="btn-submit" id="btn-submit-login">Masuk ke Dashboard &rarr;</button>
         </form>
 
         <!-- PINTASAN AKUN DEMO -->
         <div class="quick-accounts">
             <div class="qa-title">Pilih Akun Demo Cepat</div>
             <div class="qa-chips">
-                <button type="button" class="qa-btn" onclick="fillAccount('juragan@laris.id', 'owner')">👑 Juragan (Owner)</button>
-                <button type="button" class="qa-btn" onclick="fillAccount('kasir@laris.id', 'cashier')">🛒 Kasir Toko</button>
-                <button type="button" class="qa-btn" onclick="fillAccount('gudang@laris.id', 'inventory')">📦 Staf Gudang</button>
+                <button type="button" class="qa-btn" id="qa-owner" onclick="fillAccount('juragan@laris.id', 'owner', this)">👑 Juragan (Owner)</button>
+                <button type="button" class="qa-btn" id="qa-cashier" onclick="fillAccount('kasir@laris.id', 'cashier', this)">🛒 Kasir Toko</button>
+                <button type="button" class="qa-btn" id="qa-inventory" onclick="fillAccount('gudang@laris.id', 'inventory', this)">📦 Staf Gudang</button>
+            </div>
+            <div id="qa-hint" style="font-size: 11px; color: #94A3B8; text-align: center; margin-top: 10px;">
+                Login sebagai <strong>Owner Toko</strong> &rarr; Masuk ke Business Dashboard &amp; Prediksi AI
             </div>
         </div>
 
@@ -211,10 +222,45 @@
     </div>
 
     <script>
-        function fillAccount(email, role) {
+        const hints = {
+            'owner': 'Login sebagai <strong>Owner Toko (Juragan)</strong> &rarr; Masuk ke Business Dashboard &amp; Prediksi AI',
+            'cashier': 'Login sebagai <strong>Kasir Toko (Smart POS)</strong> &rarr; Masuk langsung ke Antarmuka POS &amp; Kasbon',
+            'inventory': 'Login sebagai <strong>Staf Logistik/Gudang</strong> &rarr; Masuk langsung ke Monitoring Stok &amp; PO Supplier'
+        };
+
+        function fillAccount(email, role, btnEl) {
             document.getElementById('email').value = email;
             document.getElementById('password').value = 'password123';
+            
+            document.querySelectorAll('.qa-btn').forEach(b => {
+                b.style.borderColor = '#24353E';
+                b.style.color = '#94A3B8';
+                b.style.background = '#16242B';
+            });
+
+            if (btnEl) {
+                btnEl.style.borderColor = '#CCFF00';
+                btnEl.style.color = '#000000';
+                btnEl.style.background = '#CCFF00';
+            }
+
+            const hintEl = document.getElementById('qa-hint');
+            if (hintEl && hints[role]) {
+                hintEl.innerHTML = hints[role];
+            }
         }
+
+        // Initialize active state for default email
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentEmail = document.getElementById('email').value;
+            if (currentEmail === 'kasir@laris.id') {
+                fillAccount('kasir@laris.id', 'cashier', document.getElementById('qa-cashier'));
+            } else if (currentEmail === 'gudang@laris.id') {
+                fillAccount('gudang@laris.id', 'inventory', document.getElementById('qa-inventory'));
+            } else {
+                fillAccount('juragan@laris.id', 'owner', document.getElementById('qa-owner'));
+            }
+        });
     </script>
 </body>
 </html>

@@ -4,11 +4,21 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\Store;
+use App\Models\User;
 
 class SettingsTest extends TestCase
 {
     public function test_store_profile_can_be_updated_successfully(): void
     {
+        $owner = User::firstOrCreate(
+            ['email' => 'juragan@laris.id'],
+            [
+                'name' => 'Juragan Bambang',
+                'password' => bcrypt('password123'),
+                'role' => 'owner',
+            ]
+        );
+
         $payload = [
             'store_name' => 'Toko Berkah',
             'operating_hours' => '08:00 - 22:00 WIB',
@@ -16,7 +26,7 @@ class SettingsTest extends TestCase
             'address' => 'Jl. Braga No. 45, Bandung, Jawa Barat',
         ];
 
-        $response = $this->post('/settings/store', $payload);
+        $response = $this->actingAs($owner)->post('/settings/store', $payload);
 
         $response->assertSessionHas('success', 'Profil toko berhasil diperbarui!');
         $response->assertRedirect();
