@@ -43,10 +43,10 @@ class ResponsiveAndViewsTest extends TestCase
         );
     }
 
-    public function test_unauthenticated_user_is_redirected_to_login(): void
+    public function test_unauthenticated_user_is_redirected_to_login_for_protected_pages(): void
     {
         $protectedUrls = [
-            '/',
+            '/dashboard',
             '/smart-inventory',
             '/trend-hunter',
             '/laris-predict',
@@ -67,9 +67,10 @@ class ResponsiveAndViewsTest extends TestCase
     public function test_public_pages_render_without_auth(): void
     {
         $publicUrls = [
+            '/',            // Root URL renders landing / welcome page
+            '/welcome',     // Welcome route
             '/login',
             '/register',
-            '/welcome',
             '/pembeli',
             '/consumer',
         ];
@@ -85,9 +86,14 @@ class ResponsiveAndViewsTest extends TestCase
     {
         $owner = $this->getOwnerUser();
 
+        // When logged-in owner visits '/', they get redirected to their dashboard
+        $responseHome = $this->actingAs($owner)->get('/');
+        $responseHome->assertStatus(302);
+        $responseHome->assertRedirect(route('dashboard'));
+
         $ownerUrls = [
-            '/',
             '/dashboard',
+            '/business-dashboard',
             '/smart-inventory',
             '/trend-hunter',
             '/laris-predict',
@@ -138,7 +144,7 @@ class ResponsiveAndViewsTest extends TestCase
 
     public function test_login_post_and_role_redirects(): void
     {
-        // 1. Owner Login
+        // 1. Owner Login -> redirects to /dashboard
         $respOwner = $this->post('/login', [
             'email' => 'juragan@laris.id',
             'password' => 'password123',
@@ -147,7 +153,7 @@ class ResponsiveAndViewsTest extends TestCase
         $respOwner->assertRedirect(route('dashboard'));
         $this->assertAuthenticated();
 
-        // 2. Cashier Login
+        // 2. Cashier Login -> redirects to /cashier/dashboard
         $respCashier = $this->post('/login', [
             'email' => 'kasir@laris.id',
             'password' => 'password123',
@@ -156,7 +162,7 @@ class ResponsiveAndViewsTest extends TestCase
         $respCashier->assertRedirect(route('cashier.dashboard'));
         $this->assertAuthenticated();
 
-        // 3. Inventory Staff Login
+        // 3. Inventory Staff Login -> redirects to /inventory/dashboard
         $respGudang = $this->post('/login', [
             'email' => 'gudang@laris.id',
             'password' => 'password123',
@@ -183,8 +189,12 @@ class ResponsiveAndViewsTest extends TestCase
         // Confirm session is cleared
         $this->assertGuest();
 
-        // Confirm accessing '/' now redirects to login
-        $responseProtected = $this->get('/');
+        // Confirm accessing '/' now serves the landing page (200)
+        $responseLanding = $this->get('/');
+        $responseLanding->assertStatus(200);
+
+        // Confirm accessing protected '/dashboard' redirects to login
+        $responseProtected = $this->get('/dashboard');
         $responseProtected->assertStatus(302);
         $responseProtected->assertRedirect(route('login'));
     }

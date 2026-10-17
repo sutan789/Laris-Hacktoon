@@ -13,7 +13,19 @@ use App\Http\Controllers\RoleDashboardController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\HelpController;
 
-// Public Landing Page & Welcome (Opsional)
+// Public Landing Page & Welcome Page at Root URL (http://127.0.0.1:8000/)
+Route::get('/', function () {
+    if (auth()->check()) {
+        $user = auth()->user();
+        return match ($user->role) {
+            'staff_cashier' => redirect()->route('cashier.dashboard'),
+            'staff_inventory' => redirect()->route('inventory_staff.dashboard'),
+            default => redirect()->route('dashboard'),
+        };
+    }
+    return view('welcome');
+})->name('home');
+
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
@@ -40,9 +52,8 @@ Route::post('/api/telemetry/simulate-webhook', [DashboardController::class, 'sim
 
 // Authenticated Routes (Requires Login)
 Route::middleware(['auth'])->group(function () {
-    // 1. Business Dashboard (Home / Root with Smart Role Redirection)
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    // 1. Business Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/business-dashboard', [DashboardController::class, 'index']);
     Route::get('/dashboard/download-summary', [DashboardController::class, 'downloadSummary'])->name('dashboard.download_summary');
     Route::post('/operational-alerts/{id}/resolve', [DashboardController::class, 'resolveAlert'])->name('alerts.resolve');
