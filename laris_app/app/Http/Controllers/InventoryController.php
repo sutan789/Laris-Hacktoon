@@ -116,4 +116,14 @@ class InventoryController extends Controller
 
         return redirect()->back()->with('success', "Auto-Bundle PO {$poNumber} berhasil diterbitkan untuk {$supplier}! Potensi lost sales Rp 2.85M berhasil dicegah dan hemat ongkir 18%.");
     }
+
+    public function joinCollectivePool(Request $request)
+    {
+        $poolName = $request->input('pool_name', 'Minyak Goreng Sawit 2L');
+        $qty = (int) $request->input('pledge_qty', 10);
+        $savings = (int) $request->input('estimated_savings', 55000);
+
+        return redirect()->back()->with('success', "🎉 Berhasil bergabung ke Kulakan Bareng [{$poolName}] sebanyak {$qty} unit! Estimasi hemat modal: Rp " . number_format($savings, 0, ',', '.') . ". Pesanan akan otomatis dikirim bersama 14 warung tetangga lainnya saat pool terkumpul.");
+    }
 }
+

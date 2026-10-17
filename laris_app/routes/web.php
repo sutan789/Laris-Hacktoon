@@ -52,6 +52,7 @@ Route::get('/trend-hunter', [TrendController::class, 'index'])->name('trends.ind
 Route::get('/smart-inventory', [InventoryController::class, 'index'])->name('inventory.index');
 Route::post('/smart-inventory/reorder/{id}', [InventoryController::class, 'reorder'])->name('inventory.reorder');
 Route::post('/smart-inventory/auto-bundle', [InventoryController::class, 'createAutoBundlePO'])->name('inventory.auto_bundle');
+Route::post('/smart-inventory/kulakan-bareng/join', [InventoryController::class, 'joinCollectivePool'])->name('inventory.kulakan_join');
 
 // 5. Juragan AI Copilot
 Route::get('/juragan-ai', [JuraganAiController::class, 'index'])->name('juragan.index');
@@ -73,3 +74,10 @@ Route::post('/settings/toggle-channel/{channel}', [SettingsController::class, 't
 
 // 9. Pusat Bantuan & Help Center
 Route::get('/help', [HelpController::class, 'index'])->name('help.index');
+
+// 10. Sisi Pembeli & Konsumen (Customer-Facing Marketplace Portal)
+Route::get('/pembeli', [\App\Http\Controllers\ConsumerController::class, 'index'])->name('consumer.index');
+Route::get('/consumer', [\App\Http\Controllers\ConsumerController::class, 'index']);
+Route::post('/pembeli/pre-order', [\App\Http\Controllers\ConsumerController::class, 'storePreOrder'])->name('consumer.pre_order');
+Route::post('/pembeli/claim-flash-sale', [\App\Http\Controllers\ConsumerController::class, 'claimFlashSale'])->name('consumer.claim_flash_sale');
+

@@ -518,6 +518,53 @@
             border-color: #CBD5E1;
         }
 
+        .btn-consumer-switch {
+            background: #0B1215;
+            color: #CCFF00;
+            border: 1px solid #1E2D33;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 7px 14px;
+            border-radius: 99px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-consumer-switch:hover {
+            background: #162228;
+            border-color: #CCFF00;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(204, 255, 0, 0.25);
+        }
+
+        .pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background-color: #CCFF00;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(204, 255, 0, 0.7);
+            animation: pulse-ring 1.8s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(204, 255, 0, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 6px rgba(204, 255, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(204, 255, 0, 0);
+            }
+        }
+
+
         .card-panel {
             background: var(--surface-card);
             border: 1px solid var(--border-light);
@@ -736,6 +783,16 @@
                 </a>
             </li>
         </ul>
+
+        <div class="menu-heading" style="margin-top: 14px; color: #16A34A;">Sisi Pembeli</div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="{{ url('/pembeli') }}" target="_blank" style="background: rgba(204, 255, 0, 0.08); border: 1px dashed rgba(204, 255, 0, 0.35); color: #CCFF00;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"/></svg>
+                    <span>Portal Pembeli ↗</span>
+                </a>
+            </li>
+        </ul>
     </aside>
 
     <!-- Mobile Sidebar Backdrop Overlay -->
@@ -756,6 +813,11 @@
             </div>
 
             <div class="top-right-group">
+                <a href="{{ url('/pembeli') }}" target="_blank" class="btn-consumer-switch" title="Buka Portal Sisi Pembeli & Konsumen">
+                    <span class="pulse-indicator"></span>
+                    <span>🛒 Sisi Pembeli / Konsumen ↗</span>
+                </a>
+
                 <div class="store-status-pill">
                     <span class="status-dot-green"></span>
                     <span>Toko Berkah Utama - Online</span>
@@ -830,6 +892,10 @@
                         <a href="{{ route('help.index') }}" class="menu-link">
                             <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
                             <span>Pusat Bantuan</span>
+                        </a>
+                        <a href="{{ url('/pembeli') }}" target="_blank" class="menu-link" style="color: #16A34A; font-weight: 700;">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                            <span>Buka Sisi Pembeli (Konsumen) ↗</span>
                         </a>
                         <div style="border-top: 1px solid #F1F5F9; margin-top: 4px; padding-top: 4px;">
                             <form action="{{ route('logout') }}" method="POST" style="margin: 0;">

@@ -249,6 +249,135 @@
         </form>
     </div>
 
+    <!-- KULAKAN BARENG ANTAR-WARUNG (B2B COLLECTIVE PURCHASING POOL) -->
+    <div class="card-panel kulakan-panel" id="kulakan-bareng-section">
+        <div class="kulakan-head">
+            <div>
+                <div class="kulakan-badge-row">
+                    <span class="badge-kulakan">B2B COLLECTIVE RESTOCK POOL</span>
+                    <span class="badge-district">📍 KECAMATAN BANDUNG WETAN</span>
+                </div>
+                <h3 class="kulakan-title">Kulakan Bareng Antar-Warung Tetangga</h3>
+                <p class="kulakan-desc">
+                    Gabungkan kuota belanja dengan 14 warung tetangga untuk menembus batas minimum pesanan distributor dan nikmati <strong>harga grosir Tier-1 (diskon 12% - 18%)</strong>. Ongkir logistik dibagi rata otomatis oleh AI.
+                </p>
+            </div>
+            <div class="kulakan-head-actions">
+                <button type="button" class="btn-outline btn-sm" onclick="openProposePoolModal()">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                    <span>Ajukan Usulan Pool Baru</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="kulakan-grid">
+            <!-- POOL 1 -->
+            <div class="pool-card">
+                <div class="pool-top">
+                    <span class="pool-supplier-tag">Wilmar Distributor Resmi</span>
+                    <span class="pool-timer-tag">⏱ Sisa 4j 20m</span>
+                </div>
+                <h4 class="pool-item-name">Minyak Goreng Sawit 2L (Pouch)</h4>
+                <div class="pool-price-box">
+                    <div>
+                        <span class="pool-label">Harga Kulakan Bareng:</span>
+                        <div class="pool-price-current">Rp 28.500 <span class="pool-unit">/pouch</span></div>
+                    </div>
+                    <div class="pool-discount-badge">-16% OFF</div>
+                </div>
+                <div class="pool-normal-price">Harga Eceran Pasar: <s>Rp 34.000</s> (Hemat Rp 5.500/unit)</div>
+                
+                <div class="pool-progress-wrap">
+                    <div class="pool-progress-meta">
+                        <span>Terkumpul: <strong>78 / 100 Pouch</strong></span>
+                        <span class="text-green font-bold">78%</span>
+                    </div>
+                    <div class="pool-progress-bar">
+                        <div class="pool-progress-fill bg-green" style="width: 78%;"></div>
+                    </div>
+                    <div class="pool-participants">
+                        👥 <strong>14 Warung</strong> tetangga telah bergabung
+                    </div>
+                </div>
+
+                <button type="button" class="btn-lime w-100" onclick="openJoinPoolModal('Minyak Goreng Sawit 2L (Pouch)', 'Wilmar Distributor Resmi', 28500, 34000, 78, 100, 'Pouch')">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+                    <span>+ Gabung Pool Kulakan</span>
+                </button>
+            </div>
+
+            <!-- POOL 2 -->
+            <div class="pool-card">
+                <div class="pool-top">
+                    <span class="pool-supplier-tag">Koperasi Beras Cianjur</span>
+                    <span class="pool-timer-tag">⏱ Sisa 7j 15m</span>
+                </div>
+                <h4 class="pool-item-name">Beras Premium Setra Ramos 5kg</h4>
+                <div class="pool-price-box">
+                    <div>
+                        <span class="pool-label">Harga Kulakan Bareng:</span>
+                        <div class="pool-price-current">Rp 64.000 <span class="pool-unit">/sak</span></div>
+                    </div>
+                    <div class="pool-discount-badge">-14% OFF</div>
+                </div>
+                <div class="pool-normal-price">Harga Eceran Pasar: <s>Rp 74.500</s> (Hemat Rp 10.500/sak)</div>
+                
+                <div class="pool-progress-wrap">
+                    <div class="pool-progress-meta">
+                        <span>Terkumpul: <strong>112 / 150 Sak</strong></span>
+                        <span class="text-green font-bold">74%</span>
+                    </div>
+                    <div class="pool-progress-bar">
+                        <div class="pool-progress-fill bg-green" style="width: 74%;"></div>
+                    </div>
+                    <div class="pool-participants">
+                        👥 <strong>19 Warung</strong> tetangga telah bergabung
+                    </div>
+                </div>
+
+                <button type="button" class="btn-lime w-100" onclick="openJoinPoolModal('Beras Premium Setra Ramos 5kg', 'Koperasi Beras Cianjur', 64000, 74500, 112, 150, 'Sak')">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+                    <span>+ Gabung Pool Kulakan</span>
+                </button>
+            </div>
+
+            <!-- POOL 3 -->
+            <div class="pool-card pool-card-hot">
+                <div class="pool-top">
+                    <span class="pool-supplier-tag">Indofood Direct Regional</span>
+                    <span class="pool-timer-tag hot-tag">🔥 Sisa 1j 10m (Hampir Penuh!)</span>
+                </div>
+                <h4 class="pool-item-name">Indomie Goreng Spesial 40x85g (Dus)</h4>
+                <div class="pool-price-box">
+                    <div>
+                        <span class="pool-label">Harga Kulakan Bareng:</span>
+                        <div class="pool-price-current">Rp 108.000 <span class="pool-unit">/dus</span></div>
+                    </div>
+                    <div class="pool-discount-badge">-12% OFF</div>
+                </div>
+                <div class="pool-normal-price">Harga Eceran Pasar: <s>Rp 123.000</s> (Hemat Rp 15.000/dus)</div>
+                
+                <div class="pool-progress-wrap">
+                    <div class="pool-progress-meta">
+                        <span>Terkumpul: <strong>190 / 200 Dus</strong></span>
+                        <span class="text-green font-bold">95%</span>
+                    </div>
+                    <div class="pool-progress-bar">
+                        <div class="pool-progress-fill bg-lime" style="width: 95%;"></div>
+                    </div>
+                    <div class="pool-participants">
+                        👥 <strong>27 Warung</strong> tetangga telah bergabung
+                    </div>
+                </div>
+
+                <button type="button" class="btn-lime w-100" onclick="openJoinPoolModal('Indomie Goreng Spesial 40x85g (Dus)', 'Indofood Direct Regional', 108000, 123000, 190, 200, 'Dus')">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+                    <span>+ Gabung Pool Kulakan</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @push('styles')
@@ -793,7 +922,212 @@
         gap: 12px;
     }
 
+    /* KULAKAN BARENG STYLES */
+    .kulakan-panel {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .kulakan-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .kulakan-badge-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+
+    .badge-kulakan {
+        background: #0B1215;
+        color: #CCFF00;
+        font-size: 9px;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 6px;
+        letter-spacing: 0.5px;
+    }
+
+    .badge-district {
+        background: #F1F5F9;
+        color: #475569;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 6px;
+    }
+
+    .kulakan-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: #0F172A;
+        letter-spacing: -0.3px;
+    }
+
+    .kulakan-desc {
+        font-size: 13px;
+        color: #64748B;
+        max-width: 820px;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+
+    .kulakan-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .pool-card {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 14px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: relative;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pool-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .pool-card-hot {
+        border-color: #FCA5A5;
+        background: #FFFBFB;
+    }
+
+    .pool-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+    }
+
+    .pool-supplier-tag {
+        font-weight: 700;
+        color: #475569;
+    }
+
+    .pool-timer-tag {
+        background: #E2E8F0;
+        color: #334155;
+        padding: 2px 7px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 10px;
+    }
+
+    .pool-timer-tag.hot-tag {
+        background: #FEE2E2;
+        color: #DC2626;
+    }
+
+    .pool-item-name {
+        font-size: 15px;
+        font-weight: 800;
+        color: #0F172A;
+        line-height: 1.3;
+    }
+
+    .pool-price-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #FFFFFF;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid #E2E8F0;
+    }
+
+    .pool-label {
+        font-size: 10px;
+        font-weight: 600;
+        color: #64748B;
+        display: block;
+    }
+
+    .pool-price-current {
+        font-size: 16px;
+        font-weight: 800;
+        color: #16A34A;
+    }
+
+    .pool-unit {
+        font-size: 11px;
+        font-weight: 500;
+        color: #64748B;
+    }
+
+    .pool-discount-badge {
+        background: #DCFCE7;
+        color: #15803D;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 6px;
+    }
+
+    .pool-normal-price {
+        font-size: 11px;
+        color: #64748B;
+    }
+
+    .pool-progress-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .pool-progress-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+    }
+
+    .pool-progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #E2E8F0;
+        border-radius: 99px;
+        overflow: hidden;
+    }
+
+    .pool-progress-fill {
+        height: 100%;
+        border-radius: 99px;
+        transition: width 0.4s ease;
+    }
+
+    .pool-participants {
+        font-size: 11px;
+        color: #475569;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
     @media (max-width: 1024px) {
+        .kulakan-grid {
+            grid-template-columns: 1fr;
+        }
+        .kulakan-head {
+            flex-direction: column;
+            align-items: stretch;
+        }
         .inv-head-bar {
             flex-direction: column;
             align-items: stretch;
@@ -956,6 +1290,125 @@
     </div>
 </div>
 
+<!-- MODAL GABUNG KULAKAN BARENG -->
+<div id="modal-join-kulakan" class="laris-modal-overlay">
+    <div class="laris-modal-card">
+        <div class="laris-modal-header">
+            <div>
+                <span style="font-size: 10px; font-weight: 800; color: #16A34A; letter-spacing: 0.5px;">B2B COLLECTIVE ORDER</span>
+                <h3 id="join-pool-title" style="margin-top: 2px;">Gabung Pool Kulakan</h3>
+            </div>
+            <button type="button" class="btn-close-modal" onclick="closeJoinPoolModal()">&times;</button>
+        </div>
+        <form action="{{ route('inventory.kulakan_join') }}" method="POST">
+            @csrf
+            <input type="hidden" name="pool_name" id="join-input-name" value="">
+            <input type="hidden" name="estimated_savings" id="join-input-savings" value="55000">
+
+            <div class="laris-modal-body">
+                <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                        <span style="color: #64748B;">Distributor Resmi:</span>
+                        <strong id="join-pool-supplier" style="color: #0F172A;">Wilmar Distributor</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                        <span style="color: #64748B;">Harga Tier-1 Collective:</span>
+                        <strong id="join-pool-price" style="color: #16A34A; font-size: 15px;">Rp 28.500</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                        <span style="color: #64748B;">Harga Eceran Normal:</span>
+                        <s id="join-pool-normal-price" style="color: #94A3B8;">Rp 34.000</s>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; border-top: 1px dashed #CBD5E1; padding-top: 6px;">
+                        <span style="color: #64748B;">Status Kuota Pool:</span>
+                        <strong id="join-pool-status" style="color: #0F172A;">78 / 100 Pouch (Sisa 22 Pouch)</strong>
+                    </div>
+                </div>
+
+                <div class="modal-form-group">
+                    <label>Jumlah Unit yang Ingin Anda Pesan (<span id="join-unit-label">Pouch</span>)</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="number" name="pledge_qty" id="join-pledge-qty" value="10" min="1" max="50" oninput="updateKulakanCalculations()" required style="flex: 1; font-weight: 700; font-size: 16px;">
+                        <button type="button" class="btn-outline btn-sm" onclick="setQuickPledge(5)">5</button>
+                        <button type="button" class="btn-outline btn-sm" onclick="setQuickPledge(10)">10</button>
+                        <button type="button" class="btn-outline btn-sm" onclick="setQuickPledge(20)">20</button>
+                    </div>
+                </div>
+
+                <!-- SIMULASI PERHITUNGAN HEMAT MODAL -->
+                <div style="background: #0B1215; border-radius: 12px; padding: 14px; color: #FFFFFF;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                        <span style="color: #94A3B8;">Total Pembayaran Modal:</span>
+                        <strong id="join-calc-total" style="font-size: 14px; color: #FFFFFF;">Rp 285.000</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                        <span style="color: #94A3B8;">Estimasi Penghematan Margin:</span>
+                        <strong id="join-calc-savings" style="font-size: 14px; color: #CCFF00;">+ Rp 55.000</strong>
+                    </div>
+                    <div style="font-size: 10px; color: #64748B; margin-top: 8px; line-height: 1.4;">
+                        ⚡ <em>Pesanan otomatis digabungkan dengan pesanan 14 warung tetangga. Pengiriman dijadwalkan langsung ke toko Anda tanpa tambahan ongkir.</em>
+                    </div>
+                </div>
+            </div>
+            <div class="laris-modal-footer">
+                <button type="button" class="btn-outline" onclick="closeJoinPoolModal()">Batal</button>
+                <button type="submit" class="btn-lime">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    <span>Konfirmasi Gabung Pool</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- MODAL AJUKAN POOL BARU -->
+<div id="modal-propose-pool" class="laris-modal-overlay">
+    <div class="laris-modal-card">
+        <div class="laris-modal-header">
+            <h3>+ Ajukan Usulan Pool Kulakan Baru</h3>
+            <button type="button" class="btn-close-modal" onclick="closeProposePoolModal()">&times;</button>
+        </div>
+        <form onsubmit="event.preventDefault(); submitProposedPool();">
+            <div class="laris-modal-body">
+                <div class="modal-form-group">
+                    <label>Nama Produk / Komoditas yang Ingin Dikulak Bersama</label>
+                    <input type="text" id="prop-item-name" placeholder="Misal: Gula Pasir Gulaku 1kg (Karton)" required>
+                </div>
+                <div class="modal-grid-2">
+                    <div class="modal-form-group">
+                        <label>Target Minimum Pool</label>
+                        <input type="number" id="prop-target-qty" placeholder="50" value="50" min="10" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label>Satuan Unit</label>
+                        <select id="prop-unit">
+                            <option value="Karton / Dus">Karton / Dus</option>
+                            <option value="Jeriken / Pouch">Jeriken / Pouch</option>
+                            <option value="Sak / Karung">Sak / Karung</option>
+                            <option value="Bal / Renceng">Bal / Renceng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-form-group">
+                    <label>Estimasi Kebutuhan Toko Anda Sendiri</label>
+                    <input type="number" id="prop-my-qty" placeholder="10" value="10" min="1" required>
+                </div>
+                <div class="modal-form-group">
+                    <label>Rekomendasi Distributor / Pabrik (Opsional)</label>
+                    <input type="text" id="prop-distributor" placeholder="Misal: PT Perkebunan Nusantara / Distributor Gula Rajawali">
+                </div>
+                <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.4;">
+                    💡 Usulan pool akan disiarkan oleh AI LARIS ke 35 warung terdekat di Kecamatan Bandung Wetan. Jika kuota minimum tercapai dalam 24 jam, order langsung dieksekusi.
+                </p>
+            </div>
+            <div class="laris-modal-footer">
+                <button type="button" class="btn-outline" onclick="closeProposePoolModal()">Batal</button>
+                <button type="submit" class="btn-lime">Siarkan Usulan Pool ke Tetangga</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 @push('scripts')
 <script>
     function dismissEmergencyBanner() {
@@ -1042,6 +1495,69 @@
 
     function closeDemandModal() {
         document.getElementById('modal-view-demand').style.display = 'none';
+    }
+
+    // KULAKAN BARENG LOGIC
+    let activeKulakanItem = {
+        name: 'Minyak Goreng Sawit 2L (Pouch)',
+        supplier: 'Wilmar Distributor Resmi',
+        price: 28500,
+        normalPrice: 34000,
+        current: 78,
+        target: 100,
+        unit: 'Pouch'
+    };
+
+    function openJoinPoolModal(name, supplier, price, normalPrice, current, target, unit) {
+        activeKulakanItem = { name, supplier, price, normalPrice, current, target, unit };
+        document.getElementById('join-pool-title').textContent = 'Gabung Pool: ' + name;
+        document.getElementById('join-input-name').value = name;
+        document.getElementById('join-pool-supplier').textContent = supplier;
+        document.getElementById('join-pool-price').textContent = 'Rp ' + price.toLocaleString('id-ID');
+        document.getElementById('join-pool-normal-price').textContent = 'Rp ' + normalPrice.toLocaleString('id-ID');
+        document.getElementById('join-pool-status').textContent = current + ' / ' + target + ' ' + unit + ' (Sisa ' + (target - current) + ' ' + unit + ')';
+        document.getElementById('join-unit-label').textContent = unit;
+        
+        document.getElementById('join-pledge-qty').value = 10;
+        updateKulakanCalculations();
+        document.getElementById('modal-join-kulakan').style.display = 'flex';
+    }
+
+    function closeJoinPoolModal() {
+        document.getElementById('modal-join-kulakan').style.display = 'none';
+    }
+
+    function setQuickPledge(qty) {
+        document.getElementById('join-pledge-qty').value = qty;
+        updateKulakanCalculations();
+    }
+
+    function updateKulakanCalculations() {
+        const qty = parseInt(document.getElementById('join-pledge-qty').value) || 1;
+        const total = qty * activeKulakanItem.price;
+        const savings = qty * (activeKulakanItem.normalPrice - activeKulakanItem.price);
+
+        document.getElementById('join-calc-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+        document.getElementById('join-calc-savings').textContent = '+ Rp ' + savings.toLocaleString('id-ID');
+        document.getElementById('join-input-savings').value = savings;
+    }
+
+    function openProposePoolModal() {
+        document.getElementById('modal-propose-pool').style.display = 'flex';
+    }
+
+    function closeProposePoolModal() {
+        document.getElementById('modal-propose-pool').style.display = 'none';
+    }
+
+    function submitProposedPool() {
+        const itemName = document.getElementById('prop-item-name').value;
+        const targetQty = document.getElementById('prop-target-qty').value;
+        const unit = document.getElementById('prop-unit').value;
+        const myQty = document.getElementById('prop-my-qty').value;
+
+        closeProposePoolModal();
+        alert('🎉 Usulan Pool Kulakan untuk "' + itemName + '" (Target: ' + targetQty + ' ' + unit + ', Komitmen Anda: ' + myQty + ') berhasil disiarkan ke 35 warung tetangga di Kecamatan Bandung Wetan!');
     }
 </script>
 @endpush
