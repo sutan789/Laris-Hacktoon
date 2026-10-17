@@ -696,6 +696,48 @@
         .hero-metrics-grid { grid-template-columns: repeat(2, 1fr); }
         .trending-grid-4col { grid-template-columns: repeat(2, 1fr); }
     }
+
+    @media (max-width: 900px) {
+        .th-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .th-header-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .th-filter-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+        }
+        .filter-left-pills {
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pill-group {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .hero-metrics-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .trending-grid-4col {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        .th-main-title {
+            font-size: 22px;
+        }
+        .m-val-big {
+            font-size: 24px;
+        }
+    }
 </style>
 @endpush
 

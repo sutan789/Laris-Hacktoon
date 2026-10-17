@@ -1295,6 +1295,68 @@
         .dash-columns { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 900px) {
+        .dash-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .dash-actions {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .instant-insight-banner {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .instant-insight-banner .btn-lime {
+            width: 100%;
+            justify-content: center;
+        }
+        .charts-duo-grid {
+            grid-template-columns: 1fr;
+        }
+        .opp-radar-cards {
+            grid-template-columns: 1fr;
+        }
+        .quick-prompts-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .kpi-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .telemetry-pill {
+            flex-wrap: wrap;
+            font-size: 11px;
+            padding: 8px 12px;
+        }
+        .telemetry-divider {
+            display: none;
+        }
+        .page-greeting {
+            font-size: 20px;
+        }
+        .kpi-val {
+            font-size: 22px;
+        }
+        .trans-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .trans-table-wrap table {
+            min-width: 580px;
+        }
+    }
+
     /* TIMEFRAME DROPDOWN STYLES */
     .timeframe-popup-menu {
         position: absolute;

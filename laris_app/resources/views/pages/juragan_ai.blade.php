@@ -842,6 +842,39 @@
         border-color: #CBD5E1;
         color: #000000;
     }
+
+    @media (max-width: 1024px) {
+        .juragan-layout-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .juragan-header-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .business-health-badge {
+            align-self: flex-start;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .message-row {
+            max-width: 96%;
+        }
+        .chat-input-wrapper {
+            padding: 12px 14px;
+        }
+        .chat-messages-stream {
+            padding: 16px 12px;
+        }
+        .j-title {
+            font-size: 22px;
+        }
+        .j-model-pill {
+            font-size: 10px;
+        }
+    }
 </style>
 @endpush
 

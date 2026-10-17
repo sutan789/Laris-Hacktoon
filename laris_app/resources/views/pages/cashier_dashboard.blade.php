@@ -1,10 +1,46 @@
 @extends('layouts.app', ['title' => 'Dashboard Kasir & Smart POS - LARIS'])
 
+@push('styles')
+<style>
+    .pos-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0E161A;
+        border: 1px solid #1E2D33;
+        border-radius: 16px;
+        padding: 20px 24px;
+        color: #FFFFFF;
+    }
+    .pos-main-grid {
+        display: grid;
+        grid-template-columns: 2fr 1.2fr;
+        gap: 24px;
+    }
+    @media (max-width: 900px) {
+        .pos-top-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .pos-top-bar > div:last-child {
+            text-align: left !important;
+            border-top: 1px solid #1E2D33;
+            padding-top: 12px;
+        }
+        .pos-main-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+</style>
+@endpush
+
 @section('content')
 <div style="display: flex; flex-direction: column; gap: 24px;">
 
     <!-- TOP BAR KASIR -->
-    <div style="display: flex; justify-content: space-between; align-items: center; background: #0E161A; border: 1px solid #1E2D33; border-radius: 16px; padding: 20px 24px; color: #FFFFFF;">
+    <div class="pos-top-bar">
         <div>
             <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(204, 255, 0, 0.15); color: #CCFF00; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 6px;">
                 <span style="width: 7px; height: 7px; background: #CCFF00; border-radius: 50%;"></span>
@@ -21,7 +57,7 @@
     </div>
 
     <!-- GRID KATALOG PRODUK KASIR & STRUK CHECKOUT -->
-    <div style="display: grid; grid-template-columns: 2fr 1.2fr; gap: 24px;">
+    <div class="pos-main-grid">
         
         <!-- KATALOG PRODUK CEPAT -->
         <div class="card-panel">

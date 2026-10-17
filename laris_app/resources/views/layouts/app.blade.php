@@ -93,13 +93,13 @@
             object-fit: contain;
             display: block;
             margin: 0 auto;
-            /* Filter aksen limau neon cerah #CCFF00 berkombinasi dengan putih */
-            filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.45)) brightness(1.15) contrast(1.1);
+            /* Filter aksen limau neon cerah #CCFF00 berkombinasi dengan teks putih bersih */
+            filter: drop-shadow(0 0 12px rgba(204, 255, 0, 0.45));
             transition: all 0.25s ease;
         }
 
         .brand-full-logo:hover {
-            filter: drop-shadow(0 0 16px rgba(204, 255, 0, 0.8)) brightness(1.25);
+            filter: drop-shadow(0 0 18px rgba(204, 255, 0, 0.85));
             transform: scale(1.03);
         }
 
@@ -526,20 +526,143 @@
             box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE & MOBILE OFF-CANVAS STYLES */
+        .btn-mobile-sidebar {
+            display: none;
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 7px 9px;
+            cursor: pointer;
+            color: #1E293B;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+            flex-shrink: 0;
+        }
+        .btn-mobile-sidebar:hover {
+            background: #E2E8F0;
+        }
+
+        .btn-sidebar-close {
+            display: none;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--sidebar-border);
+            color: #94A3B8;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        .btn-sidebar-close:hover {
+            color: #CCFF00;
+            background: rgba(204, 255, 0, 0.15);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 18, 21, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        .sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* GLOBAL RESPONSIVE TABLE UTILITIES */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         @media (max-width: 1024px) {
-            .sidebar {
-                width: 76px;
-                padding: 16px 8px;
+            .btn-mobile-sidebar {
+                display: inline-flex;
             }
-            .brand-text, .menu-heading, .nav-item span, .user-info {
-                display: none;
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 270px;
+                transform: translateX(-100%);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1000;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+                overflow-y: auto;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar-brand {
+                justify-content: space-between;
+                padding: 16px 14px 20px 14px;
+            }
+            .btn-sidebar-close {
+                display: inline-flex;
             }
             .main-wrapper {
-                margin-left: 76px;
+                margin-left: 0 !important;
+                width: 100%;
+                min-width: 0;
+            }
+            .top-bar {
+                padding: 0 20px;
             }
             .search-container {
-                width: 220px;
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 0 14px;
+                height: 58px;
+            }
+            .search-container {
+                max-width: 180px;
+                padding: 6px 10px;
+            }
+            .search-container input {
+                font-size: 12px;
+            }
+            .store-status-pill span:not(.status-dot-green) {
+                display: none;
+            }
+            .store-status-pill {
+                padding: 6px 10px;
+            }
+            .user-info {
+                display: none;
+            }
+            .content-area {
+                padding: 16px 14px 36px 14px;
+            }
+            .top-right-group {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .search-container {
+                display: none;
+            }
+            .top-bar {
+                padding: 0 12px;
+            }
+            .content-area {
+                padding: 14px 10px 28px 10px;
             }
         }
     </style>
@@ -548,11 +671,14 @@
 <body>
 
     <!-- LEFT SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="app-sidebar">
         <div class="sidebar-brand">
             <a href="{{ url('/') }}" class="brand-logo-wrap">
-                <img class="brand-full-logo" src="{{ asset('logo.png') }}" alt="LARIS BI Platform">
+                <img class="brand-full-logo" src="{{ asset('logo.png') }}?v={{ time() }}" alt="LARIS BI Platform">
             </a>
+            <button type="button" class="btn-sidebar-close" id="btn-sidebar-close" onclick="closeMobileSidebar()" aria-label="Tutup Menu">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
         </div>
 
         <div class="menu-heading">Menu Utama</div>
@@ -612,13 +738,21 @@
         </ul>
     </aside>
 
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
     <!-- MAIN BODY -->
     <div class="main-wrapper">
         <!-- GLOBAL TOP BAR -->
         <header class="top-bar">
-            <div class="search-container">
-                <svg width="16" height="16" fill="none" stroke="#94A3B8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
-                <input type="text" id="global-search-input" placeholder="Cari analitik, stok, insight AI... (Tekan Enter)" onkeypress="if(event.key === 'Enter') { if(this.value.trim()) window.location.href = '{{ url('/smart-inventory') }}?q=' + encodeURIComponent(this.value.trim()); }">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button type="button" class="btn-mobile-sidebar" id="btn-mobile-sidebar-toggle" onclick="toggleMobileSidebar()" aria-label="Buka Menu Navigasi">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+                </button>
+                <div class="search-container">
+                    <svg width="16" height="16" fill="none" stroke="#94A3B8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+                    <input type="text" id="global-search-input" placeholder="Cari analitik, stok, insight AI... (Tekan Enter)" onkeypress="if(event.key === 'Enter') { if(this.value.trim()) window.location.href = '{{ url('/smart-inventory') }}?q=' + encodeURIComponent(this.value.trim()); }">
+                </div>
             </div>
 
             <div class="top-right-group">
@@ -727,6 +861,30 @@
             if (target) {
                 target.style.display = target.style.display === 'block' ? 'none' : 'block';
             }
+        }
+
+        /* Mobile Sidebar Drawer Functions */
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('app-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar && overlay) {
+                const isOpen = sidebar.classList.contains('open');
+                if (isOpen) {
+                    closeMobileSidebar();
+                } else {
+                    sidebar.classList.add('open');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        }
+
+        function closeMobileSidebar() {
+            const sidebar = document.getElementById('app-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar) sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         document.addEventListener('click', function(e) {

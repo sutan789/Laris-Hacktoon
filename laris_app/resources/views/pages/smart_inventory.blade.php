@@ -792,6 +792,74 @@
         justify-content: flex-end;
         gap: 12px;
     }
+
+    @media (max-width: 1024px) {
+        .inv-head-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .inv-head-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .emergency-stock-banner {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .em-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .auto-bundle-card {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .auto-bundle-card .btn-lime {
+            width: 100%;
+            justify-content: center;
+        }
+        .table-top-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .table-filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .inv-health-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .table-panel {
+            padding: 16px 12px;
+        }
+        .table-responsive table {
+            min-width: 650px;
+        }
+        .table-foot-row {
+            flex-direction: column;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .modal-grid-2 {
+            grid-template-columns: 1fr;
+        }
+        .laris-modal-card {
+            max-width: 95vw;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    }
 </style>
 @endpush
 

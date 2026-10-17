@@ -765,6 +765,29 @@
         .rep-charts-grid { grid-template-columns: 1fr; }
         .exec-pillars-grid { grid-template-columns: 1fr; }
     }
+
+    @media (max-width: 900px) {
+        .rep-head-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 16px;
+        }
+        .rep-head-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .rep-kpi-grid {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .rep-title {
+            font-size: 22px;
+        }
+    }
 </style>
 @endpush
 @endsection

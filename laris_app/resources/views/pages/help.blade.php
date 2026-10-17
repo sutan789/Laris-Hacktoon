@@ -349,6 +349,12 @@
         .support-contact-strip { flex-direction: column; gap: 16px; text-align: center; }
         .support-info { flex-direction: column; }
     }
+
+    @media (max-width: 640px) {
+        .guide-grid { grid-template-columns: 1fr; }
+        .help-search-box { width: 100%; }
+        .help-title { font-size: 22px; }
+    }
 </style>
 @endpush
 

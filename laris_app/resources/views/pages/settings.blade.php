@@ -497,6 +497,24 @@
     @media (max-width: 900px) {
         .settings-grid { grid-template-columns: 1fr; }
         .form-row-2 { grid-template-columns: 1fr; }
+        .set-head-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .set-head-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .channel-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
     }
 </style>
 @endpush

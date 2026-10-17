@@ -828,6 +828,55 @@
         display: flex;
         gap: 10px;
     }
+
+    @media (max-width: 1024px) {
+        .simulator-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .predict-header-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+        .header-action-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .insight-strip-dark {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .form-row-2col {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .forecast-cards-row {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .result-action-footer {
+            flex-direction: column;
+            gap: 12px;
+            align-items: stretch;
+        }
+        .foot-left-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+        .foot-left-actions button, .result-action-footer .btn-lime {
+            width: 100%;
+            justify-content: center;
+        }
+        .stock-presets-row {
+            flex-wrap: wrap;
+        }
+    }
 </style>
 @endpush
 
