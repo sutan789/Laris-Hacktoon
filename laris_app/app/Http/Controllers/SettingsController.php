@@ -52,14 +52,12 @@ class SettingsController extends Controller
             'phone' => 'nullable|string|max:30',
         ]);
 
-        $store = Store::first();
-        if ($store) {
-            $store->name = $request->input('store_name');
-            $store->address = $request->input('address');
-            $store->operating_hours = $request->input('operating_hours');
-            $store->phone = $request->input('phone');
-            $store->save();
-        }
+        $store = Store::first() ?? new Store();
+        $store->name = $request->input('store_name');
+        $store->address = $request->input('address');
+        $store->operating_hours = $request->input('operating_hours');
+        $store->phone = $request->input('phone');
+        $store->save();
 
         return redirect()->back()->with('success', 'Profil toko berhasil diperbarui!');
     }
