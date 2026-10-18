@@ -14,16 +14,16 @@
                 Selamat Datang, {{ auth()->user()->name ?? 'Ibu Siti' }}!
             </h1>
             <p style="font-size: 13.5px; color: #CBD5E1; line-height: 1.6; margin-bottom: 16px;">
-                Cek stok kebutuhan harian secara langsung, klaim diskon <strong>Flash Sale Cuci Rak Jam 7 Malam</strong>, atau titipkan pesanan barang langka saat Juragan kulakan besok pagi.
+                Cek stok kebutuhan harian secara langsung, klaim diskon <strong>Flash Sale Cuci Gudang Jam 7 Malam</strong>, atau titipkan pesanan barang langka saat Juragan belanja stok besok pagi.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                 <a href="#flash-sale-section" class="btn-primary-soft" style="background: #10B981; color: #FFFFFF; text-decoration: none; padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
                     <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/></svg>
-                    <span>Lihat Flash Sale Cuci Rak</span>
+                    <span>Lihat Flash Sale Cuci Gudang</span>
                 </a>
                 <button type="button" onclick="openPreOrderModal('')" style="background: rgba(255, 255, 255, 0.1); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.2); padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
                     <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    <span>+ Titip Kulakan Barang</span>
+                    <span>Titip Belanja Stok</span>
                 </button>
             </div>
         </div>
@@ -45,13 +45,13 @@
             <span style="font-size: 12px; color: #D97706; font-weight: 600;">Hemat hingga Rp 15.000 hari ini</span>
         </div>
         <div class="card-panel" style="padding: 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E2E8F0;">
-            <div style="font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase;">Titip Kulakan Saya</div>
+            <div style="font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase;">Titip Belanja Saya</div>
             <h3 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 4px 0;">{{ count($preOrders) }} Pesanan Diproses</h3>
             <span style="font-size: 12px; color: #2563EB; font-weight: 600;">Jadwal ambil: Besok 06:30 WIB</span>
         </div>
     </div>
 
-    <!-- FLASH SALE CUCI RAK JAM 7 MALAM -->
+    <!-- FLASH SALE CUCI GUDANG JAM 7 MALAM -->
     <div id="flash-sale-section" class="card-panel" style="border-radius: 16px; padding: 22px; background: #FFFFFF; border: 1px solid #E2E8F0;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 16px;">
             <div style="display: flex; align-items: center; gap: 12px;">
@@ -59,7 +59,7 @@
                     <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/></svg>
                 </div>
                 <div>
-                    <h2 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0;">Flash Sale Cuci Rak Jam 7 Malam</h2>
+                    <h2 style="font-size: 18px; font-weight: 800; color: #0F172A; margin: 0;">Flash Sale Cuci Gudang Jam 7 Malam</h2>
                     <p style="font-size: 13px; color: #64748B; margin: 2px 0 0 0;">Diskon spesial 30%–50% produk roti &amp; segar sebelum toko tutup agar tidak mubazir.</p>
                 </div>
             </div>
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    <!-- KATALOG REAL-TIME & TITIP KULAKAN -->
+    <!-- KATALOG REAL-TIME & TITIP BELANJA STOK -->
     <div class="card-panel" style="border-radius: 16px; padding: 22px; background: #FFFFFF; border: 1px solid #E2E8F0;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
             <div>
@@ -140,7 +140,7 @@
                             </button>
                         @else
                             <button type="button" onclick="openPreOrderModal('{{ addslashes($p->name) }}')" style="width: 100%; background: #D97706; color: #FFFFFF; border: none; padding: 8px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">
-                                + Titip Kulakan ke Juragan
+                                + Titip Belanja ke Juragan
                             </button>
                         @endif
                     </div>
@@ -149,12 +149,12 @@
         </div>
     </div>
 
-    <!-- ANTREAN TITIP KULAKAN (PRE-ORDER) SAYA -->
+    <!-- ANTREAN TITIP BELANJA STOK (PRE-ORDER) SAYA -->
     <div class="card-panel" style="border-radius: 16px; padding: 22px; background: #FFFFFF; border: 1px solid #E2E8F0;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <div style="display: flex; align-items: center; gap: 8px;">
                 <svg width="20" height="20" fill="none" stroke="#2563EB" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
-                <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Status Titip Kulakan Warga Terkini</h3>
+                <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Status Titip Belanja Warga Terkini</h3>
             </div>
             <span style="font-size: 11px; background: #DCFCE7; color: #166534; padding: 4px 10px; border-radius: 20px; font-weight: 700;">Terhubung ke Aplikasi Juragan</span>
         </div>
@@ -173,17 +173,17 @@
 
 </div>
 
-<!-- MODAL FORM TITIP KULAKAN -->
+<!-- MODAL FORM TITIP BELANJA STOK -->
 <div id="modal-preorder" style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 16px;">
     <div style="background: #FFFFFF; border-radius: 16px; max-width: 480px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden;">
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid #E2E8F0; background: #F8FAFC;">
-            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Titip Kulakan ke Juragan Toko</h3>
+            <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Titip Belanja Stok ke Juragan Toko</h3>
             <button type="button" onclick="closePreOrderModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #64748B;">&times;</button>
         </div>
         <form action="{{ route('consumer.pre_order') }}" method="POST" style="padding: 20px;">
             @csrf
             <p style="font-size: 12px; color: #64748B; margin-bottom: 16px; line-height: 1.5;">
-                Barang yang dititipkan akan otomatis dibelanjakan Juragan Toko Berkah Utama saat kulakan ke pasar induk &amp; distributor besok pagi pukul 06.00 WIB tanpa ongkir tambahan!
+                Barang yang dititipkan akan otomatis dibelanjakan Juragan Toko Berkah Utama saat belanja stok ke pasar induk &amp; distributor besok pagi pukul 06.00 WIB tanpa ongkir tambahan!
             </p>
             <div style="margin-bottom: 12px;">
                 <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Nama Anda</label>
@@ -277,7 +277,7 @@
     }
     function simulateQrisSuccess() {
         closeQrisModal();
-        alert('Pembayaran QRIS Berhasil! Struk transaksi telah otomatis dicatat ke sistem toko.');
+        larisAlert('Pembayaran QRIS Berhasil!', 'Struk transaksi telah otomatis dicatat ke sistem toko.', 'success');
     }
 </script>
 @endpush

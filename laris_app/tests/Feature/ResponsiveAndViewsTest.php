@@ -48,9 +48,33 @@ class ResponsiveAndViewsTest extends TestCase
         return User::firstOrCreate(
             ['email' => 'konsumen@laris.id'],
             [
-                'name' => 'Siti Pelanggan (Warga)',
+                'name' => 'Siti Pelanggan (User)',
                 'password' => bcrypt('password123'),
-                'role' => 'customer',
+                'role' => 'user',
+            ]
+        );
+    }
+
+    protected function getSuperAdminUser(): User
+    {
+        return User::firstOrCreate(
+            ['email' => 'superadmin@laris.id'],
+            [
+                'name' => 'Super Administrator Platform',
+                'password' => bcrypt('password123'),
+                'role' => 'super_admin',
+            ]
+        );
+    }
+
+    protected function getUserBuyer(): User
+    {
+        return User::firstOrCreate(
+            ['email' => 'user@laris.id'],
+            [
+                'name' => 'Budi Pratama (User)',
+                'password' => bcrypt('password123'),
+                'role' => 'user',
             ]
         );
     }
@@ -84,8 +108,7 @@ class ResponsiveAndViewsTest extends TestCase
             '/welcome',     // Welcome route
             '/login',
             '/register',
-            '/pembeli',
-            '/consumer',
+            '/marketplace',
         ];
 
         foreach ($publicUrls as $url) {
@@ -138,6 +161,11 @@ class ResponsiveAndViewsTest extends TestCase
         $responsePos = $this->actingAs($cashier)->get('/cashier/dashboard');
         $responsePos->assertStatus(200);
         $this->assertTrue(strlen($responsePos->getContent()) > 500);
+
+        // Cashier can also check stock on /smart-inventory
+        $responseStock = $this->actingAs($cashier)->get('/smart-inventory');
+        $responseStock->assertStatus(200);
+        $this->assertTrue(strlen($responseStock->getContent()) > 500);
     }
 
     public function test_inventory_staff_redirection_and_access(): void
@@ -162,7 +190,7 @@ class ResponsiveAndViewsTest extends TestCase
         // When customer visits home '/', they should be smartly redirected to customer dashboard
         $responseHome = $this->actingAs($customer)->get('/');
         $responseHome->assertStatus(302);
-        $responseHome->assertRedirect(route('customer.dashboard'));
+        $responseHome->assertRedirect(route('user.dashboard'));
 
         // Direct access to customer dashboard should succeed
         $responseCust = $this->actingAs($customer)->get('/customer/dashboard');
@@ -199,13 +227,13 @@ class ResponsiveAndViewsTest extends TestCase
         $respGudang->assertRedirect(route('inventory_staff.dashboard'));
         $this->assertAuthenticated();
 
-        // 4. Customer Login -> redirects to /customer/dashboard
+        // 4. Customer Login -> redirects to /user/dashboard
         $respCustomer = $this->post('/login', [
             'email' => 'konsumen@laris.id',
             'password' => 'password123',
         ]);
         $respCustomer->assertStatus(302);
-        $respCustomer->assertRedirect(route('customer.dashboard'));
+        $respCustomer->assertRedirect(route('user.dashboard'));
         $this->assertAuthenticated();
     }
 
@@ -218,7 +246,7 @@ class ResponsiveAndViewsTest extends TestCase
         // Owner should see executive menu and not cashier/customer headings
         $ownerHtml = $this->actingAs($owner)->get('/dashboard')->getContent();
         $this->assertStringContainsString('Menu Eksekutif', $ownerHtml);
-        $this->assertStringNotContainsString('Portal Konsumen Warga', $ownerHtml);
+        $this->assertStringNotContainsString('Portal Belanja User', $ownerHtml);
 
         // Cashier should see cashier operations and not owner executive menu
         $cashierHtml = $this->actingAs($cashier)->get('/cashier/dashboard')->getContent();
@@ -227,7 +255,7 @@ class ResponsiveAndViewsTest extends TestCase
 
         // Customer should see customer portal and not owner executive menu
         $customerHtml = $this->actingAs($customer)->get('/customer/dashboard')->getContent();
-        $this->assertStringContainsString('Portal Konsumen Warga', $customerHtml);
+        $this->assertStringContainsString('Portal Belanja User', $customerHtml);
         $this->assertStringNotContainsString('Menu Eksekutif', $customerHtml);
     }
 
@@ -294,5 +322,97 @@ class ResponsiveAndViewsTest extends TestCase
 
         $response->assertStatus(302);
         $response->assertSessionHas('success_coupon');
+    }
+
+    public function test_super_admin_can_access_dashboard_and_toggle_store(): void
+    {
+        $superAdmin = $this->getSuperAdminUser();
+
+        $response = $this->actingAs($superAdmin)->get('/admin/dashboard');
+        $response->assertStatus(200);
+        $response->assertSee('Super Administrator Platform');
+        $response->assertSee('Daftar Gerai UMKM');
+
+        // Toggle verification
+        $toggleResponse = $this->actingAs($superAdmin)->post('/admin/stores/1/toggle-verification');
+        $toggleResponse->assertStatus(302);
+        $toggleResponse->assertSessionHas('success');
+
+        // Toggle delivery
+        $deliveryResponse = $this->actingAs($superAdmin)->post('/admin/stores/1/toggle-delivery', [
+            'delivery_fee' => 6000
+        ]);
+        $deliveryResponse->assertStatus(302);
+        $deliveryResponse->assertSessionHas('success');
+
+        // Toggle back so store 1 retains delivery enabled
+        $restoreDeliveryResponse = $this->actingAs($superAdmin)->post('/admin/stores/1/toggle-delivery', [
+            'delivery_fee' => 5000
+        ]);
+        $restoreDeliveryResponse->assertStatus(302);
+        $restoreDeliveryResponse->assertSessionHas('success');
+    }
+
+    public function test_user_can_access_marketplace_and_store_detail(): void
+    {
+        $user = $this->getUserBuyer();
+
+        $response = $this->actingAs($user)->get('/user/dashboard');
+        $response->assertStatus(200);
+        $response->assertSee('Marketplace Gerai UMKM');
+        $response->assertSee('DISKON10K');
+
+        $storeResponse = $this->actingAs($user)->get('/user/store/1');
+        $storeResponse->assertStatus(200);
+        $storeResponse->assertSee('Toko Berkah');
+
+        $ordersResponse = $this->actingAs($user)->get('/user/orders');
+        $ordersResponse->assertStatus(200);
+        $ordersResponse->assertSee('Pesanan Saya');
+    }
+
+    public function test_user_can_checkout_with_delivery_and_voucher(): void
+    {
+        $user = $this->getUserBuyer();
+        \App\Models\Store::where('id', 1)->update(['has_delivery' => true]);
+        \App\Models\Product::where('id', 1)->update(['current_stock' => 50]);
+
+        $response = $this->actingAs($user)->post('/user/checkout', [
+            'store_id' => 1,
+            'delivery_type' => 'delivery',
+            'delivery_address' => 'Jl. Merdeka No. 10, Bandung',
+            'payment_method' => 'qris',
+            'customer_name' => 'Budi Pratama',
+            'customer_phone' => '081234567890',
+            'voucher_code' => 'DISKON10K',
+            'items' => [
+                ['product_id' => 1, 'quantity' => 1],
+            ],
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect(route('user.orders'));
+        $response->assertSessionHas('success');
+    }
+
+    public function test_user_checkout_rejects_delivery_for_pickup_only_store(): void
+    {
+        $user = $this->getUserBuyer();
+
+        // Store 3 is Padang (has_delivery = false)
+        $response = $this->actingAs($user)->post('/user/checkout', [
+            'store_id' => 3,
+            'delivery_type' => 'delivery',
+            'delivery_address' => 'Jl. Merdeka No. 10, Bandung',
+            'payment_method' => 'cash',
+            'customer_name' => 'Budi Pratama',
+            'customer_phone' => '081234567890',
+            'items' => [
+                ['product_id' => 4, 'quantity' => 1],
+            ],
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors(['delivery_type']);
     }
 }

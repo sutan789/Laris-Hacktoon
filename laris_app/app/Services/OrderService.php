@@ -35,12 +35,16 @@ class OrderService
                 $totalAmount += $itemSubtotal;
                 $totalCost += $itemCostTotal;
 
-                // 2. Pengurangan Stok Atomik (Atomic Depletion)
+                // 2. Validasi Ketersediaan Stok Fisik & Pengurangan Stok Atomik
+                if ($product->current_stock < $qty) {
+                    throw new \Exception("Stok produk '{$product->name}' tidak mencukupi (Tersisa: {$product->current_stock} unit, diminta: {$qty} unit).");
+                }
+
                 $product->current_stock = max(0, $product->current_stock - $qty);
 
                 // 3. Update Laju Penjualan AI (Velocity) & Runway Sisa Hari
                 $product->ai_velocity = round(max(0.5, $product->ai_velocity + ($qty * 0.1)), 2);
-                $product->stock_runway_days = (int) floor($product->current_stock / ($product->ai_velocity ?: 1));
+                $product->stock_runway_days = (int) floor($product->current_stock / max(0.5, $product->ai_velocity ?: 1));
 
                 // 4. Deteksi Kesehatan Inventaris & Pembuatan Alert Otomatis
                 if ($product->stock_runway_days <= 4 || $product->current_stock <= $product->min_threshold) {

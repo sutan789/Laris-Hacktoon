@@ -38,7 +38,7 @@ class ConsumerController extends Controller
         // Kategori unik untuk filter pill
         $categories = Product::select('category')->distinct()->pluck('category');
 
-        // Flash Sale Cuci Rak Jam 7 Malam (Anti-Basi)
+        // Flash Sale Cuci Gudang Jam 7 Malam (Anti-Basi)
         $flashSaleItems = [
             [
                 'id' => 'fs-1',
@@ -85,7 +85,7 @@ class ConsumerController extends Controller
                 'discount_pct' => 43,
                 'stock_left' => 4,
                 'unit' => 'mika',
-                'reason' => 'Dibuat pagi tadi, cuci rak malam ini',
+                'reason' => 'Dibuat pagi tadi, cuci gudang malam ini',
                 'image' => 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&auto=format&fit=crop&q=80',
             ],
         ];
@@ -159,18 +159,18 @@ class ConsumerController extends Controller
         array_unshift($preOrders, $newOrder);
         session(['consumer_preorders' => $preOrders]);
 
-        return redirect()->back()->with('success_preorder', "✅ Pesanan Titip Kulakan untuk '{$request->input('item_name')}' ({$request->input('quantity')} pcs) berhasil dikirim ke Toko! Juragan akan membelanjakannya besok pagi.");
+        return redirect()->back()->with('success_preorder', "✅ Pesanan Titip Belanja Stok untuk '{$request->input('item_name')}' ({$request->input('quantity')} pcs) berhasil dikirim ke Toko! Juragan akan membelanjakannya besok pagi.");
     }
 
     public function claimFlashSale(Request $request)
     {
-        $itemName = $request->input('item_name', 'Produk Cuci Rak');
-        $code = 'KUPON-CUCIRAK-' . strtoupper(substr(uniqid(), -5));
+        $itemName = $request->input('item_name', 'Produk Flash Sale Cuci Gudang');
+        $code = 'KUPON-CUCIGUDANG-' . strtoupper(substr(uniqid(), -5));
 
         return redirect()->back()->with('success_coupon', [
             'item' => $itemName,
             'code' => $code,
-            'message' => "Kupon Flash Sale Cuci Rak Jam 7 Malam berhasil diklaim! Tunjukkan kode [{$code}] saat pembayaran di kasir sebelum toko tutup.",
+            'message' => "Kupon Flash Sale Cuci Gudang Jam 7 Malam berhasil diklaim! Tunjukkan kode [{$code}] saat pembayaran di kasir sebelum toko tutup.",
         ]);
     }
 }

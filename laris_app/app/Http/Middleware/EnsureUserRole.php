@@ -21,19 +21,47 @@ class EnsureUserRole
 
         $user = auth()->user();
 
-        // If no specific roles defined or user's role is allowed
-        if (empty($roles) || in_array($user->role, $roles, true)) {
+        $userRole = $user->role;
+
+        // Strict role matching: only exact role or user/customer synonym
+        $isAllowed = false;
+
+        foreach ($roles as $role) {
+            $allowedRoles = explode(',', $role);
+            foreach ($allowedRoles as $ar) {
+                $ar = trim($ar);
+                if ($userRole === $ar) {
+                    $isAllowed = true;
+                    break 2;
+                }
+                if (($userRole === 'customer' || $userRole === 'user') && ($ar === 'user' || $ar === 'customer')) {
+                    $isAllowed = true;
+                    break 2;
+                }
+            }
+        }
+
+        if ($isAllowed) {
             return $next($request);
         }
 
-        // Redirect user strictly to their own role's dashboard
+        // Redirect user strictly to their own role's official dashboard
         $targetRoute = match ($user->role) {
+            'super_admin' => route('admin.dashboard'),
             'staff_cashier' => route('cashier.dashboard'),
             'staff_inventory' => route('inventory_staff.dashboard'),
-            'customer' => route('customer.dashboard'),
+            'user', 'customer' => route('user.dashboard'),
             default => route('dashboard'),
         };
 
-        return redirect($targetRoute)->with('warning', 'Akses dialihkan ke dashboard resmi sesuai peran akun Anda (' . ucfirst(str_replace('_', ' ', $user->role)) . ').');
+        $roleTitle = match ($user->role) {
+            'super_admin' => 'Super Administrator',
+            'staff_cashier' => 'Kasir Toko',
+            'staff_inventory' => 'Staf Gudang',
+            'user', 'customer' => 'Pembeli / Konsumen',
+            default => 'Juragan UMKM (Owner)',
+        };
+
+        return redirect($targetRoute)->with('warning', "Akses Dibatasi: Halaman tersebut memerlukan hak akses berbeda. Sesi Anda aktif sebagai {$roleTitle}.");
     }
 }

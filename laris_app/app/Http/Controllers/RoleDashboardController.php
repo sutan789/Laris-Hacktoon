@@ -14,6 +14,7 @@ class RoleDashboardController extends Controller
      */
     public function cashierDashboard()
     {
+        $store = Store::first() ?? new Store(['name' => 'Toko Berkah Utama']);
         $products = Product::where('current_stock', '>', 0)->get();
         $recentSales = Order::where('channel', 'Offline Store')->latest()->take(8)->get();
         $todayTotal = Order::where('channel', 'Offline Store')->whereDate('created_at', today())->sum('total_amount');
@@ -25,7 +26,7 @@ class RoleDashboardController extends Controller
             ['name' => 'Mas Budi Santoso', 'phone' => '085712349988', 'score' => 65, 'status' => 'Perhatian', 'limit' => 100000, 'current_debt' => 80000],
         ];
 
-        return view('pages.cashier_dashboard', compact('products', 'recentSales', 'todayTotal', 'todayCount', 'kasbonCustomers'));
+        return view('pages.cashier_dashboard', compact('store', 'products', 'recentSales', 'todayTotal', 'todayCount', 'kasbonCustomers'));
     }
 
     /**
@@ -100,7 +101,7 @@ class RoleDashboardController extends Controller
                 'discount_pct' => 36,
                 'stock_left' => 4,
                 'unit' => 'kg',
-                'reason' => 'Cuci rak buah sore',
+                'reason' => 'Cuci gudang buah sore',
                 'image' => 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=300&auto=format&fit=crop&q=80',
             ],
         ];
@@ -108,12 +109,12 @@ class RoleDashboardController extends Controller
         $preOrders = [
             ['item_name' => 'Beras Ramos Super 10kg', 'quantity' => 2, 'customer_name' => auth()->user()->name ?? 'Ibu Siti', 'phone' => '0812-3456-7890', 'time' => '10 menit lalu', 'status' => 'Dikonfirmasi Juragan'],
             ['item_name' => 'Minyak Goreng Filma 2L', 'quantity' => 1, 'customer_name' => 'Pak Bambang', 'phone' => '0813-9876-5432', 'time' => '35 menit lalu', 'status' => 'Siap Diambil Pukul 06:30'],
-            ['item_name' => 'Kopi Arabika Gayo 250g', 'quantity' => 3, 'customer_name' => 'Mas Rudi', 'phone' => '0856-1122-3344', 'time' => '1 jam lalu', 'status' => 'Dalam Perjalanan Kulakan'],
+            ['item_name' => 'Kopi Arabika Gayo 250g', 'quantity' => 3, 'customer_name' => 'Mas Rudi', 'phone' => '0856-1122-3344', 'time' => '1 jam lalu', 'status' => 'Dalam Perjalanan Belanja Stok'],
         ];
 
         $coupons = [
             ['code' => 'TETANGGA-HEMAT', 'title' => 'Diskon Tetangga Rp 2.500', 'desc' => 'Potongan langsung untuk belanja sembako minimal Rp 25.000', 'valid_until' => 'Hari Ini s.d 22:00'],
-            ['code' => 'CUCIRAK-MALAM', 'title' => 'Ekstra Diskon 10% Cuci Rak', 'desc' => 'Dapat digunakan pada jam Flash Sale 19:00 - 22:00 WIB', 'valid_until' => 'Malam Ini'],
+            ['code' => 'CUCIGUDANG-MALAM', 'title' => 'Ekstra Diskon 10% Cuci Gudang', 'desc' => 'Dapat digunakan pada jam Flash Sale 19:00 - 22:00 WIB', 'valid_until' => 'Malam Ini'],
         ];
 
         return view('pages.customer_dashboard', compact('store', 'products', 'categories', 'flashSaleItems', 'preOrders', 'coupons'));

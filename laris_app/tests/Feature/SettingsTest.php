@@ -28,7 +28,7 @@ class SettingsTest extends TestCase
 
         $response = $this->actingAs($owner)->post('/settings/store', $payload);
 
-        $response->assertSessionHas('success', 'Profil toko berhasil diperbarui!');
+        $response->assertSessionHas('success', 'Profil dan pengaturan pembayaran toko berhasil diperbarui!');
         $response->assertRedirect();
 
         $store = Store::first();

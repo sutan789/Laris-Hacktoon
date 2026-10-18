@@ -49,30 +49,36 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'store_name' => 'required|string|max:120',
+            'store_name' => 'nullable|string|max:120',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|string|in:owner,staff_cashier,staff_inventory,customer',
+            'role' => 'required|string|in:owner,staff_cashier,staff_inventory,user,customer',
         ]);
 
-        $store = Store::firstOrCreate(
-            ['name' => $request->store_name],
-            [
-                'owner_name' => $request->name,
-                'category' => 'Retail & MSME',
-                'location' => 'Indonesia',
-                'daily_revenue_target' => 10000000,
-                'monthly_revenue_target' => 120000000,
-                'business_health_score' => 90,
-            ]
-        );
+        $storeId = null;
+        if (in_array($request->role, ['owner', 'staff_cashier', 'staff_inventory']) && !empty($request->store_name)) {
+            $store = Store::firstOrCreate(
+                ['name' => $request->store_name],
+                [
+                    'owner_name' => $request->name,
+                    'category' => 'Retail & Sembako',
+                    'location' => 'Indonesia',
+                    'daily_revenue_target' => 10000000,
+                    'monthly_revenue_target' => 120000000,
+                    'business_health_score' => 90,
+                    'has_delivery' => true,
+                    'delivery_fee' => 5000,
+                ]
+            );
+            $storeId = $store->id;
+        }
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-            'store_id' => $store->id,
+            'store_id' => $storeId,
         ]);
 
         Auth::login($user);
@@ -109,9 +115,10 @@ class AuthController extends Controller
     protected function redirectBasedOnRole($user)
     {
         return match ($user->role) {
+            'super_admin' => redirect()->route('admin.dashboard'),
             'staff_cashier' => redirect()->route('cashier.dashboard'),
             'staff_inventory' => redirect()->route('inventory_staff.dashboard'),
-            'customer' => redirect()->route('customer.dashboard'),
+            'user', 'customer' => redirect()->route('user.dashboard'),
             default => redirect()->route('dashboard'),
         };
     }

@@ -268,7 +268,7 @@
             box-shadow: 0 4px 12px rgba(21, 128, 61, 0.1);
         }
 
-        /* FLASH SALE CUCI RAK SECTION */
+        /* FLASH SALE CUCI GUDANG SECTION */
         .flash-sale-panel {
             background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
             border: 2px solid #FCD34D;
@@ -1130,7 +1130,7 @@
             </div>
         @endif
 
-        <!-- 1. FLASH SALE CUCI RAK JAM 7 MALAM (ANTI-BASI) -->
+        <!-- 1. FLASH SALE CUCI GUDANG JAM 7 MALAM (ANTI-BASI) -->
         <section class="flash-sale-panel" id="cuci-rak-section">
             <div class="fs-header">
                 <div class="fs-title-box">
@@ -1138,13 +1138,13 @@
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/></svg>
                     </span>
                     <div>
-                        <h3 class="fs-main-title">Flash Sale Cuci Rak Jam 7 Malam (Anti-Basi)</h3>
+                        <h3 class="fs-main-title">Flash Sale Cuci Gudang Jam 7 Malam (Anti-Basi)</h3>
                         <p class="fs-sub-desc">Diskon kilat 30% - 50% untuk produk roti, susu segar &amp; buah siap santap sebelum toko tutup. Hemat belanja warga, bebas buang makanan!</p>
                     </div>
                 </div>
 
                 <div class="fs-countdown-box">
-                    <span>CUCI RAK BERAKHIR:</span>
+                    <span>CUCI GUDANG BERAKHIR:</span>
                     <span class="fs-countdown-time" id="fs-timer">01 : 14 : 20</span>
                 </div>
             </div>
@@ -1252,7 +1252,7 @@
                             @else
                                 <button type="button" class="btn-preorder-trigger" onclick="openPreOrderModal('{{ addslashes($prod->name) }}')">
                                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                                    <span>Titip Kulakan ke Juragan</span>
+                                    <span>Titip Belanja Stok</span>
                                 </button>
                             @endif
                         </div>
@@ -1260,25 +1260,25 @@
                 @empty
                     <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #64748B;">
                         Tidak ada produk yang cocok dengan pencarian Anda. Butuh barang ini? 
-                        <a href="javascript:void(0)" onclick="openPreOrderModal('{{ request('search') }}')" style="color: #16A34A; font-weight: 700;">Titip kulakan ke Juragan sekarang &rarr;</a>
+                        <a href="javascript:void(0)" onclick="openPreOrderModal('{{ request('search') }}')" style="color: #16A34A; font-weight: 700;">Titip belanja stok ke Juragan sekarang &rarr;</a>
                     </div>
                 @endforelse
             </div>
         </section>
 
-        <!-- 3. GUARANTEED PRE-ORDER (TITIP KULAKAN) -->
+        <!-- 3. GUARANTEED PRE-ORDER (TITIP BELANJA STOK) -->
         <section class="preorder-banner-panel" id="titip-kulakan-section">
             <div class="po-left">
                 <div class="po-tag">DEMAND AGGREGATOR • ZERO RISK PRE-ORDER</div>
-                <h3 class="po-title">Barang Habis? Titip Kulakan ke Juragan Toko!</h3>
+                <h3 class="po-title">Barang Habis? Titip Belanja Stok ke Juragan Toko!</h3>
                 <p class="po-desc">
-                    Jika produk yang Anda cari sedang habis, catat pesanan Anda di sini. Juragan akan membelanjakannya saat kulakan ke pasar induk &amp; distributor besok pagi pukul 06.00 WIB tanpa biaya tambahan. Anda tinggal ambil saat barang tiba!
+                    Jika produk yang Anda cari sedang habis, catat pesanan Anda di sini. Juragan akan membelanjakannya saat belanja stok ke pasar induk &amp; distributor besok pagi pukul 06.00 WIB tanpa biaya tambahan. Anda tinggal ambil saat barang tiba!
                 </p>
             </div>
             <div>
                 <button type="button" class="btn-lime-lg" onclick="openPreOrderModal('')">
                     <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-                    <span>+ Titip Pesanan Kulakan Baru</span>
+                    <span>Titip Pesanan Stok Baru</span>
                 </button>
             </div>
         </section>
@@ -1288,7 +1288,7 @@
             <h4 class="po-hist-title">
                 <span style="display: inline-flex; align-items: center; gap: 6px;">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
-                    Antrean Titip Kulakan Warga Terkini
+                    Antrean Titip Belanja Warga Terkini
                 </span>
                 <span style="font-size: 11px; background: #DCFCE7; color: #15803D; padding: 2px 8px; border-radius: 99px; font-weight: 700;">Auto-Sync ke HP Juragan</span>
             </h4>
@@ -1318,18 +1318,18 @@
         <p style="margin-top: 6px;">Menghubungkan Warung Tetangga dengan Konsumen Sekitar demi Ekosistem Ekonomi yang Berkeadilan.</p>
     </footer>
 
-    <!-- MODAL FORM TITIP KULAKAN (PRE-ORDER) -->
+    <!-- MODAL FORM TITIP BELANJA STOK (PRE-ORDER) -->
     <div id="modal-preorder" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-top">
-                <h3>Form Titip Kulakan ke Juragan</h3>
+                <h3>Form Titip Belanja Stok ke Juragan</h3>
                 <button type="button" class="btn-close-modal" onclick="closePreOrderModal()">&times;</button>
             </div>
             <form action="{{ route('consumer.pre_order') }}" method="POST">
                 @csrf
                 <div class="modal-content-body">
                     <p style="font-size: 12px; color: #64748B; line-height: 1.4;">
-                        Pesanan ini akan otomatis masuk ke daftar belanja kulakan Juragan Toko Berkah Utama untuk dibeli besok pagi.
+                        Pesanan ini akan otomatis masuk ke daftar belanja stok Juragan Toko Berkah Utama untuk dibeli besok pagi.
                     </p>
                     <div class="modal-form-group">
                         <label>Nama Anda</label>
@@ -1419,7 +1419,7 @@
             <div class="modal-bottom">
                 <button type="button" class="btn-cancel" onclick="closeQrisModal()">Tutup</button>
                 <button type="button" class="btn-filter-submit" style="background: #0B1215; color: #CCFF00; display: inline-flex; align-items: center; gap: 6px;" onclick="simulateQrisSuccess()">
-                    <span>Simulasikan Pembayaran Selesai</span>
+                    <span>Konfirmasi Pembayaran Selesai</span>
                     <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
                 </button>
             </div>
@@ -1428,7 +1428,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // FLASH SALE CUCI RAK COUNTDOWN TIMER
+        // FLASH SALE CUCI GUDANG COUNTDOWN TIMER
         let fsSeconds = 4460;
         function updateFsTimer() {
             const h = Math.floor(fsSeconds / 3600);
@@ -1469,7 +1469,7 @@
 
         function simulateQrisSuccess() {
             closeQrisModal();
-            alert('Pembayaran QRIS Sukses Terverifikasi! Struk transaksi telah dikirimkan ke mesin kasir Toko Berkah Utama.');
+            larisAlert('Pembayaran QRIS Terverifikasi!', 'Struk transaksi telah otomatis dikirimkan ke mesin kasir gerai.', 'success');
         }
 
         // Close on escape

@@ -3,440 +3,260 @@
 @section('content')
 <div class="juragan-page">
 
-    <!-- PAGE TOP BAR -->
-    <div class="juragan-header-bar">
-        <div class="header-left-title">
-            <div class="flex-align gap-8">
-                <h1 class="j-title">Juragan AI</h1>
-                <span class="j-model-pill">● Model v3.8 - Real-time Data Sync Active</span>
+    <!-- 1. GLOSSY HEADER BAR -->
+    <div class="dash-header">
+        <div class="header-main-info">
+            <div class="greeting-row">
+                <h1 class="page-greeting">Juragan <span class="store-gradient-name">AI Copilot</span></h1>
+                <span class="verified-store-badge">
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="#10B981"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                    <span>Asisten Resmi</span>
+                </span>
+                <span class="live-status-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Model v3.8 (Terhubung Data POS &amp; Pasar)</span>
+                </span>
             </div>
-            <p class="j-subtitle">Asisten Bisnis Pintar & Partner Strategi Toko Berkah Utama</p>
+            <p class="page-subtitle">Konsultasi strategi harga, rekomendasi restock, promosi akhir pekan, dan efisiensi operasional gerai Anda.</p>
         </div>
-        <div class="business-health-badge">
-            <div class="health-meta">
-                <span class="health-label">KESEHATAN BISNIS</span>
-                <span class="health-score">Skor 94/100 (Sangat Sehat)</span>
-            </div>
-            <div class="health-icon-box">
-                <svg width="18" height="18" fill="none" stroke="#CCFF00" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+
+        <div class="dash-actions">
+            <div class="business-health-card-glossy">
+                <div>
+                    <span class="health-lbl">KESEHATAN BISNIS</span>
+                    <strong class="health-val text-green">Skor 94 / 100</strong>
+                </div>
+                <div class="ai-gem-icon" style="width: 36px; height: 36px; border-radius: 10px;">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN TWO COLUMN CHAT LAYOUT -->
-    <div class="juragan-layout-grid">
+    <!-- 2. MAIN TWO COLUMN CHAT LAYOUT -->
+    <div class="dash-columns" style="grid-template-columns: 320px 1fr;">
 
         <!-- SIDEBAR KIRI: PROFIL & PINTASAN TOPIK -->
-        <div class="juragan-side-panel">
+        <div class="col-left" style="display: flex; flex-direction: column; gap: 18px;">
             
             <!-- PROFIL JURAGAN WIDGET -->
-            <div class="card-panel juragan-profile-card">
+            <div class="card-panel">
                 <div class="profile-top-row">
-                    <img class="profile-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Juragan Bambang">
+                    <img class="profile-photo-glossy" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Juragan Bambang">
                     <div>
-                        <div class="profile-name-flex">
-                            <h4>Juragan Bambang</h4>
-                            <span class="badge-verified">
-                                <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        <div class="flex-align gap-6">
+                            <h4 class="profile-name">Juragan Bambang</h4>
+                            <span class="verified-store-badge" style="padding: 3px 6px; display: inline-flex; align-items: center;">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
                             </span>
                         </div>
-                        <div class="profile-store-id">Toko Berkah Utama • ID #88412</div>
+                        <span class="profile-store-id">Toko Berkah Utama</span>
                     </div>
                 </div>
-                <div class="profile-stat-grid">
-                    <div class="stat-cell">
-                        <span class="s-label">OMZET HARI INI</span>
-                        <span class="s-val">Rp 3.840.000</span>
+
+                <div class="profile-stat-grid mt-14">
+                    <div class="f-box-glossy" style="padding: 10px 12px;">
+                        <span class="f-lbl">OMZET HARI INI</span>
+                        <strong class="stat-num">Rp 3.840.000</strong>
                     </div>
-                    <div class="stat-cell">
-                        <span class="s-label">MARGIN RATA2</span>
-                        <span class="s-val text-green">31.4%</span>
+                    <div class="f-box-glossy" style="padding: 10px 12px;">
+                        <span class="f-lbl">MARGIN RATA2</span>
+                        <strong class="stat-num text-green">31.4%</strong>
                     </div>
                 </div>
             </div>
 
             <!-- TOPIK PERCAKAPAN CEPAT -->
             <div class="card-panel">
-                <div class="topic-header">
-                    <span>TOPIK PERCAKAPAN CEPAT</span>
-                    <span class="bolt-icon">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
-                    </span>
+                <div class="panel-header" style="margin-bottom: 12px;">
+                    <div>
+                        <h4 class="panel-title" style="font-size: 13.5px;">Pertanyaan Cepat</h4>
+                        <p class="panel-subtitle">Saran otomatis berdasarkan data toko</p>
+                    </div>
+                    <span class="tag-pill-glossy">PINTASAN</span>
                 </div>
 
                 <div class="topic-buttons-list">
-                    <button class="topic-btn" onclick="sendQuickPrompt('Analisis Omzet Bulan Ini')">
-                        <div class="topic-btn-icon">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+                    <button type="button" class="topic-btn-glossy" onclick="sendQuickPrompt('berdasarkan pengamatan saya, asap dari kebakaran hutan telah menyebar sampai ke kota saya dan sekolah-sekolah sudah diliburkan. apakah dengan kita menjual masker itu menjadi sebuah peluang? tapi saya tidak tahu pasti bencana ini akan berlalu sampai kapan, gimana pendapat anda')">
+                        <div class="topic-icon" style="background: rgba(239, 68, 68, 0.15); color: #EF4444;">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
                         </div>
-                        <div class="topic-btn-text">
-                            <strong>Analisis Omzet Bulan Ini</strong>
-                            <span>Review performa kotor vs target</span>
-                        </div>
-                    </button>
-
-                    <button class="topic-btn" onclick="sendQuickPrompt('Cek Produk Menjelang Habis')">
-                        <div class="topic-btn-icon">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
-                        </div>
-                        <div class="topic-btn-text">
-                            <strong>Cek Produk Menjelang Habis</strong>
-                            <span>Deteksi 4 SKU stok kritis</span>
+                        <div class="topic-text">
+                            <strong>Analisis Asap &amp; Jual Masker</strong>
+                            <span>Peluang darurat, margin &amp; mitigasi risiko</span>
                         </div>
                     </button>
 
-                    <button class="topic-btn" onclick="sendQuickPrompt('Rekomendasi Flash Sale Akhir Pekan')">
-                        <div class="topic-btn-icon">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                    <button type="button" class="topic-btn-glossy" onclick="sendQuickPrompt('tambah stok masker 50 unit')">
+                        <div class="topic-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
                         </div>
-                        <div class="topic-btn-text">
-                            <strong>Rekomendasi Flash Sale Akhir Pekan</strong>
-                            <span>Simulasi kenaikan laba bersih</span>
+                        <div class="topic-text">
+                            <strong>Tambah Stok Masker (+50)</strong>
+                            <span>Instruksikan AI perbarui stok gudang</span>
+                        </div>
+                    </button>
+
+                    <button type="button" class="topic-btn-glossy" onclick="sendQuickPrompt('Tampilkan kompilasi sinyal viral di Trend Hunter saat ini!')">
+                        <div class="topic-icon" style="background: rgba(59, 130, 246, 0.15); color: #3B82F6;">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        </div>
+                        <div class="topic-text">
+                            <strong>Radar Trend Hunter</strong>
+                            <span>Sinyal pencarian &amp; produk viral</span>
                         </div>
                     </button>
 
-                    <button class="topic-btn" onclick="sendQuickPrompt('Catat Transaksi Offline Cepat')">
-                        <div class="topic-btn-icon">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
+                    <button type="button" class="topic-btn-glossy" onclick="sendQuickPrompt('Saya ingin mengunduh laporan bisnis bulanan dalam format CSV, Excel, PDF, dan TXT.')">
+                        <div class="topic-icon" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
                         </div>
-                        <div class="topic-btn-text">
-                            <strong>Catat Transaksi Offline Cepat</strong>
-                            <span>Voice atau upload foto struk nota</span>
+                        <div class="topic-text">
+                            <strong>Unduh Laporan Bisnis</strong>
+                            <span>Ekspor format PDF / Excel / CSV / TXT</span>
                         </div>
                     </button>
-                </div>
-            </div>
 
-            <!-- RIWAYAT KONSULTASI -->
-            <div class="card-panel">
-                <div class="history-header">
-                    <span>RIWAYAT KONSULTASI</span>
-                    <a href="#all" class="history-link">Lihat Semua</a>
-                </div>
-
-                <div class="history-list">
-                    <div class="history-item">
-                        <div>
-                            <div class="h-title">Strategi Kenaikan Margin Q3</div>
-                            <div class="h-tag-row">
-                                <span class="tag-profit">PROFIT</span>
-                                <span class="h-time">Hari ini, 09:14</span>
-                            </div>
+                    <button type="button" class="topic-btn-glossy" onclick="sendQuickPrompt('Cek produk apa saja yang stoknya hampir habis dan perlu segera di-reorder!')">
+                        <div class="topic-icon">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
                         </div>
-                        <span class="h-arrow">&rsaquo;</span>
-                    </div>
-
-                    <div class="history-item">
-                        <div>
-                            <div class="h-title">Evaluasi Supplier Minyak Goreng</div>
-                            <div class="h-tag-row">
-                                <span class="tag-supply">SUPPLY</span>
-                                <span class="h-time">Kemarin, 16:30</span>
-                            </div>
+                        <div class="topic-text">
+                            <strong>Cek Stok Kritis</strong>
+                            <span>Deteksi item yang butuh restock</span>
                         </div>
-                        <span class="h-arrow">&rsaquo;</span>
-                    </div>
-
-                    <div class="history-item">
-                        <div>
-                            <div class="h-title">Forecast Permintaan Musim Hujan</div>
-                            <div class="h-tag-row">
-                                <span class="tag-predict">PREDICT</span>
-                                <span class="h-time">22 Okt</span>
-                            </div>
-                        </div>
-                        <span class="h-arrow">&rsaquo;</span>
-                    </div>
+                    </button>
                 </div>
             </div>
 
         </div>
 
-        <!-- PANEL UTAMA: CHAT COPILOT -->
-        <div class="juragan-chat-container card-panel">
-            
-            <!-- CHAT TOP BAR -->
-            <div class="chat-top-header">
-                <div class="chat-copilot-title">
-                    <div class="copilot-avatar">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
-                    </div>
-                    <div>
-                        <div class="flex-align gap-8">
-                            <h3>Juragan AI</h3>
-                            <span class="copilot-tag">COPILOT</span>
-                        </div>
-                        <p class="copilot-meta">Operational & Strategy Assistant • Berbasis Algoritma LARIS BI</p>
-                    </div>
-                </div>
-                <div class="chat-actions">
-                    <button class="btn-icon" title="Download Riwayat"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg></button>
-                    <button class="btn-icon" title="Pengaturan Chat"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/></svg></button>
-                </div>
-            </div>
-
-            <!-- CHAT CONVERSATION STREAM -->
-            <div class="chat-messages-stream" id="chatStream">
+        <!-- PANEL KANAN: CHAT COPILOT STREAM (GLOSSY & MEWAH) -->
+        <div class="col-right">
+            <div class="card-panel chat-container-glossy">
                 
-                <div class="chat-session-divider">
-                    <span>HARI INI • SESI ANALISIS STRATEGIS</span>
-                </div>
-
-                <!-- AI GREETING MESSAGE -->
-                <div class="message-row ai-row">
-                    <div class="msg-avatar">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
-                    </div>
-                    <div class="msg-bubble ai-bubble">
-                        <p>Halo <strong>Juragan Bambang!</strong> Selamat datang kembali. Berdasarkan rekonsiliasi data kasir dan marketplace hari ini, omzet bulanan sudah mencapai <strong>Rp 12.4M (+18% MoM)</strong>. Ada 3 insight penting untuk dievaluasi.</p>
-                        <span class="msg-time">09:12 • Terverifikasi data live</span>
-                    </div>
-                </div>
-
-                <!-- USER MESSAGE -->
-                <div class="message-row user-row">
-                    <div class="msg-bubble user-bubble">
-                        <p>Bagaimana cara menaikkan profit margin minggu ini tanpa kehilangan pelanggan?</p>
-                        <span class="msg-time">09:13 • Terkirim</span>
-                    </div>
-                    <img class="user-msg-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80" alt="User">
-                </div>
-
-                <!-- RICH AI RECOMMENDATION MESSAGE -->
-                <div class="message-row ai-row">
-                    <div class="msg-avatar">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
-                    </div>
-                    <div class="msg-bubble ai-bubble rich-bubble">
-                        
-                        <div class="rich-header">
-                            <span class="lightbulb">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
-                            </span>
-                            <h4>Fokus pada produk margin tinggi dengan sinyal permintaan kuat:</h4>
+                <!-- CHAT TOP BAR -->
+                <div class="chat-top-bar">
+                    <div class="chat-copilot-info">
+                        <div class="ai-gem-icon" style="width: 40px; height: 40px;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
                         </div>
-
-                        <!-- 2 CARDS IN RESPONSE -->
-                        <div class="rich-cards-grid">
-                            
-                            <!-- BUNDLE OPPORTUNITY -->
-                            <div class="rich-card">
-                                <div class="rich-card-top">
-                                    <span class="r-badge-muted">BUNDLING OPPORTUNITY</span>
-                                    <span class="r-badge-green">+22% Basket</span>
-                                </div>
-                                <div class="r-product-title">
-                                    <span class="coffee-icon">
-                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
-                                    </span>
-                                    <strong>Kopi Arabica Gayo</strong>
-                                </div>
-                                <p class="r-desc">Sisa stok <strong>24 unit</strong>. Lakukan bundling dengan <strong>Sirup Caramel</strong> untuk mendongkrak rata-rata nilai transaksi belanja tanpa memicu sensitivitas harga.</p>
-                                <div class="r-metric-row">
-                                    <span class="lbl">ESTIMASI TAMBAHAN LABA</span>
-                                    <span class="val-bold text-green">+Rp 1.450.000</span>
-                                </div>
+                        <div>
+                            <div class="flex-align gap-8">
+                                <h3 class="copilot-title">Juragan AI</h3>
+                                <span class="tag-pill-glossy">AKTIF</span>
                             </div>
-
-                            <!-- TREND OPPORTUNITY -->
-                            <div class="rich-card">
-                                <div class="rich-card-top">
-                                    <span class="r-badge-dark">RADAR TREN #1</span>
-                                    <span class="r-badge-lime">
-                                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right: 2px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
-                                        Skor 87/100
-                                    </span>
-                                </div>
-                                <div class="r-product-title">
-                                    <span class="pencil-icon">
-                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125"/></svg>
-                                    </span>
-                                    <strong>Pensil Labubu Series</strong>
-                                </div>
-                                <p class="r-desc">Tingkat permintaan lokal sedang melonjak <strong>82%</strong>. Naikkan harga dari Rp 17.500 ke <strong>Rp 18.500</strong> tanpa menurunkan konversi pembelian.</p>
-                                <div class="r-metric-row">
-                                    <span class="lbl">ELASTISITAS HARGA</span>
-                                    <span class="val-bold text-green">Aman (+5.7% Margin)</span>
-                                </div>
-                            </div>
-
+                            <span class="copilot-sub">Mitra Strategis &amp; Analisis Realtime Toko Berkah</span>
                         </div>
-
-                        <!-- ACTION BUTTONS ROW -->
-                        <div class="rich-actions-row">
-                            <button class="btn-lime">
-                                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
-                                <span>Buat Paket Bundling</span>
-                            </button>
-                            <a href="{{ url('/laris-predict') }}" class="btn-dark">
-                                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/></svg>
-                                <span>Buka LARIS Predict</span>
-                            </a>
-                            <button class="btn-outline">
-                                <span>Catat Pengeluaran Baru</span>
-                            </button>
-                        </div>
-
-                        <span class="msg-time mt-10">09:14 • Rekomendasi didukung oleh LARIS Engine v3.8</span>
                     </div>
+
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <button type="button" id="btnToggleVoiceAI" class="btn-timeframe-glossy" onclick="toggleVoiceAI()" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid #334155; transition: all 0.2s;">
+                            <svg id="voiceAIIcon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75Z"/></svg>
+                            <span id="voiceAILabel">Voice AI: Nonaktif</span>
+                        </button>
+                        <button type="button" class="btn-timeframe-glossy" onclick="document.getElementById('chatStream').innerHTML = ''; showToast('Riwayat obrolan sesi ini dibersihkan.');">
+                            <span>Bersihkan Chat</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CHAT MESSAGES STREAM -->
+                <div class="chat-messages-stream" id="chatStream">
+                    
+                    <div class="chat-date-pill">
+                        <span>SESI HARI INI • DIDUKUNG JURAGAN AI LIVE</span>
+                    </div>
+
+                    <!-- AI GREETING -->
+                    <div class="msg-row ai-row">
+                        <div class="msg-avatar-ai">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                        </div>
+                        <div class="msg-bubble-ai">
+                            <p>Halo <strong>Juragan Bambang!</strong> Saya siap membantu analisis gerai Anda hari ini. Berdasarkan sinkronisasi kasir dan marketplace terakhir, penjualan berjalan sangat sehat dengan <strong>omzet Rp 3,84 Juta</strong>.</p>
+                            <p style="margin-top: 6px;">Ada yang ingin Anda konsultasikan terkait strategi harga, stok gudang, atau tren produk viral di sekitar toko?</p>
+                            <span class="msg-time-ai">Baru saja • Sinkronisasi Data Riil</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CHAT INPUT WRAPPER -->
+                <div class="chat-input-wrapper">
+                    <input type="text" id="userChatInput" class="chat-input-field" placeholder="Ketik pertanyaan untuk Juragan AI... (Contoh: Strategi promo akhir pekan)" onkeypress="handleKeyPress(event)">
+                    
+                    <button type="button" class="btn-send-glossy" onclick="sendMessage()">
+                        <span>Kirim</span>
+                        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+                    </button>
                 </div>
 
             </div>
-
-            <!-- CHAT INPUT COMPONENT -->
-            <div class="chat-input-wrapper">
-                <div class="chat-input-bar">
-                    <button class="attach-btn" title="Upload Struk / File">
-                        <svg width="18" height="18" fill="none" stroke="#64748B" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.373L8.552 18.32a1.5 1.5 0 0 1-2.122-2.122l8.74-8.739"/></svg>
-                    </button>
-                    <input type="text" id="userChatInput" placeholder="Tanya apa saja seputar penjualan, stok, atau strategi toko..." onkeypress="handleKeyPress(event)">
-                    <button class="voice-btn" title="Gunakan Suara">
-                        <svg width="18" height="18" fill="none" stroke="#64748B" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v7.5a3 3 0 0 1-3 3Z"/></svg>
-                    </button>
-                    <button class="send-btn" onclick="sendMessage()">
-                        <svg width="18" height="18" fill="none" stroke="#000000" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"/></svg>
-                    </button>
-                </div>
-                
-                <div class="chat-suggestions-row">
-                    <span class="saran-lbl">SARAN:</span>
-                    <button class="chip-saran" onclick="sendQuickPrompt('Kapan harus restock kopi?')">"Kapan harus restock kopi?"</button>
-                    <button class="chip-saran" onclick="sendQuickPrompt('Simulasi diskon 10% vs 15%')">"Simulasi diskon 10% vs 15%"</button>
-                    <button class="chip-saran" onclick="sendQuickPrompt('Produk paling laris di Shopee')">"Produk paling laris di Shopee"</button>
-                </div>
-            </div>
-
         </div>
 
     </div>
 
 </div>
+@endsection
 
 @push('styles')
 <style>
     .juragan-page {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 22px;
     }
 
-    .juragan-header-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .j-title {
-        font-family: 'Outfit', sans-serif;
-        font-size: 26px;
-        font-weight: 800;
-        color: var(--text-main);
-    }
-
-    .j-model-pill {
-        background: #CCFF00;
-        color: #000000;
-        font-size: 11px;
-        font-weight: 800;
-        padding: 3px 10px;
-        border-radius: 20px;
-    }
-
-    .j-subtitle {
-        font-size: 13px;
-        color: var(--text-muted);
-        margin-top: 2px;
-    }
-
-    .business-health-badge {
+    .business-health-card-glossy {
         display: flex;
         align-items: center;
         gap: 12px;
-        background: #0B1215;
-        color: #FFFFFF;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 14px;
         padding: 8px 16px;
-        border-radius: 12px;
-        border: 1px solid #1E2D33;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
 
-    .health-meta {
-        text-align: right;
-    }
-
-    .health-label {
-        font-size: 9px;
-        font-weight: 700;
-        color: #94A3B8;
-        display: block;
-        letter-spacing: 0.5px;
-    }
-
-    .health-score {
-        font-size: 12px;
+    .health-lbl {
+        font-size: 10px;
         font-weight: 800;
-        color: #FFFFFF;
+        color: #64748B;
+        letter-spacing: 0.5px;
+        display: block;
     }
 
-    .health-icon-box {
-        width: 32px;
-        height: 32px;
-        background: #162228;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .health-val {
+        font-size: 14px;
+        font-weight: 800;
     }
 
-    .juragan-layout-grid {
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 22px;
-        align-items: start;
-    }
-
-    /* SIDEBAR KIRI */
-    .juragan-side-panel {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .juragan-profile-card {
-        padding: 16px;
-    }
-
+    /* Profile Widget */
     .profile-top-row {
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 14px;
     }
 
-    .profile-photo {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: 2px solid #CCFF00;
+    .profile-photo-glossy {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        object-fit: cover;
+        border: 2px solid #FFFFFF;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .profile-name-flex {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .profile-name-flex h4 {
+    .profile-name {
         font-size: 14px;
-        font-weight: 700;
-    }
-
-    .badge-verified {
-        color: #16A34A;
-        font-size: 12px;
+        font-weight: 800;
+        color: var(--text-main);
+        margin: 0;
     }
 
     .profile-store-id {
-        font-size: 11px;
+        font-size: 11.5px;
         color: var(--text-muted);
     }
 
@@ -444,462 +264,244 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 8px;
-        background: #F8FAFC;
-        padding: 10px;
-        border-radius: 10px;
     }
 
-    .stat-cell .s-label {
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--text-muted);
-        display: block;
-    }
-
-    .stat-cell .s-val {
-        font-size: 13px;
+    .stat-num {
+        font-size: 13.5px;
         font-weight: 800;
         color: var(--text-main);
     }
 
-    /* TOPIC BUTTONS */
-    .topic-header, .history-header {
-        font-size: 11px;
-        font-weight: 800;
-        color: var(--text-muted);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 12px;
-        letter-spacing: 0.5px;
-    }
-
+    /* Topic Buttons */
     .topic-buttons-list {
         display: flex;
         flex-direction: column;
         gap: 8px;
     }
 
-    .topic-btn {
+    .topic-btn-glossy {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 10px 12px;
         display: flex;
         align-items: center;
         gap: 10px;
-        background: #F8FAFC;
-        border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 10px 12px;
-        text-align: left;
         cursor: pointer;
-        transition: all 0.15s;
+        transition: all 0.2s;
+        text-align: left;
     }
 
-    .topic-btn:hover {
-        background: #FFFFFF;
-        border-color: #CCFF00;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    .topic-btn-glossy:hover {
+        border-color: #10B981;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.06);
     }
 
-    .topic-btn-icon {
-        font-size: 16px;
+    .topic-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(16, 185, 129, 0.1);
+        color: #10B981;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
-    .topic-btn-text strong {
+    .topic-text strong {
         font-size: 12px;
+        font-weight: 700;
         color: var(--text-main);
         display: block;
     }
 
-    .topic-btn-text span {
-        font-size: 11px;
+    .topic-text span {
+        font-size: 10.5px;
         color: var(--text-muted);
     }
 
-    /* HISTORY LIST */
-    .history-link {
-        font-size: 11px;
-        color: #16A34A;
-        text-decoration: none;
-        font-weight: 700;
-    }
-
-    .history-list {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .history-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px solid #F1F5F9;
-        cursor: pointer;
-    }
-
-    .h-title {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--text-main);
-    }
-
-    .h-tag-row {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-        margin-top: 2px;
-    }
-
-    .tag-profit { background: #DCFCE7; color: #16A34A; font-size: 9px; font-weight: 800; padding: 1px 5px; border-radius: 4px; }
-    .tag-supply { background: #FEF3C7; color: #D97706; font-size: 9px; font-weight: 800; padding: 1px 5px; border-radius: 4px; }
-    .tag-predict { background: #F1F5F9; color: #475569; font-size: 9px; font-weight: 800; padding: 1px 5px; border-radius: 4px; }
-
-    .h-time { font-size: 10px; color: var(--text-muted); }
-    .h-arrow { font-size: 16px; color: var(--text-muted); }
-
-    /* CHAT CONTAINER */
-    .juragan-chat-container {
-        display: flex;
-        flex-direction: column;
-        height: 720px;
+    /* Chat Container Glossy */
+    .chat-container-glossy {
         padding: 0;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 640px;
     }
 
-    .chat-top-header {
+    .chat-top-bar {
+        padding: 16px 20px;
+        background: #F8FAFC;
+        border-bottom: 1px solid #E2E8F0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 16px 24px;
-        border-bottom: 1px solid var(--border-light);
-        background: #FFFFFF;
     }
 
-    .chat-copilot-title {
+    .chat-copilot-info {
         display: flex;
         align-items: center;
         gap: 12px;
     }
 
-    .copilot-avatar {
-        width: 38px;
-        height: 38px;
-        background: #0B1215;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-    }
-
-    .copilot-tag {
-        background: #0B1215;
-        color: #CCFF00;
-        font-size: 10px;
+    .copilot-title {
+        font-size: 15px;
         font-weight: 800;
-        padding: 2px 7px;
-        border-radius: 10px;
+        color: var(--text-main);
+        margin: 0;
     }
 
-    .copilot-meta {
-        font-size: 11px;
+    .copilot-sub {
+        font-size: 11.5px;
         color: var(--text-muted);
     }
 
-    .chat-actions {
-        display: flex;
-        gap: 8px;
-    }
-
-    .btn-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: #F8FAFC;
-        border: 1px solid #E2E8F0;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #64748B;
-    }
-
-    /* MESSAGES STREAM */
+    /* Chat Stream */
     .chat-messages-stream {
         flex: 1;
-        padding: 24px;
+        padding: 20px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 18px;
-        background: #FAFBFB;
+        gap: 16px;
+        background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
     }
 
-    .chat-session-divider {
+    .chat-date-pill {
         text-align: center;
-        margin: 6px 0;
-    }
-
-    .chat-session-divider span {
-        background: #E2E8F0;
-        color: #475569;
-        font-size: 10px;
+        font-size: 10.5px;
         font-weight: 800;
-        padding: 4px 12px;
-        border-radius: 20px;
+        color: #94A3B8;
         letter-spacing: 0.5px;
+        margin-bottom: 8px;
     }
 
-    .message-row {
+    .msg-row {
         display: flex;
         gap: 12px;
         max-width: 85%;
     }
 
-    .ai-row { align-self: flex-start; }
-    .user-row { align-self: flex-end; flex-direction: row-reverse; }
+    .ai-row {
+        align-self: flex-start;
+    }
 
-    .msg-avatar {
-        width: 34px;
-        height: 34px;
-        background: #0B1215;
-        border-radius: 50%;
+    .user-row {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+    }
+
+    .msg-avatar-ai {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: #10B981;
+        color: #FFFFFF;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
         flex-shrink: 0;
     }
 
-    .user-msg-avatar {
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
-        border: 2px solid #CCFF00;
+    .msg-avatar-user {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        object-fit: cover;
         flex-shrink: 0;
     }
 
-    .msg-bubble {
-        padding: 14px 18px;
-        border-radius: 14px;
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .ai-bubble {
+    .msg-bubble-ai {
         background: #FFFFFF;
         border: 1px solid #E2E8F0;
+        border-radius: 16px;
+        border-top-left-radius: 4px;
+        padding: 14px 18px;
+        font-size: 13px;
         color: var(--text-main);
+        line-height: 1.55;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
-    .user-bubble {
-        background: #0B1215;
+    .msg-bubble-user {
+        background: #0B131B;
         color: #FFFFFF;
+        border-radius: 16px;
+        border-top-right-radius: 4px;
+        padding: 14px 18px;
+        font-size: 13px;
+        line-height: 1.5;
+        box-shadow: 0 4px 14px rgba(11, 19, 27, 0.2);
     }
 
-    .msg-time {
-        font-size: 10px;
-        color: #94A3B8;
+    .msg-time-ai {
         display: block;
+        font-size: 10.5px;
+        color: #94A3B8;
         margin-top: 6px;
     }
 
-    /* RICH BUBBLE CONTENT */
-    .rich-bubble {
-        width: 100%;
-        max-width: 620px;
+    .msg-time-user {
+        display: block;
+        font-size: 10.5px;
+        color: #64748B;
+        margin-top: 4px;
+        text-align: right;
     }
 
-    .rich-header {
+    /* Input Bar */
+    .chat-input-wrapper {
+        padding: 14px 18px;
+        background: #FFFFFF;
+        border-top: 1px solid #E2E8F0;
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 14px;
+        gap: 10px;
     }
 
-    .rich-header h4 {
-        font-size: 14px;
-        font-weight: 700;
-    }
-
-    .rich-cards-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin-bottom: 16px;
-    }
-
-    .rich-card {
+    .chat-input-field {
+        flex: 1;
         background: #F8FAFC;
         border: 1px solid #E2E8F0;
         border-radius: 12px;
-        padding: 14px;
-    }
-
-    .rich-card-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-
-    .r-badge-muted { font-size: 9px; font-weight: 800; color: #64748B; }
-    .r-badge-green { font-size: 9px; font-weight: 800; background: #DCFCE7; color: #16A34A; padding: 2px 6px; border-radius: 4px; }
-    .r-badge-dark { font-size: 9px; font-weight: 800; background: #0B1215; color: #FFFFFF; padding: 2px 6px; border-radius: 4px; }
-    .r-badge-lime { font-size: 9px; font-weight: 800; background: #CCFF00; color: #000000; padding: 2px 6px; border-radius: 4px; }
-
-    .r-product-title {
+        padding: 11px 16px;
         font-size: 13px;
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .r-desc {
-        font-size: 11px;
-        color: var(--text-muted);
-        line-height: 1.4;
-        margin-bottom: 10px;
-    }
-
-    .r-metric-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 11px;
-        border-top: 1px solid #EEF2F6;
-        padding-top: 8px;
-    }
-
-    .rich-actions-row {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .mt-10 { margin-top: 10px; }
-
-    /* CHAT INPUT AREA */
-    .chat-input-wrapper {
-        padding: 16px 24px;
-        background: #FFFFFF;
-        border-top: 1px solid var(--border-light);
-    }
-
-    .chat-input-bar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: #F1F5F9;
-        border: 1px solid #E2E8F0;
-        border-radius: 14px;
-        padding: 6px 10px;
+        color: var(--text-main);
+        outline: none;
         transition: all 0.2s;
     }
 
-    .chat-input-bar:focus-within {
+    .chat-input-field:focus {
+        border-color: #10B981;
         background: #FFFFFF;
-        border-color: #CCFF00;
-        box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.25);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
     }
 
-    .attach-btn, .voice-btn {
-        background: transparent;
+    .btn-send-glossy {
+        background: #0B131B;
+        color: #CCFF00;
         border: none;
-        cursor: pointer;
-        padding: 6px;
-        display: flex;
-        align-items: center;
-    }
-
-    .chat-input-bar input {
-        flex: 1;
-        border: none;
-        background: transparent;
-        outline: none;
+        border-radius: 12px;
+        padding: 11px 18px;
         font-size: 13px;
-        color: var(--text-main);
-    }
-
-    .send-btn {
-        width: 36px;
-        height: 36px;
-        background: #CCFF00;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.15s;
-    }
-
-    .send-btn:hover {
-        transform: scale(1.05);
-    }
-
-    .chat-suggestions-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 10px;
-        overflow-x: auto;
-    }
-
-    .saran-lbl {
-        font-size: 10px;
         font-weight: 800;
-        color: #94A3B8;
-    }
-
-    .chip-saran {
-        background: #F8FAFC;
-        border: 1px solid #E2E8F0;
-        border-radius: 20px;
-        padding: 4px 10px;
-        font-size: 11px;
-        color: #475569;
         cursor: pointer;
-        white-space: nowrap;
-        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
     }
 
-    .chip-saran:hover {
-        background: #FFFFFF;
-        border-color: #CBD5E1;
-        color: #000000;
+    .btn-send-glossy:hover {
+        background: #162432;
+        transform: translateY(-1px);
     }
 
     @media (max-width: 1024px) {
-        .juragan-layout-grid {
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-        .juragan-header-bar {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 14px;
-        }
-        .business-health-badge {
-            align-self: flex-start;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .message-row {
-            max-width: 96%;
-        }
-        .chat-input-wrapper {
-            padding: 12px 14px;
-        }
-        .chat-messages-stream {
-            padding: 16px 12px;
-        }
-        .j-title {
-            font-size: 22px;
-        }
-        .j-model-pill {
-            font-size: 10px;
+        .dash-columns {
+            grid-template-columns: 1fr !important;
         }
     }
 </style>
@@ -907,6 +509,98 @@
 
 @push('scripts')
 <script>
+    let isVoiceAIActive = false;
+
+    function toggleVoiceAI() {
+        isVoiceAIActive = !isVoiceAIActive;
+        const btn = document.getElementById('btnToggleVoiceAI');
+        const lbl = document.getElementById('voiceAILabel');
+        const icon = document.getElementById('voiceAIIcon');
+
+        if (isVoiceAIActive) {
+            btn.style.background = 'rgba(16, 185, 129, 0.15)';
+            btn.style.borderColor = '#10B981';
+            btn.style.color = '#10B981';
+            lbl.textContent = 'Voice AI: Aktif';
+            showToast('Voice AI Aktif: Kesimpulan jawaban AI akan dibacakan otomatis.');
+            // Test speak confirmation
+            speakExecutiveSummary('Voice AI aktif. Saya akan membacakan inti ringkasan jawaban untuk Juragan.');
+        } else {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            btn.style.background = '';
+            btn.style.borderColor = '#334155';
+            btn.style.color = '';
+            lbl.textContent = 'Voice AI: Nonaktif';
+            showToast('Voice AI dinonaktifkan.');
+        }
+    }
+
+    function extractExecutiveSummary(rawText) {
+        if (!rawText) return '';
+        // 1. Remove markdown bold, headers, list tokens, backticks, urls
+        let clean = rawText
+            .replace(/#{1,6}\s+/g, '')
+            .replace(/\*\*(.*?)\*\*/g, '$1')
+            .replace(/\*(.*?)\*/g, '$1')
+            .replace(/`{1,3}[^`]*`{1,3}/g, '')
+            .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+            .replace(/^[\*\-\•\d+\.]\s+/gm, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        // 2. Look for summary sentences or keywords like "Kesimpulan", "Rekomendasi", "Saran"
+        const sentences = clean.split(/(?<=[.!?])\s+/).filter(s => s.trim().length > 10);
+        
+        let summary = '';
+        // Find if any sentence explicitly contains recommendation/conclusion
+        const highlightSentence = sentences.find(s => 
+            /kesimpulan|rekomendasi|saran|langkah|solusi|peluang|sebaiknya/i.test(s)
+        );
+
+        if (highlightSentence && highlightSentence.length < 200) {
+            summary = highlightSentence;
+        } else if (sentences.length > 0) {
+            // Take the first 1-2 concise sentences
+            summary = sentences.slice(0, 2).join(' ');
+        } else {
+            summary = clean.slice(0, 180);
+        }
+
+        if (summary.length > 220) {
+            summary = summary.slice(0, 217) + '...';
+        }
+        return summary;
+    }
+
+    function speakExecutiveSummary(rawText) {
+        if (!('speechSynthesis' in window)) {
+            showToast('Browser Anda belum mendukung text-to-speech.');
+            return;
+        }
+
+        const summaryText = extractExecutiveSummary(rawText);
+        if (!summaryText) return;
+
+        window.speechSynthesis.cancel(); // Stop current speech
+        const utterance = new SpeechSynthesisUtterance(summaryText);
+        utterance.lang = 'id-ID';
+        utterance.rate = 1.05;
+        utterance.pitch = 1.0;
+
+        // Try to pick Indonesian voice if available
+        const voices = window.speechSynthesis.getVoices();
+        const idVoice = voices.find(v => v.lang.startsWith('id') || v.lang.includes('ID') || v.name.toLowerCase().includes('indonesia'));
+        if (idVoice) {
+            utterance.voice = idVoice;
+        }
+
+        window.speechSynthesis.speak(utterance);
+        showToast('Memutar suara ringkasan AI...');
+    }
+
     function sendQuickPrompt(text) {
         document.getElementById('userChatInput').value = text;
         sendMessage();
@@ -927,34 +621,34 @@
 
         // Append User Message
         const userHtml = `
-            <div class="message-row user-row">
-                <div class="msg-bubble user-bubble">
-                    <p>${text}</p>
-                    <span class="msg-time">Baru saja • Terkirim</span>
+            <div class="msg-row user-row">
+                <img class="msg-avatar-user" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80" alt="User">
+                <div class="msg-bubble-user">
+                    <p style="margin: 0;">${text}</p>
+                    <span class="msg-time-user">Baru saja • Terkirim</span>
                 </div>
-                <img class="user-msg-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80" alt="User">
             </div>
         `;
         stream.insertAdjacentHTML('beforeend', userHtml);
         input.value = '';
         stream.scrollTop = stream.scrollHeight;
 
-        // Tampilkan Indikator AI Sedang Berpikir
+        // Loading Indicator
         const loadingId = 'aiLoading_' + Date.now();
         const loadingHtml = `
-            <div id="${loadingId}" class="message-row ai-row">
-                <div class="msg-avatar">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+            <div id="${loadingId}" class="msg-row ai-row">
+                <div class="msg-avatar-ai">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
                 </div>
-                <div class="msg-bubble ai-bubble" style="color: #94A3B8; font-style: italic;">
-                    <p>Juragan AI sedang menganalisis data toko...</p>
+                <div class="msg-bubble-ai" style="color: #64748B; font-style: italic;">
+                    <p style="margin: 0;">Juragan AI sedang menganalisis data gerai Anda...</p>
                 </div>
             </div>
         `;
         stream.insertAdjacentHTML('beforeend', loadingHtml);
         stream.scrollTop = stream.scrollHeight;
 
-        // Panggil Backend Laravel (Gemini 3.8 Flash + Grounded Store Context)
+        // Call Backend API
         fetch("{{ route('juragan.chat') }}", {
             method: 'POST',
             headers: {
@@ -970,42 +664,86 @@
 
             let replyText = data.reply || 'Maaf Juragan, sistem AI sedang merefresh koneksi data.';
             
-            // Pembersihan tanda-tanda aneh markdown
+            // Clean Markdown format
             replyText = replyText
-                .replace(/^---$/gm, '')                            // Hapus garis horizontal ---
-                .replace(/^#{1,4}\s*(.*)$/gm, '<strong style="color: #0F172A; display: block; margin: 10px 0 4px 0; font-size: 14px;">$1</strong>') // Ubah ### menjadi sub-judul elegan
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Bold **teks**
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')              // Italic *teks*
-                .replace(/^[\*\-]\s+(.*)$/gm, '<span style="display: block; margin-left: 12px;">• $1</span>') // Bullet rapi
-                .replace(/\n\n+/g, '<br><br>')                     // Paragraf baru bersih
-                .replace(/\n/g, '<br>');                           // Baris baru
+                .replace(/^---$/gm, '')
+                .replace(/^#{1,4}\s*(.*)$/gm, '<strong style="color: #0F172A; display: block; margin: 10px 0 4px 0; font-size: 13.5px;">$1</strong>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/^[\*\-]\s+(.*)$/gm, '<span style="display: block; margin-left: 10px;">• $1</span>')
+                .replace(/\n\n+/g, '<br><br>')
+                .replace(/\n/g, '<br>');
+
+            let actionHtml = '';
+            if (data.action && (data.action.type === 'stock_updated' || data.action.type === 'stock_created')) {
+                actionHtml = `
+                    <div style="margin-top: 12px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 12px 14px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #10B981; font-size: 13px;">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                            <span>EKSEKUSI STOK BERHASIL</span>
+                        </div>
+                        <div style="font-size: 12px; color: #334155; margin-top: 5px;">
+                            Produk: <strong>${data.action.product_name}</strong> &bull; Perubahan: <span style="font-weight: 800; color: #10B981;">${data.action.delta} unit</span> &bull; Total Stok Sekarang: <strong>${data.action.new_stock} unit</strong>
+                        </div>
+                    </div>
+                `;
+            }
+
+            let suggestionsHtml = '';
+            if (data.suggestions && data.suggestions.length > 0) {
+                let chips = data.suggestions.map(sug => {
+                    if (sug.type === 'button') {
+                        return `<button type="button" onclick="executeAiAction('${sug.action}')" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 8px; background: linear-gradient(135deg, #10B981, #059669); color: #FFFFFF; font-size: 12px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">${sug.label}</button>`;
+                    } else {
+                        return `<a href="${sug.url}" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: #0B131B; color: #34D399; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid rgba(52, 211, 153, 0.3); transition: all 0.2s;" onmouseover="this.style.background='#10B981'; this.style.color='#FFFFFF'" onmouseout="this.style.background='#0B131B'; this.style.color='#34D399'">${sug.label}</a>`;
+                    }
+                }).join('');
+
+                suggestionsHtml = `
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(0,0,0,0.1);">
+                        ${chips}
+                    </div>
+                `;
+            }
 
             const aiHtml = `
-                <div class="message-row ai-row">
-                    <div class="msg-avatar">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                <div class="msg-row ai-row">
+                    <div class="msg-avatar-ai">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
                     </div>
-                    <div class="msg-bubble ai-bubble" style="line-height: 1.6;">
-                        <p>${replyText}</p>
-                        <span class="msg-time">${data.timestamp || 'Baru saja'} • Live Gemini 3.8 Flash</span>
+                    <div class="msg-bubble-ai">
+                        <div style="margin: 0; line-height: 1.6;">${replyText}</div>
+                        ${actionHtml}
+                        ${suggestionsHtml}
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; pt: 4px;">
+                            <span class="msg-time-ai">${data.timestamp || 'Baru saja'} • Juragan AI Live</span>
+                            <button type="button" onclick="speakExecutiveSummary(decodeURIComponent('${encodeURIComponent(data.reply || '')}'))" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #10B981; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75Z"/></svg>
+                                <span>Dengarkan Kesimpulan</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
             stream.insertAdjacentHTML('beforeend', aiHtml);
             stream.scrollTop = stream.scrollHeight;
+
+            if (isVoiceAIActive && data.reply) {
+                speakExecutiveSummary(data.reply);
+            }
         })
         .catch(error => {
             const loadingElem = document.getElementById(loadingId);
             if (loadingElem) loadingElem.remove();
 
             const errorHtml = `
-                <div class="message-row ai-row">
-                    <div class="msg-avatar">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                <div class="msg-row ai-row">
+                    <div class="msg-avatar-ai">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
                     </div>
-                    <div class="msg-bubble ai-bubble" style="border-left: 3px solid #DC2626;">
-                        <p>Koneksi ke AI Cloud terputus. Silakan ulangi pertanyaan Anda, Juragan.</p>
-                        <span class="msg-time">Gagal sinkronisasi</span>
+                    <div class="msg-bubble-ai" style="border-left: 3px solid #DC2626;">
+                        <p style="margin: 0;">Koneksi ke AI Cloud terputus. Silakan ulangi pertanyaan Anda, Juragan.</p>
+                        <span class="msg-time-ai">Gagal sinkronisasi</span>
                     </div>
                 </div>
             `;
@@ -1013,6 +751,77 @@
             stream.scrollTop = stream.scrollHeight;
         });
     }
+
+    function executeAiAction(actionName) {
+        showToast('Memproses instruksi otomatis Juragan AI...');
+        fetch("{{ route('juragan.action_execute') }}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ action: actionName })
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.status === 'success') {
+                if (typeof larisAlert === 'function') {
+                    larisAlert('Aksi AI Berhasil Dijalankan!', res.message, 'success');
+                } else {
+                    showToast(res.message);
+                }
+                const stream = document.getElementById('chatStream');
+                const successMsgHtml = `
+                    <div class="msg-row ai-row">
+                        <div class="msg-avatar-ai">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+                        </div>
+                        <div class="msg-bubble-ai">
+                            <p style="margin: 0; font-weight: 700; color: #10B981; display: flex; align-items: center; gap: 6px;"><svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg> <span>Instruksi Selesai: ${res.message}</span></p>
+                            <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                                <a href="{{ route('inventory.index') }}" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: #0B131B; color: #34D399; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid rgba(52, 211, 153, 0.3);">Lihat di Smart Inventory ↗</a>
+                                <a href="{{ route('predict.index') }}" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: #0B131B; color: #34D399; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid rgba(52, 211, 153, 0.3);">Uji di LARIS Predict ↗</a>
+                            </div>
+                            <span class="msg-time-ai">Baru saja • Juragan AI Engine</span>
+                        </div>
+                    </div>
+                `;
+                stream.insertAdjacentHTML('beforeend', successMsgHtml);
+                stream.scrollTop = stream.scrollHeight;
+            } else {
+                if (typeof larisAlert === 'function') {
+                    larisAlert('Gagal Eksekusi', res.message || 'Terjadi kesalahan sistem.', 'warning');
+                } else {
+                    showToast(res.message || 'Gagal eksekusi aksi.');
+                }
+            }
+        })
+        .catch(err => {
+            showToast('Gagal menghubungi server aksi.');
+        });
+    }
+
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.style.position = 'fixed';
+        toast.style.bottom = '24px';
+        toast.style.right = '24px';
+        toast.style.background = '#0B131B';
+        toast.style.color = '#CCFF00';
+        toast.style.border = '1px solid #10B981';
+        toast.style.padding = '12px 20px';
+        toast.style.borderRadius = '12px';
+        toast.style.fontSize = '12.5px';
+        toast.style.fontWeight = '700';
+        toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+        toast.style.zIndex = '9999';
+        toast.textContent = message;
+
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 400);
+        }, 3200);
+    }
 </script>
 @endpush
-@endsection

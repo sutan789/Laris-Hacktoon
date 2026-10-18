@@ -1,326 +1,383 @@
-@extends('layouts.app', ['title' => 'LARIS Predict - What If I Sell This?'])
+@extends('layouts.app', ['title' => 'LARIS Predict - Analisis & Prediksi Kelayakan Produk'])
 
 @section('content')
 <div class="predict-page">
 
-    <!-- TOP NOTICE STRIP -->
-    <div class="insight-strip-dark">
-        <div class="strip-left">
-            <div class="strip-icon-box">
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
+    <!-- 1. GLOSSY HEADER BAR -->
+    <div class="dash-header">
+        <div class="header-main-info">
+            <div class="greeting-row">
+                <h1 class="page-greeting">LARIS <span class="store-gradient-name">Predict</span></h1>
+                <span class="verified-store-badge">
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="#10B981"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                    <span>Analisis Presisi</span>
+                </span>
+                <span class="live-status-pill">
+                    <span class="pulse-dot"></span>
+                    <span>AI Model v3.8 (Real-time Market Sync)</span>
+                </span>
             </div>
-            <div>
-                <div class="strip-tag">Juragan AI Insight Strip •</div>
-                <p>Pasar perlengkapan viral di area tokomu naik <strong>+142%</strong> pekan ini. Gunakan simulator di bawah untuk mengukur proyeksi laba bersih.</p>
-            </div>
+            <p class="page-subtitle">Analisis kelayakan permintaan pasar, proyeksi margin laba, dan estimasi titik impas produk baru sebelum belanja modal stok.</p>
         </div>
-        <div class="strip-meta">
-            <span class="live-dot-green"></span>
-            <span>Model v3.8 - Real-time Big Data MSME</span>
-        </div>
-    </div>
 
-    <!-- MAIN PAGE TITLE -->
-    <div class="predict-header-row">
-        <div>
-            <div class="presisi-pill">● SIMULASI BISNIS PRESISI</div>
-            <h1 class="p-main-title">What If I Sell This?</h1>
-            <p class="p-sub-desc">AI Market Demand, Pricing, & Profitability Simulator for Indonesian MSMEs (Juragan Pintar)</p>
-        </div>
-        <div class="header-action-group">
-            <button class="btn-dark" onclick="resetForm()">
+        <div class="dash-actions">
+            <button type="button" class="btn-timeframe-glossy" onclick="resetForm()">
                 <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
-                <span>Simulasi Baru</span>
+                <span>Reset Parameter</span>
             </button>
-            <button type="button" class="btn-outline" onclick="openHistoryModal()">
+            <button type="button" class="btn-timeframe-glossy" onclick="openHistoryModal()">
                 <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"/></svg>
-                <span>Riwayat (12)</span>
+                <span>Riwayat Skenario ({{ isset($historyPredictions) ? $historyPredictions->count() : 0 }})</span>
             </button>
         </div>
     </div>
 
-    <!-- TWO COLUMN SIMULATOR LAYOUT -->
-    <div class="simulator-grid">
+    <!-- 2. AI INSIGHT CAPSULE (GLOSSY & MEWAH) -->
+    <div class="instant-insight-banner">
+        <div class="insight-left">
+            <div class="ai-gem-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+            </div>
+            <div class="insight-text">
+                <div class="insight-tag">ANALISIS PASAR SEKITAR TOKO</div>
+                <p>Permintaan produk pop-culture stationery di area tokomu naik <strong>+142%</strong> pekan ini. Gunakan simulator di bawah untuk mengukur proyeksi laba bersih dan titik impas (BEP).</p>
+            </div>
+        </div>
+        <div class="insight-badge-pill">
+            <span class="dot-green"></span>
+            <span>Akurasi Prediksi 91.4%</span>
+        </div>
+    </div>
+
+    <!-- 3. MAIN TWO-COLUMN SIMULATOR LAYOUT -->
+    <div class="dash-columns">
         
-        <!-- SISI KIRI: FORM PARAMETER PRODUK BARU -->
-        <div class="sim-left-col">
-            <div class="card-panel">
-                <div class="form-sec-head">
-                    <div class="flex-align gap-8">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/></svg>
-                        <h3 class="sec-heading">Parameter Produk Baru</h3>
+        <!-- KOLOM KIRI: FORM PARAMETER PRODUK BARU -->
+        <div class="col-left">
+            <div class="card-panel mb-24">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <div class="panel-icon-circle">
+                            <svg width="18" height="18" fill="none" stroke="#10B981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="panel-title">Parameter Produk Baru</h3>
+                            <p class="panel-subtitle">Masukkan rencana modal dan target harga jual produk</p>
+                        </div>
                     </div>
-                    <span class="step-tag">Langkah 1/2</span>
+                    <span class="tag-pill-glossy">LANGKAH 1/2</span>
+                </div>
+
+                <!-- PRESET CEPAT TREN VIRAL -->
+                <div class="preset-strip-wrap mb-16">
+                    <span class="preset-label">Uji Cepat Produk Tren Viral:</span>
+                    <div class="preset-chips-scroll">
+                        <button type="button" class="preset-chip active" onclick="selectPreset('Pensil Labubu Blind Box', 'Stationery & Giftware (Pop Culture)', 22000, 35000, 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Labubu Blind Box</span>
+                        </button>
+                        <button type="button" class="preset-chip" onclick="selectPreset('Kopi Drip Bag Specialty Arabika', 'Kopi & Minuman Kemasan', 16000, 28000, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Kopi Drip Bag</span>
+                        </button>
+                        <button type="button" class="preset-chip" onclick="selectPreset('Tumbler Pastel Stainless 1200ml', 'Aksesoris & Lifestyle', 48000, 79000, 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Tumbler Pastel</span>
+                        </button>
+                        <button type="button" class="preset-chip" onclick="selectPreset('Kabel Fast Charging 65W Braided', 'Aksesoris & Lifestyle', 18000, 35000, 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Kabel Fast Charge</span>
+                        </button>
+                        <button type="button" class="preset-chip" onclick="selectPreset('Beras Pandan Wangi Super 5kg', 'Kebutuhan Pokok / Sembako', 68000, 78000, 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Beras Pandan Super</span>
+                        </button>
+                        <button type="button" class="preset-chip" onclick="selectPreset('Paket Ayam Geprek Sambal Korek', 'Kuliner & F&B', 14000, 22000, 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&auto=format&fit=crop&q=80', this)">
+                            <span>Ayam Geprek Korek</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI VISUAL TREND LENS & UPLOAD GAMBAR PRODUK -->
+                <div class="visual-lens-card mb-20" style="background: linear-gradient(135deg, #0B131B 0%, #162432 100%); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 16px; padding: 18px 20px; color: #FFFFFF; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.2); display: flex; align-items: center; justify-content: center; color: #34D399;">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 13.5px; font-weight: 800; color: #FFFFFF; margin: 0;">AI Visual Trend Lens</h4>
+                                <p style="font-size: 11px; color: #94A3B8; margin: 0;">Unggah foto produk atau tempel URL untuk deteksi otomatis radar tren &amp; HPP</p>
+                            </div>
+                        </div>
+                        <span style="font-size: 10px; font-weight: 800; background: rgba(52, 211, 153, 0.2); color: #34D399; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(52, 211, 153, 0.3);">LENS ACTIVE</span>
+                    </div>
+
+                    <!-- Upload Dropzone / URL Input -->
+                    <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;">
+                        <input type="file" id="visualLensFileInput" accept="image/*" style="display: none;" onchange="handleVisualLensUpload(event)">
+                        <button type="button" onclick="document.getElementById('visualLensFileInput').click()" style="background: rgba(255, 255, 255, 0.08); border: 1px dashed rgba(52, 211, 153, 0.5); border-radius: 10px; padding: 10px 14px; color: #E2E8F0; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+                            <svg width="16" height="16" fill="none" stroke="#34D399" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                            <span id="lensUploadBtnText">Pilih Foto Produk / Drag File Disini</span>
+                        </button>
+                        <button type="button" onclick="promptImageUrl()" style="background: #10B981; color: #0B131B; border: none; border-radius: 10px; padding: 10px 14px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap;">
+                            + Tempel URL Foto
+                        </button>
+                    </div>
+
+                    <!-- Live Scanner Result Container -->
+                    <div id="lensResultBox" style="display: none; margin-top: 12px; padding: 12px; background: rgba(0, 0, 0, 0.35); border-radius: 10px; border: 1px solid rgba(52, 211, 153, 0.25);">
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <img id="lensPreviewImg" src="" alt="Preview" style="width: 48px; height: 48px; border-radius: 8px; object-fit: cover; border: 1px solid #34D399;">
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <strong id="lensDetectedName" style="font-size: 13px; color: #CCFF00; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</strong>
+                                    <span id="lensDetectedRadar" style="font-size: 10px; background: rgba(16, 185, 129, 0.3); color: #34D399; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Radar Match</span>
+                                </div>
+                                <div id="lensDetectedDesc" style="font-size: 11px; color: #CBD5E1; margin-top: 2px; line-height: 1.3;">-</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <form id="predictForm" onsubmit="event.preventDefault(); runPrediction();">
-                    <!-- NAMA PRODUK -->
-                    <div class="form-group">
-                        <div class="label-row">
-                            <label for="productName">Nama Produk Rencana</label>
-                            <span class="required-tag">Wajib diisi</span>
-                        </div>
-                        <div class="input-with-icon">
-                            <svg width="16" height="16" fill="none" stroke="#94A3B8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
-                            <input type="text" id="productName" value="{{ $prefill['product_name'] ?? 'Pensil Labubu Premium Edition' }}" required>
+                    <!-- NAMA PRODUK DENGAN THUMBNAIL DINAMIS -->
+                    <div class="form-group-glossy">
+                        <label for="productName" class="form-label-glossy">Nama Produk Rencana</label>
+                        <div class="input-with-thumb-wrap">
+                            <div class="form-input-thumb-box">
+                                <img id="formThumbImg" src="{{ $prefill['image_url'] ?? 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=100&auto=format&fit=crop&q=80' }}" alt="Thumb" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=100&auto=format&fit=crop&q=80';">
+                            </div>
+                            <input type="text" id="productName" class="input-field-glossy input-with-thumb" value="{{ $prefill['product_name'] ?? 'Pensil Labubu Blind Box' }}" placeholder="Contoh: Kopi Susu Aren Literan" required oninput="handleProductNameChange()">
                         </div>
                     </div>
 
                     <!-- KATEGORI TREN PASAR -->
-                    <div class="form-group">
-                        <label for="categorySelect">Kategori Tren Pasar</label>
-                        <select id="categorySelect">
-                            <option {{ ($prefill['category'] ?? '') === 'Stationery & Toys' ? 'selected' : '' }}>Stationery & Toys (Viral Pop Culture)</option>
+                    <div class="form-group-glossy">
+                        <label for="categorySelect" class="form-label-glossy">Kategori Tren Pasar</label>
+                        <select id="categorySelect" class="select-field-glossy" onchange="handleCategoryChange()">
+                            <option {{ ($prefill['category'] ?? '') === 'Stationery & Giftware (Pop Culture)' || ($prefill['category'] ?? '') === 'Stationery & Giftware' ? 'selected' : '' }}>Stationery & Giftware (Pop Culture)</option>
                             <option {{ ($prefill['category'] ?? '') === 'Kopi & Minuman Kemasan' ? 'selected' : '' }}>Kopi & Minuman Kemasan</option>
                             <option {{ ($prefill['category'] ?? '') === 'Kebutuhan Pokok / Sembako' ? 'selected' : '' }}>Kebutuhan Pokok / Sembako</option>
-                            <option {{ ($prefill['category'] ?? '') === 'Aksesoris Gadget' ? 'selected' : '' }}>Aksesoris Gadget</option>
-                            <option {{ ($prefill['category'] ?? '') === 'Lifestyle & Fashion' ? 'selected' : '' }}>Lifestyle & Fashion</option>
+                            <option {{ ($prefill['category'] ?? '') === 'Aksesoris & Lifestyle' ? 'selected' : '' }}>Aksesoris & Lifestyle</option>
+                            <option {{ ($prefill['category'] ?? '') === 'Fashion & Pakaian' ? 'selected' : '' }}>Fashion & Pakaian</option>
+                            <option {{ ($prefill['category'] ?? '') === 'Kuliner & F&B' ? 'selected' : '' }}>Kuliner & F&B</option>
                         </select>
                     </div>
 
                     <!-- INPUT HARGA MODAL & HARGA JUAL -->
                     <div class="form-row-2col">
-                        <div class="form-group">
-                            <label for="costPrice">Modal / HPP (Rp)</label>
-                            <input type="number" id="costPrice" value="{{ $prefill['cost_price'] ?? 8500 }}" oninput="calculateMargin()">
+                        <div class="form-group-glossy">
+                            <label for="costPrice" class="form-label-glossy">Modal / HPP (Rp)</label>
+                            <input type="number" id="costPrice" class="input-field-glossy" value="{{ $prefill['cost_price'] ?? 22000 }}" oninput="calculateMargin()">
                         </div>
-                        <div class="form-group">
-                            <label for="sellPrice">Harga Jual (Rp)</label>
-                            <input type="number" id="sellPrice" value="{{ $prefill['selling_price'] ?? 18000 }}" oninput="calculateMargin()">
+                        <div class="form-group-glossy">
+                            <label for="sellPrice" class="form-label-glossy">Harga Jual Target (Rp)</label>
+                            <input type="number" id="sellPrice" class="input-field-glossy" value="{{ $prefill['selling_price'] ?? 35000 }}" oninput="calculateMargin()">
                         </div>
                     </div>
 
                     <!-- GROSS MARGIN BOX AUTO CALC -->
-                    <div class="gross-margin-auto-box">
+                    <div class="gross-margin-card-glossy">
                         <div class="gm-left">
-                            <span class="pct-icon">%</span>
+                            <div class="gm-icon-circle">%</div>
                             <div>
                                 <span class="gm-label">Estimasi Gross Margin</span>
-                                <span class="gm-sub" id="profitPerUnit">Keuntungan per unit: Rp 9.500</span>
+                                <span class="gm-sub" id="profitPerUnit">Keuntungan per unit: Rp 13.000</span>
                             </div>
                         </div>
-                        <span class="gm-pct-badge" id="marginBadge">52.8%</span>
+                        <span class="gm-pct-pill" id="marginBadge">37.1%</span>
                     </div>
 
                     <!-- RENCANA STOK AWAL -->
-                    <div class="form-group mt-16">
-                        <div class="label-row">
-                            <label>Rencana Stok Awal (Batch 1)</label>
-                            <span class="stock-highlight" id="batchDisplay">50 Pcs</span>
+                    <div class="form-group-glossy mt-16">
+                        <div class="label-flex-between">
+                            <label class="form-label-glossy">Rencana Pembelian Stok Awal</label>
+                            <span class="stock-active-badge" id="batchDisplay">50 Pcs</span>
                         </div>
-                        <div class="stock-chips-row">
-                            <button type="button" class="stock-chip" onclick="setBatch(10, '10 pcs (Trial)')">10 pcs (Trial)</button>
-                            <button type="button" class="stock-chip active" onclick="setBatch(50, '50 pcs (Scale)')">50 pcs (Scale)</button>
-                            <button type="button" class="stock-chip" onclick="setBatch(100, '100 pcs')">100 pcs</button>
-                            <button type="button" class="stock-chip" onclick="setBatch(250, '250 pcs (Grosir)')">250 pcs (Grosir)</button>
-                        </div>
-                    </div>
-
-                    <!-- TARGET SALURAN PENJUALAN -->
-                    <div class="form-group">
-                        <label>Target Saluran Penjualan</label>
-                        <div class="channels-checkbox-grid">
-                            <label class="channel-pill active">
-                                <input type="checkbox" checked>
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                                <span>Shopee</span>
-                            </label>
-                            <label class="channel-pill active">
-                                <input type="checkbox" checked>
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                                <span>TikTok Shop</span>
-                            </label>
-                            <label class="channel-pill active">
-                                <input type="checkbox" checked>
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                                <span>Tokopedia</span>
-                            </label>
-                            <label class="channel-pill active">
-                                <input type="checkbox" checked>
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                                <span>Offline Store</span>
-                            </label>
+                        <div class="stock-chips-grid">
+                            <button type="button" class="stock-chip-glossy" onclick="setBatch(10, '10 pcs (Trial)', this)">10 pcs (Trial)</button>
+                            <button type="button" class="stock-chip-glossy active" onclick="setBatch(50, '50 pcs (Scale)', this)">50 pcs (Rekomendasi)</button>
+                            <button type="button" class="stock-chip-glossy" onclick="setBatch(100, '100 pcs', this)">100 pcs</button>
+                            <button type="button" class="stock-chip-glossy" onclick="setBatch(250, '250 pcs (Grosir)', this)">250 pcs (Grosir)</button>
                         </div>
                     </div>
 
                     <!-- CTA BUTTON -->
-                    <button type="submit" class="btn-lime w-full text-center sim-submit-btn">
-                        <span>ANALYZE WITH LARIS</span>
+                    <button type="submit" class="btn-predict-cta">
+                        <span>Uji Kelayakan dengan Juragan AI</span>
                         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </button>
                 </form>
             </div>
 
             <!-- BENCHMARK KATEGORI SERUPA -->
-            <div class="card-panel benchmark-card mt-16">
-                <img class="bench-thumb" src="https://images.unsplash.com/photo-1585336261026-784860010041?w=80&auto=format&fit=crop&q=80" alt="Thumb">
+            <div class="card-panel benchmark-card-glossy">
+                <div class="bench-icon-circle">
+                    <svg width="20" height="20" fill="none" stroke="#10B981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                </div>
                 <div>
-                    <span class="bench-tag">BENCHMARK KATEGORI SERUPA</span>
-                    <h5 class="bench-name">Gantungan Kunci Viral V1</h5>
-                    <span class="bench-stat">Tingkat Penjualan <strong>94%</strong> dalam 18 Hari</span>
+                    <span class="bench-tag">BENCHMARK PRODUK SERUPA TERLARIS</span>
+                    <h5 class="bench-name">Gantungan Kunci Karakter V1</h5>
+                    <span class="bench-stat">Terjual <strong>94%</strong> dalam 14 hari pertama dengan kepuasan bintang 4.9.</span>
                 </div>
             </div>
         </div>
 
-        <!-- SISI KANAN: HASIL PREDIKSI KECERDASAN BUATAN -->
-        <div class="sim-right-col">
-            <div class="card-panel result-main-panel">
+        <!-- KOLOM KANAN: HASIL PREDIKSI AI (GLOSSY & MEWAH) -->
+        <div class="col-right">
+            <div class="card-panel mb-24">
                 
-                <div class="result-header">
-                    <span class="res-sub-head">HASIL PREDIKSI KECERDASAN BUATAN</span>
-                    <div class="flex-align gap-8">
-                        <h2 class="res-title">Skor Potensi Produk</h2>
-                        <span class="verified-icon">
-                            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                <div class="panel-header">
+                    <div>
+                        <span class="tag-pill-glossy" style="margin-bottom: 6px; display: inline-block;">HASIL ANALISIS PREDIKSI AI</span>
+                        <h3 class="panel-title">Skor Potensi Keberhasilan</h3>
+                    </div>
+                    <span class="confidence-pill-glossy">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        <span>88.2% Confidence (Juragan AI)</span>
+                    </span>
+                </div>
+
+                <!-- SHOWCASE KARTU PRODUK TERUJI DENGAN FOTO REAL -->
+                <div class="product-preview-card-glossy">
+                    <div class="prod-preview-thumb-box">
+                        <img id="simProductImg" src="{{ $prefill['image_url'] ?? 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&auto=format&fit=crop&q=80' }}" alt="Preview Produk" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=300&auto=format&fit=crop&q=80';">
+                        <span class="preview-badge-live">
+                            <span class="pulse-dot"></span>
+                            <span>Produk Teruji</span>
                         </span>
                     </div>
-                </div>
-
-                <div class="result-top-metrics">
-                    <div class="score-banner-box">
-                        <div class="confidence-strip">
-                            <span style="display: inline-flex; align-items: center; gap: 4px;">
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-                                88.2% Confidence
-                            </span>
-                            <span class="conf-lbl">Tingkat Keyakinan</span>
+                    <div class="prod-preview-info">
+                        <div class="preview-cat-row">
+                            <span class="preview-cat-badge" id="simCategoryDisplay">{{ $prefill['category'] ?? 'Stationery & Giftware' }}</span>
+                            <span class="preview-time-tag">Sinkronisasi Pasar Real-Time</span>
                         </div>
-                        <div class="big-score-num">
-                            <span>87</span><small>/100</small>
-                        </div>
-                    </div>
-
-                    <div class="forecast-cards-row">
-                        <div class="f-metric-card">
-                            <span class="f-lbl">Estimasi Permintaan Awal</span>
-                            <h3 class="f-val">38 - 52 <small>pcs</small></h3>
-                            <span class="f-sub text-green" style="display: inline-flex; align-items: center; gap: 4px;">
-                                <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/></svg>
-                                Terjual dalam 14 hari pertama
-                            </span>
-                        </div>
-
-                        <div class="f-metric-card">
-                            <span class="f-lbl">Proyeksi Pendapatan (Revenue)</span>
-                            <h3 class="f-val">Rp 810.000</h3>
-                            <span class="f-sub text-green">Estimasi Laba Bersih: <strong>+Rp 427.500</strong></span>
+                        <h4 class="preview-prod-title" id="simProductNameDisplay">{{ $prefill['product_name'] ?? 'Pensil Labubu Blind Box' }}</h4>
+                        <div class="preview-pricing-row">
+                            <div class="pricing-pill">
+                                <span class="pp-lbl">HPP Modal:</span>
+                                <strong id="simCostDisplay">Rp {{ number_format($prefill['cost_price'] ?? 22000, 0, ',', '.') }}</strong>
+                            </div>
+                            <span class="pricing-arrow">&rarr;</span>
+                            <div class="pricing-pill pill-accent">
+                                <span class="pp-lbl">Target Jual:</span>
+                                <strong id="simSellDisplay">Rp {{ number_format($prefill['selling_price'] ?? 35000, 0, ',', '.') }}</strong>
+                            </div>
+                            <div class="pricing-pill pill-margin">
+                                <span class="pp-lbl">Margin:</span>
+                                <strong id="simMarginDisplay">37.1%</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- LINTASAN PROYEKSI PENDAPATAN & LABA (30 HARI) -->
-                <div class="projection-chart-box">
-                    <div class="proj-head">
+                <!-- TOP SCORE DISPLAY -->
+                <div class="predict-score-banner">
+                    <div class="score-left">
+                        <div class="score-circle-glossy">
+                            <span class="score-number" id="simScore">87</span>
+                            <span class="score-total">/100</span>
+                        </div>
                         <div>
-                            <h4>Lintasan Proyeksi Pendapatan & Laba (30 Hari)</h4>
-                            <p class="sub-muted">Kurva pertumbuhan dinamis dengan pita probabilitas LARIS</p>
+                            <h4 class="score-status-title">Peluang Sangat Tinggi</h4>
+                            <p class="score-status-desc">Risiko stok mati rendah, estimasi perputaran barang cepat di radius toko fisik Anda.</p>
                         </div>
-                        <div class="proj-legend">
-                            <span><span class="dash-black"></span> Revenue Target</span>
-                            <span><span class="dash-green"></span> Profit Curve</span>
+                    </div>
+                </div>
+
+                <!-- FORECAST METRIC ROW -->
+                <div class="forecast-two-grid">
+                    <div class="f-box-glossy">
+                        <span class="f-lbl">Estimasi Penjualan (14 Hari)</span>
+                        <h4 class="f-val">38 - 50 <small>unit</small></h4>
+                        <span class="f-sub text-green">Laju rata-rata 3 unit / hari</span>
+                    </div>
+                    <div class="f-box-glossy">
+                        <span class="f-lbl">Proyeksi Laba Bersih</span>
+                        <h4 class="f-val text-green" id="simProfit">Rp 650.000</h4>
+                        <span class="f-sub">Dari total omzet Rp 1.750.000</span>
+                    </div>
+                </div>
+
+                <!-- PROJECTION LINE CHART (SVG GLOSSY) -->
+                <div class="proj-chart-card mt-16">
+                    <div class="proj-head-flex">
+                        <div>
+                            <h4 class="proj-title">Proyeksi Titik Impas (BEP) 30 Hari</h4>
+                            <p class="proj-sub">Estimasi titik balik modal tercapai pada hari ke-14</p>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="leg-item"><span class="line-black"></span> Omzet</span>
+                            <span class="leg-item"><span class="line-green-dash"></span> Laba Bersih</span>
                         </div>
                     </div>
 
-                    <div class="chart-wrapper">
-                        <svg viewBox="0 0 540 130" class="proj-svg">
-                            <!-- Shaded BEP / Profit polygon -->
-                            <polygon points="0,120 180,100 270,75 540,15 540,120" fill="rgba(204, 255, 0, 0.15)" />
+                    <div class="chart-canvas-container">
+                        <svg viewBox="0 0 540 120" class="main-trend-svg">
+                            <line x1="0" y1="30" x2="540" y2="30" stroke="#F1F5F9" stroke-width="1" />
+                            <line x1="0" y1="70" x2="540" y2="70" stroke="#F1F5F9" stroke-width="1" />
+                            <line x1="0" y1="105" x2="540" y2="105" stroke="#F1F5F9" stroke-width="1" />
                             
-                            <!-- Curve 1: Revenue -->
-                            <path d="M 0 115 Q 180 90, 270 70 T 540 15" fill="none" stroke="#0F172A" stroke-width="2.5" />
+                            <!-- Shaded Profit Area -->
+                            <polygon points="270,70 380,45 540,15 540,110 270,110" fill="rgba(16, 185, 129, 0.12)" />
                             
-                            <!-- Curve 2: Profit -->
-                            <path d="M 0 125 Q 180 110, 270 85 T 540 40" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-dasharray="5,4" />
+                            <!-- Curve Revenue -->
+                            <path d="M 10 105 Q 180 80, 270 65 T 540 15" fill="none" stroke="#0F172A" stroke-width="3" />
+                            
+                            <!-- Curve Profit -->
+                            <path d="M 10 115 Q 180 100, 270 70 T 540 35" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="6,4" />
                             
                             <!-- BEP Point Marker -->
-                            <circle cx="270" cy="70" r="5" fill="#CCFF00" stroke="#000000" stroke-width="2" />
-                            <text x="260" y="58" font-size="9" font-weight="700" fill="#000000">Hari ke-14 (BEP)</text>
+                            <circle cx="270" cy="65" r="5" fill="#CCFF00" stroke="#0F172A" stroke-width="2" />
+                            <text x="260" y="52" font-size="9.5" font-weight="800" fill="#0F172A">Hari ke-14 (BEP)</text>
                         </svg>
-                        <div class="chart-timeline-labels">
-                            <span>Hari 1 (Peluncuran)</span>
+                        <div class="chart-x-labels">
+                            <span>Hari 1 (Mulai)</span>
                             <span>Hari 7</span>
-                            <span class="bep-text">Hari 14 (Titik Impas/BEP)</span>
+                            <span class="active-today">Hari 14 (BEP)</span>
                             <span>Hari 21</span>
                             <span>Hari 30 (Laba Maks)</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- KEY INSIGHTS & REKOMENDASI JURAGAN AI -->
-                <div class="insights-box">
-                    <div class="ins-title-row">
-                        <div class="ins-icon">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18"/></svg>
-                        </div>
-                        <div>
-                            <h4>Key Insights & Rekomendasi Juragan AI</h4>
-                            <p class="sub-muted">Analisis prediktif berbasis lokasi tokomu di Jabodetabek</p>
-                        </div>
-                    </div>
-
+                <!-- KEY INSIGHTS LIST -->
+                <div class="insights-container mt-16">
+                    <h4 class="insights-title">Rekomendasi Strategis Juragan AI:</h4>
                     <div class="insights-list">
-                        <!-- INSIGHT 1 -->
-                        <div class="ins-item">
-                            <div class="ins-item-head">
-                                <div class="flex-align gap-8">
-                                    <span class="check-green">
-                                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                                    </span>
-                                    <strong>High Demand, Low Competition in your local sub-district.</strong>
-                                </div>
-                                <span class="badge-gold">PELUANG EMAS</span>
+                        <div class="ins-item-glossy">
+                            <div class="ins-bullet">1</div>
+                            <div class="ins-content">
+                                <strong>Permintaan Tinggi di Wilayah Sekitar Toko:</strong>
+                                <p>Terdeteksi 4.200+ pencarian bulanan untuk kategori ini di radius 5 km dari toko fisik Anda, sementara penjual kompetitor lokal masih minim.</p>
                             </div>
-                            <p class="ins-desc">Ada 4.800+ pencarian bulanan untuk kata kunci labubu stationary di radius 5km toko fisikmu, dengan hanya 2 penjual aktif berstok terbatas.</p>
                         </div>
 
-                        <!-- INSIGHT 2 -->
-                        <div class="ins-item">
-                            <div class="ins-item-head">
-                                <div class="flex-align gap-8">
-                                    <span class="bolt-lime">
-                                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
-                                    </span>
-                                    <strong>Viral velocity on TikTok Shop: +142% search queries this week.</strong>
-                                </div>
-                                <span class="badge-black">VIRAL SPIKE</span>
+                        <div class="ins-item-glossy">
+                            <div class="ins-bullet">2</div>
+                            <div class="ins-content">
+                                <strong>Saran Bundling Produk:</strong>
+                                <p>Padukan dengan produk pendukung untuk menaikkan rata-rata belanja konsumen (+25% omzet per transaksi).</p>
                             </div>
-                            <p class="ins-desc">Rekomendasi format konten: Video unboxing mini stationery dengan audio trending anak sekolah berdurasi 12-18 detik.</p>
-                        </div>
-
-                        <!-- INSIGHT 3 -->
-                        <div class="ins-item">
-                            <div class="ins-item-head">
-                                <div class="flex-align gap-8">
-                                    <span class="star-icon">
-                                        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>
-                                    </span>
-                                    <strong>Recommended Bundle: Pair with Labubu Pencil Case to boost AOV by 25%.</strong>
-                                </div>
-                                <span class="badge-green-sm">+25% AOV</span>
-                            </div>
-                            <p class="ins-desc">Paket bundling seharga Rp 49.000 meningkatkan konversi keranjang belanja hingga 1.8x dibandingkan penjualan satuan.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- FOOTER BUTTONS -->
-                <div class="result-action-footer">
+                <div class="result-action-footer mt-20">
                     <div class="foot-left-actions">
-                        <button type="button" class="btn-outline" onclick="saveSimulationDraft()">
+                        <button type="button" class="btn-timeframe-glossy" onclick="saveSimulationDraft()">
                             <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"/></svg>
-                            <span>Save Simulation</span>
+                            <span>Simpan Skenario</span>
                         </button>
-                        <button type="button" class="btn-outline" onclick="exportSimulationReport()">
+                        <button type="button" class="btn-timeframe-glossy" onclick="exportSimulationReport()">
                             <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-                            <span>Export Report</span>
+                            <span>Unduh TXT</span>
                         </button>
                     </div>
-                    <form action="{{ route('predict.add_to_inventory') }}" method="POST">
+
+                    <form action="{{ route('predict.add_to_inventory') }}" method="POST" style="margin: 0;">
                         @csrf
                         <input type="hidden" name="prediction_id" value="{{ $latestPrediction ? $latestPrediction->id : 1 }}">
-                        <button type="submit" class="btn-dark">
-                            <svg width="16" height="16" fill="none" stroke="#CCFF00" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                            <span>Add to Inventory Plan</span>
+                        <button type="submit" class="btn-download-glossy" style="background: #10B981; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                            <span>Masukkan Rencana ke Gudang</span>
                         </button>
                     </form>
                 </div>
@@ -332,520 +389,687 @@
 
 </div>
 
+<!-- MODAL RIWAYAT SIMULASI GLOSSY -->
+<div id="modal-predict-history" class="laris-modal-overlay" style="position: fixed; inset: 0; background: rgba(11, 19, 27, 0.65); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px;">
+    <div class="card-panel" style="width: 100%; max-width: 560px; padding: 0; overflow: hidden; box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="panel-icon-circle">
+                    <svg width="18" height="18" fill="none" stroke="#10B981" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Riwayat Simulasi Skenario</h3>
+            </div>
+            <button type="button" onclick="closeHistoryModal()" class="alert-close-btn">&times;</button>
+        </div>
+        <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; max-height: 400px; overflow-y: auto;">
+            @if(isset($historyPredictions) && $historyPredictions->count() > 0)
+                @foreach($historyPredictions as $hist)
+                    @php
+                        $histImg = $hist->image_url ?: \App\Http\Controllers\PredictController::resolveProductImage($hist->product_name, $hist->category);
+                    @endphp
+                    <div class="op-alert-card-glossy" style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+                            <img src="{{ $histImg }}" alt="{{ $hist->product_name }}" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover; border: 1px solid #E2E8F0; flex-shrink: 0;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=80&auto=format&fit=crop&q=80';">
+                            <div style="min-width: 0;">
+                                <strong style="font-size: 13.5px; color: #0F172A; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $hist->product_name }}</strong>
+                                <div style="font-size: 11.5px; color: #64748B; margin-top: 2px;">
+                                    HPP: Rp {{ number_format($hist->cost_price, 0, ',', '.') }} • Jual: Rp {{ number_format($hist->selling_price, 0, ',', '.') }} • Margin: {{ $hist->gross_margin_pct }}% • Skor AI: <span style="color: #10B981; font-weight: 800;">{{ $hist->opportunity_score }}/100</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-timeframe-glossy" style="flex-shrink: 0;" onclick="loadSimHistory('{{ addslashes($hist->product_name) }}', {{ $hist->cost_price }}, {{ $hist->selling_price }}, '{{ addslashes($hist->category) }}', '{{ $histImg }}')">Muat</button>
+                    </div>
+                @endforeach
+            @else
+                <div style="text-align: center; color: #64748B; font-size: 13px; padding: 24px 0;">
+                    Belum ada riwayat skenario. Silakan jalankan simulasi pertama Anda di formulir sebelah kiri!
+                </div>
+            @endif
+        </div>
+        <div style="padding: 16px 24px; background: #F8FAFC; border-top: 1px solid #E2E8F0; display: flex; justify-content: flex-end;">
+            <button type="button" class="btn-timeframe-glossy" onclick="closeHistoryModal()">Tutup</button>
+        </div>
+    </div>
+</div>
+@endsection
+
 @push('styles')
 <style>
     .predict-page {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 22px;
     }
 
-    .insight-strip-dark {
-        background: #0B1215;
-        border: 1px solid #1E2D33;
+    /* Preset Strip */
+    .preset-strip-wrap {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
         border-radius: 14px;
-        padding: 14px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        padding: 10px 14px;
     }
 
-    .strip-left {
-        display: flex;
-        align-items: center;
-        gap: 14px;
+    .preset-label {
+        font-size: 11px;
+        font-weight: 800;
+        color: #475569;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        display: block;
+        margin-bottom: 8px;
     }
 
-    .strip-icon-box {
-        width: 36px;
-        height: 36px;
-        background: #162228;
+    .preset-chips-scroll {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+
+    .preset-chips-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+    .preset-chips-scroll::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 4px;
+    }
+
+    .preset-chip {
+        white-space: nowrap;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 5px 12px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #334155;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .preset-chip:hover {
+        border-color: #10B981;
+        color: #059669;
+    }
+
+    .preset-chip.active {
+        background: #0B131B;
+        color: #CCFF00;
+        border-color: #0B131B;
+    }
+
+    /* Input With Thumbnail */
+    .input-with-thumb-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-input-thumb-box {
+        width: 44px;
+        height: 44px;
         border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 1px solid #E2E8F0;
+        background: #F1F5F9;
+    }
+
+    .form-input-thumb-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .input-with-thumb {
+        flex: 1;
+    }
+
+    /* Product Preview Showcase Card (Right Column) */
+    .product-preview-card-glossy {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        box-shadow: 0 4px 18px rgba(16, 185, 129, 0.08), inset 0 1px 2px rgba(255, 255, 255, 1);
+        backdrop-filter: blur(8px);
+        margin-bottom: 18px;
+    }
+
+    .prod-preview-thumb-box {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        border-radius: 14px;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 2px solid #FFFFFF;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #F1F5F9;
+    }
+
+    .prod-preview-thumb-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .prod-preview-thumb-box:hover img {
+        transform: scale(1.08);
+    }
+
+    .preview-badge-live {
+        position: absolute;
+        bottom: 4px;
+        left: 4px;
+        right: 4px;
+        background: rgba(11, 19, 27, 0.85);
+        backdrop-filter: blur(4px);
+        color: #CCFF00;
+        font-size: 8.5px;
+        font-weight: 800;
+        padding: 2px 4px;
+        border-radius: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        gap: 4px;
     }
 
-    .strip-tag {
+    .prod-preview-info {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .preview-cat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .preview-cat-badge {
         font-size: 11px;
         font-weight: 800;
-        color: var(--accent-lime);
-        letter-spacing: 0.5px;
+        color: #059669;
+        background: #DCFCE7;
+        padding: 2px 8px;
+        border-radius: 6px;
     }
 
-    .strip-left p {
-        font-size: 13px;
-        color: #E2E8F0;
-    }
-
-    .strip-meta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 11px;
+    .preview-time-tag {
+        font-size: 10.5px;
         color: #94A3B8;
         font-weight: 600;
     }
 
-    .live-dot-green {
-        width: 7px;
-        height: 7px;
-        background: #22C55E;
-        border-radius: 50%;
-    }
-
-    /* HEADER */
-    .predict-header-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .presisi-pill {
-        display: inline-block;
-        font-size: 10px;
+    .preview-prod-title {
+        font-size: 14.5px;
         font-weight: 800;
-        letter-spacing: 1px;
-        color: #84CC16;
-        margin-bottom: 4px;
+        color: #0F172A;
+        margin: 2px 0 6px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .p-main-title {
-        font-family: 'Outfit', sans-serif;
-        font-size: 30px;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-    }
-
-    .p-sub-desc {
-        font-size: 13px;
-        color: var(--text-muted);
-    }
-
-    .header-action-group {
-        display: flex;
-        gap: 10px;
-    }
-
-    /* SIMULATOR GRID */
-    .simulator-grid {
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 24px;
-    }
-
-    .form-sec-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .sec-heading {
-        font-size: 15px;
-        font-weight: 700;
-    }
-
-    .step-tag {
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--text-muted);
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        margin-bottom: 14px;
-    }
-
-    .label-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .form-group label {
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--text-main);
-    }
-
-    .required-tag {
-        font-size: 10px;
-        color: #64748B;
-    }
-
-    .input-with-icon {
+    .preview-pricing-row {
         display: flex;
         align-items: center;
         gap: 8px;
-        background: #F8FAFC;
-        border: 1px solid #CBD5E1;
-        border-radius: 10px;
-        padding: 8px 12px;
+        flex-wrap: wrap;
     }
 
-    .input-with-icon input {
-        border: none;
-        background: transparent;
-        outline: none;
+    .pricing-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: #F1F5F9;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 11.5px;
+        color: #334155;
+    }
+
+    .pricing-pill.pill-accent {
+        background: #ECFDF5;
+        color: #065F46;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pricing-pill.pill-margin {
+        background: #0B131B;
+        color: #CCFF00;
+        font-weight: 800;
+    }
+
+    .pp-lbl {
+        font-size: 10.5px;
+        color: #64748B;
+        font-weight: 600;
+    }
+
+    .pricing-pill.pill-accent .pp-lbl {
+        color: #059669;
+    }
+
+    .pricing-arrow {
+        color: #94A3B8;
+        font-weight: 800;
+        font-size: 12px;
+    }
+
+    /* Form Styles Glossy */
+    .form-group-glossy {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+
+    .form-label-glossy {
         font-size: 13px;
+        font-weight: 700;
+        color: var(--text-main);
+    }
+
+    .input-field-glossy, .select-field-glossy {
         width: 100%;
-        color: var(--text-main);
-        font-weight: 600;
-    }
-
-    .form-group select, .form-group input[type="number"] {
-        background: #F8FAFC;
-        border: 1px solid #CBD5E1;
-        border-radius: 10px;
-        padding: 9px 12px;
-        font-size: 13px;
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 11px 16px;
+        font-size: 13.5px;
         font-weight: 600;
         color: var(--text-main);
         outline: none;
+        transition: all 0.2s;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .input-field-glossy:focus, .select-field-glossy:focus {
+        border-color: #10B981;
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
     }
 
     .form-row-2col {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 14px;
     }
 
-    .gross-margin-auto-box {
+    /* Gross Margin Card Glossy */
+    .gross-margin-card-glossy {
+        background: linear-gradient(135deg, rgba(220, 252, 231, 0.5) 0%, rgba(255, 255, 255, 0.9) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 14px;
+        padding: 12px 18px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #F0FDF4;
-        border: 1px solid #BBF7D0;
-        padding: 12px 14px;
-        border-radius: 10px;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1);
+        margin-bottom: 16px;
     }
 
     .gm-left {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
-    .pct-icon {
-        width: 28px;
-        height: 28px;
-        background: #DCFCE7;
-        color: #16A34A;
-        border-radius: 6px;
+    .gm-icon-circle {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: #10B981;
+        color: #FFFFFF;
+        font-weight: 800;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 800;
         font-size: 14px;
     }
 
     .gm-label {
-        font-size: 12px;
-        font-weight: 700;
-        color: #166534;
+        font-size: 11.5px;
+        font-weight: 800;
+        color: #059669;
+        text-transform: uppercase;
         display: block;
     }
 
     .gm-sub {
-        font-size: 10px;
-        color: #15803D;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--text-main);
     }
 
-    .gm-pct-badge {
+    .gm-pct-pill {
         font-size: 18px;
         font-weight: 800;
-        color: #166534;
+        color: #10B981;
+        background: #FFFFFF;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 4px 12px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
     }
 
-    .mt-16 { margin-top: 16px; }
+    .label-flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    .stock-highlight {
+    .stock-active-badge {
         font-size: 12px;
         font-weight: 800;
-        color: #16A34A;
+        color: #10B981;
+        background: #DCFCE7;
+        padding: 2px 8px;
+        border-radius: 8px;
     }
 
-    .stock-chips-row {
+    .stock-chips-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 6px;
+        gap: 8px;
+        margin-top: 6px;
     }
 
-    .stock-chip {
-        background: #F8FAFC;
+    .stock-chip-glossy {
+        background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 8px;
-        padding: 8px 4px;
-        font-size: 10px;
+        color: #475569;
+        font-size: 11.5px;
         font-weight: 700;
+        padding: 8px 6px;
+        border-radius: 10px;
         cursor: pointer;
+        transition: all 0.2s;
         text-align: center;
     }
 
-    .stock-chip.active {
-        background: #0B1215;
-        color: #FFFFFF;
-        border-color: #0B1215;
+    .stock-chip-glossy:hover, .stock-chip-glossy.active {
+        background: #0B131B;
+        color: #CCFF00;
+        border-color: #0B131B;
+        box-shadow: 0 4px 12px rgba(11, 19, 27, 0.2);
     }
 
-    .channels-checkbox-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-    }
-
-    .channel-pill {
-        background: #0B1215;
-        color: #FFFFFF;
-        font-size: 11px;
-        font-weight: 700;
-        padding: 8px 12px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
+    .btn-predict-cta {
+        width: 100%;
+        margin-top: 18px;
+        background: #0B131B;
+        color: #CCFF00;
+        border: 1px solid rgba(204, 255, 0, 0.3);
+        border-radius: 14px;
+        padding: 13px 20px;
+        font-size: 13.5px;
+        font-weight: 800;
         cursor: pointer;
-    }
-
-    .channel-pill input { display: none; }
-
-    .sim-submit-btn {
-        margin-top: 14px;
-        padding: 12px;
-    }
-
-    .benchmark-card {
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 12px;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.25s;
+        box-shadow: 0 6px 18px rgba(11, 19, 27, 0.25);
     }
 
-    .bench-thumb {
-        width: 48px;
-        height: 48px;
-        border-radius: 8px;
-        object-fit: cover;
+    .btn-predict-cta:hover {
+        background: #162432;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(11, 19, 27, 0.35);
+    }
+
+    /* Benchmark Card Glossy */
+    .benchmark-card-glossy {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+    }
+
+    .bench-icon-circle {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #DCFCE7;
+        color: #10B981;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
     .bench-tag {
-        font-size: 9px;
+        font-size: 10.5px;
         font-weight: 800;
-        color: var(--text-muted);
+        color: #059669;
         letter-spacing: 0.5px;
+        display: block;
+        margin-bottom: 2px;
     }
 
     .bench-name {
-        font-size: 13px;
-        font-weight: 700;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--text-main);
+        margin-bottom: 2px;
     }
 
     .bench-stat {
-        font-size: 11px;
-        color: #16A34A;
-    }
-
-    /* RIGHT COLUMN RESULTS */
-    .result-main-panel {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .res-sub-head {
-        font-size: 10px;
-        font-weight: 800;
+        font-size: 12px;
         color: var(--text-muted);
-        letter-spacing: 0.8px;
     }
 
-    .res-title {
-        font-size: 22px;
+    /* Result Panel Styles */
+    .confidence-pill-glossy {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: #F0FDF4;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #15803D;
+        font-size: 11px;
         font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 9999px;
     }
 
-    .verified-icon {
-        color: #16A34A;
+    .predict-score-banner {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(204, 255, 0, 0.05) 50%, rgba(255, 255, 255, 0.9) 100%);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 18px;
+        padding: 18px 22px;
+        margin-bottom: 16px;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1);
     }
 
-    .result-top-metrics {
-        display: grid;
-        grid-template-columns: 180px 1fr;
+    .score-left {
+        display: flex;
+        align-items: center;
         gap: 16px;
     }
 
-    .score-banner-box {
-        background: #0B1215;
-        color: #FFFFFF;
-        border-radius: 12px;
-        padding: 16px;
+    .score-circle-glossy {
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        background: #0B131B;
+        color: #CCFF00;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 14px rgba(11, 19, 27, 0.25);
     }
 
-    .confidence-strip {
-        font-size: 10px;
-        color: #94A3B8;
-    }
-
-    .conf-lbl { display: block; font-size: 9px; }
-
-    .big-score-num {
-        font-size: 42px;
+    .score-number {
+        font-size: 22px;
         font-weight: 900;
-        color: #CCFF00;
         line-height: 1;
     }
 
-    .big-score-num small {
-        font-size: 16px;
-        color: #FFFFFF;
+    .score-total {
+        font-size: 9.5px;
+        font-weight: 700;
+        color: #94A3B8;
     }
 
-    .forecast-cards-row {
+    .score-status-title {
+        font-size: 16px;
+        font-weight: 800;
+        color: #0F172A;
+        margin-bottom: 3px;
+    }
+
+    .score-status-desc {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        line-height: 1.4;
+    }
+
+    .forecast-two-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
     }
 
-    .f-metric-card {
-        background: #F8FAFC;
+    .f-box-glossy {
+        background: #FFFFFF;
         border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        padding: 14px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        border-radius: 14px;
+        padding: 14px 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
     }
 
     .f-lbl {
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--text-muted);
+        display: block;
+        margin-bottom: 4px;
     }
 
     .f-val {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 800;
         color: var(--text-main);
-        margin: 6px 0;
+        margin-bottom: 2px;
     }
 
     .f-sub {
-        font-size: 11px;
+        font-size: 11.5px;
+        color: var(--text-muted);
+        font-weight: 600;
     }
 
-    /* PROJECTION CHART */
-    .projection-chart-box {
-        border-top: 1px solid #F1F5F9;
-        padding-top: 18px;
+    .text-green {
+        color: #10B981 !important;
     }
 
-    .proj-head {
+    /* Projection Chart Card */
+    .proj-chart-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 16px;
+        padding: 16px 18px;
+    }
+
+    .proj-head-flex {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 12px;
     }
 
-    .proj-legend {
-        display: flex;
-        gap: 12px;
-        font-size: 11px;
-        color: var(--text-muted);
-    }
-
-    .dash-black { width: 12px; height: 3px; background: #0F172A; display: inline-block; }
-    .dash-green { width: 12px; height: 3px; background: #16A34A; display: inline-block; }
-
-    .proj-svg {
-        width: 100%;
-        height: 110px;
-    }
-
-    .chart-timeline-labels {
-        display: flex;
-        justify-content: space-between;
-        font-size: 10px;
-        color: var(--text-muted);
-        margin-top: 4px;
-    }
-
-    .bep-text {
+    .proj-title {
+        font-size: 13.5px;
         font-weight: 800;
-        color: #0F172A;
+        color: var(--text-main);
     }
 
-    /* INSIGHTS */
-    .insights-box {
-        background: #FAFAFA;
-        border: 1px solid #F1F5F9;
-        border-radius: 12px;
-        padding: 18px;
+    .proj-sub {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        margin-top: 1px;
     }
 
-    .ins-title-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 14px;
-    }
+    .chart-legend { display: flex; align-items: center; gap: 14px; }
+    .leg-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 700; color: #475569; }
+    .line-black { width: 14px; height: 3px; background: #0F172A; border-radius: 2px; display: inline-block; }
+    .line-green-dash { width: 14px; height: 0; border-top: 2px dashed #10B981; display: inline-block; }
+    .chart-canvas-container { position: relative; width: 100%; margin-top: 10px; }
+    .main-trend-svg { width: 100%; height: auto; max-height: 160px; display: block; overflow: visible; }
+    .chart-x-labels { display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; font-weight: 700; color: #64748B; margin-top: 10px; padding: 0 4px; }
+    .chart-x-labels span.active-today { color: #15803D; font-weight: 800; background: #DCFCE7; padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.25); }
 
-    .ins-icon {
-        width: 32px;
-        height: 32px;
-        background: #CCFF00;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
+    /* Insights List */
+    .insights-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--text-main);
+        margin-bottom: 10px;
     }
 
     .insights-list {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
 
-    .ins-item {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 12px;
-    }
-
-    .ins-item-head {
+    .ins-item-glossy {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 6px;
+        gap: 12px;
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 12px 14px;
     }
 
-    .ins-item-head strong {
-        font-size: 12px;
-        color: var(--text-main);
-    }
-
-    .badge-gold { background: #FEF3C7; color: #D97706; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; }
-    .badge-black { background: #0B1215; color: #FFFFFF; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; }
-    .badge-green-sm { background: #DCFCE7; color: #16A34A; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; }
-
-    .ins-desc {
+    .ins-bullet {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: #0B131B;
+        color: #CCFF00;
         font-size: 11px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .ins-content strong {
+        font-size: 12.5px;
+        color: var(--text-main);
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    .ins-content p {
+        font-size: 12px;
         color: var(--text-muted);
         line-height: 1.4;
+        margin: 0;
     }
 
     .result-action-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
         border-top: 1px solid #F1F5F9;
         padding-top: 16px;
     }
@@ -856,51 +1080,11 @@
     }
 
     @media (max-width: 1024px) {
-        .simulator-grid {
+        .dash-columns {
             grid-template-columns: 1fr;
-            gap: 20px;
         }
-        .predict-header-row {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 14px;
-        }
-        .header-action-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .insight-strip-dark {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 12px;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .form-row-2col {
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-        .forecast-cards-row {
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-        .result-action-footer {
-            flex-direction: column;
-            gap: 12px;
-            align-items: stretch;
-        }
-        .foot-left-actions {
-            flex-direction: column;
-            width: 100%;
-        }
-        .foot-left-actions button, .result-action-footer .btn-lime {
-            width: 100%;
-            justify-content: center;
-        }
-        .stock-presets-row {
-            flex-wrap: wrap;
+        .stock-chips-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 </style>
@@ -908,62 +1092,283 @@
 
 @push('scripts')
 <script>
+    let currentSelectedImageUrl = '{{ $prefill['image_url'] ?? "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&auto=format&fit=crop&q=80" }}';
+
+    const imageDictionary = [
+        { pattern: /labubu|pensil|pencil|stationery/i, url: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /kopi|coffee|drip|espresso|gayo/i, url: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /tumbler|botol|bottle|cup|drinkware/i, url: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /kabel|cable|charger|gadget|type-c/i, url: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /beras|rice|sembako|minyak|telur/i, url: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /geprek|ayam|chicken|kuliner|makan/i, url: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /roti|bread|pastry|cromboloni|croissant/i, url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /rendang|daging|beef/i, url: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /batik|kemeja|baju|fashion|pakaian/i, url: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /hijab|jilbab|scarf|voal/i, url: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /rotan|kerajinan|craft|kriya/i, url: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=300&auto=format&fit=crop&q=80' },
+        { pattern: /laundry|cuci|jasa/i, url: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=300&auto=format&fit=crop&q=80' },
+    ];
+
+    function resolveClientImage(name, cat) {
+        const text = (name + ' ' + cat).toLowerCase();
+        for (const item of imageDictionary) {
+            if (item.pattern.test(text)) {
+                return item.url;
+            }
+        }
+        return 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300&auto=format&fit=crop&q=80';
+    }
+
+    function updateProductDisplayImage(url) {
+        currentSelectedImageUrl = url;
+        const formImg = document.getElementById('formThumbImg');
+        if (formImg) formImg.src = url;
+        const simImg = document.getElementById('simProductImg');
+        if (simImg) simImg.src = url;
+    }
+
+    function handleProductNameChange() {
+        const name = document.getElementById('productName').value;
+        const cat = document.getElementById('categorySelect').value;
+        const url = resolveClientImage(name, cat);
+        updateProductDisplayImage(url);
+        const nameEl = document.getElementById('simProductNameDisplay');
+        if (nameEl) nameEl.innerText = name || 'Rencana Produk Baru';
+    }
+
+    function handleCategoryChange() {
+        handleProductNameChange();
+        const cat = document.getElementById('categorySelect').value;
+        const catEl = document.getElementById('simCategoryDisplay');
+        if (catEl) catEl.innerText = cat;
+    }
+
+    function selectPreset(name, cat, cost, sell, imgUrl, btn) {
+        document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        document.getElementById('productName').value = name;
+        document.getElementById('costPrice').value = cost;
+        document.getElementById('sellPrice').value = sell;
+        
+        const catSelect = document.getElementById('categorySelect');
+        for (let i = 0; i < catSelect.options.length; i++) {
+            if (catSelect.options[i].text.includes(cat) || cat.includes(catSelect.options[i].text)) {
+                catSelect.selectedIndex = i;
+                break;
+            }
+        }
+
+        updateProductDisplayImage(imgUrl);
+        const nameEl = document.getElementById('simProductNameDisplay');
+        if (nameEl) nameEl.innerText = name;
+        const catEl = document.getElementById('simCategoryDisplay');
+        if (catEl) catEl.innerText = cat;
+
+        calculateMargin();
+        showPredictToast(`Preset "${name}" siap diuji!`);
+    }
+
     function calculateMargin() {
         const cost = parseFloat(document.getElementById('costPrice').value) || 0;
         const sell = parseFloat(document.getElementById('sellPrice').value) || 0;
         if (sell > 0) {
             const profit = sell - cost;
             const pct = ((profit / sell) * 100).toFixed(1);
-            document.getElementById('marginBadge').innerText = pct + '%';
-            document.getElementById('profitPerUnit').innerText = 'Keuntungan per unit: Rp ' + profit.toLocaleString('id-ID');
+            const badge = document.getElementById('marginBadge');
+            if (badge) badge.innerText = pct + '%';
+            const profitEl = document.getElementById('profitPerUnit');
+            if (profitEl) profitEl.innerText = 'Keuntungan per unit: Rp ' + profit.toLocaleString('id-ID');
+            
+            const simProfit = document.getElementById('simProfit');
+            if (simProfit) {
+                const totalProfit = profit * currentBatchSize;
+                simProfit.innerText = 'Rp ' + totalProfit.toLocaleString('id-ID');
+            }
+
+            // Update showcase card displays
+            const costEl = document.getElementById('simCostDisplay');
+            if (costEl) costEl.innerText = 'Rp ' + cost.toLocaleString('id-ID');
+            const sellEl = document.getElementById('simSellDisplay');
+            if (sellEl) sellEl.innerText = 'Rp ' + sell.toLocaleString('id-ID');
+            const marginEl = document.getElementById('simMarginDisplay');
+            if (marginEl) marginEl.innerText = pct + '%';
         }
     }
 
-    function setBatch(num, label) {
-        document.getElementById('batchDisplay').innerText = num + ' Pcs';
-        document.querySelectorAll('.stock-chip').forEach(el => el.classList.remove('active'));
-        event.target.classList.add('active');
+    let currentBatchSize = 50;
+
+    function setBatch(num, label, btnEl) {
+        currentBatchSize = num;
+        const batchEl = document.getElementById('batchDisplay');
+        if (batchEl) batchEl.innerText = num + ' Pcs';
+        document.querySelectorAll('.stock-chip-glossy').forEach(el => el.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        calculateMargin();
     }
 
     function resetForm() {
         document.getElementById('productName').value = '';
         document.getElementById('costPrice').value = '10000';
         document.getElementById('sellPrice').value = '20000';
+        updateProductDisplayImage('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300&auto=format&fit=crop&q=80');
+        const nameEl = document.getElementById('simProductNameDisplay');
+        if (nameEl) nameEl.innerText = 'Rencana Produk Baru';
         calculateMargin();
+        showPredictToast('Formulir berhasil direset ke nilai awal.');
     }
 
-    function runPrediction() {
-        showPredictToast('Simulasi AI sedang memproses data pasar terkini...');
+    async function runPrediction() {
+        const btn = document.querySelector('.btn-predict-cta');
+        if (!btn) return;
+        const originalContent = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite;"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path></svg><span>Menganalisis dengan Juragan AI Live...</span>`;
+
+        const prod = document.getElementById('productName').value;
+        const cat = document.getElementById('categorySelect').value;
+        const cost = parseFloat(document.getElementById('costPrice').value) || 0;
+        const sell = parseFloat(document.getElementById('sellPrice').value) || 0;
+
+        try {
+            const res = await fetch('{{ route("predict.simulate") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    product_name: prod,
+                    category: cat,
+                    cost_price: cost,
+                    selling_price: sell,
+                    batch_size: currentBatchSize,
+                    image_url: currentSelectedImageUrl
+                })
+            });
+
+            const json = await res.json();
+            if (json.status === 'success') {
+                const data = json.data;
+
+                // 1. Update Showcase Image and Labels
+                if (json.image_url) {
+                    updateProductDisplayImage(json.image_url);
+                }
+                const nameEl = document.getElementById('simProductNameDisplay');
+                if (nameEl) nameEl.innerText = data.product_name;
+                const catEl = document.getElementById('simCategoryDisplay');
+                if (catEl) catEl.innerText = data.category;
+                const costEl = document.getElementById('simCostDisplay');
+                if (costEl) costEl.innerText = 'Rp ' + Number(data.cost_price).toLocaleString('id-ID');
+                const sellEl = document.getElementById('simSellDisplay');
+                if (sellEl) sellEl.innerText = 'Rp ' + Number(data.selling_price).toLocaleString('id-ID');
+                const marginEl = document.getElementById('simMarginDisplay');
+                if (marginEl) marginEl.innerText = (data.gross_margin_pct || 0) + '%';
+
+                // 2. Update Skor AI
+                const scoreEl = document.getElementById('simScore');
+                if (scoreEl) scoreEl.innerText = data.opportunity_score;
+
+                // 3. Update Confidence Pill
+                const confEl = document.querySelector('.confidence-pill-glossy span');
+                if (confEl) confEl.innerText = (data.confidence_pct || 88.5) + '% Confidence (Juragan AI)';
+
+                // 4. Update Rating Title & Desc
+                const titleEl = document.querySelector('.score-status-title');
+                if (titleEl) titleEl.innerText = json.rating_label || 'Peluang Sangat Tinggi';
+                const descEl = document.querySelector('.score-status-desc');
+                if (descEl) descEl.innerText = json.rating_desc || 'Risiko stok mati rendah, estimasi perputaran barang cepat di radius toko fisik Anda.';
+
+                // 5. Update Demand and Profit
+                const fVals = document.querySelectorAll('.f-box-glossy .f-val');
+                if (fVals[0]) fVals[0].innerHTML = data.estimated_demand_range;
+                if (fVals[1]) fVals[1].innerText = 'Rp ' + Number(data.projected_net_profit).toLocaleString('id-ID');
+
+                const fSubs = document.querySelectorAll('.f-box-glossy .f-sub');
+                if (fSubs[1]) fSubs[1].innerText = 'Dari total omzet Rp ' + Number(data.projected_revenue).toLocaleString('id-ID');
+
+                // 6. Update BEP in SVG chart & subtitle
+                const bepDay = json.bep_day || 14;
+                const projSub = document.querySelector('.proj-sub');
+                if (projSub) {
+                    projSub.innerText = bepDay >= 365 ? 'Titik impas (BEP) tidak tercapai dalam proyeksi 30 hari' : `Estimasi titik balik modal tercapai pada hari ke-${bepDay}`;
+                }
+                const bepLabel = document.querySelector('.chart-canvas-container text');
+                if (bepLabel) bepLabel.textContent = bepDay >= 365 ? 'BEP: N/A' : `Hari ke-${bepDay} (BEP)`;
+                const bepActivePill = document.querySelector('.chart-x-labels .active-today');
+                if (bepActivePill) bepActivePill.textContent = bepDay >= 365 ? 'Tidak Tercapai' : `Hari ${bepDay} (BEP)`;
+
+                // 7. Update Key Insights
+                if (data.key_insights && data.key_insights.length > 0) {
+                    const listContainer = document.querySelector('.insights-list');
+                    if (listContainer) {
+                        let html = '';
+                        data.key_insights.forEach((ins, idx) => {
+                            html += `
+                            <div class="ins-item-glossy">
+                                <div class="ins-bullet">${idx + 1}</div>
+                                <div class="ins-content">
+                                    <strong>${ins.title}:</strong>
+                                    <p>${ins.description}</p>
+                                </div>
+                            </div>`;
+                        });
+                        listContainer.innerHTML = html;
+                    }
+                }
+
+                // 8. Update prediction_id in hidden form
+                const predInput = document.querySelector('input[name="prediction_id"]');
+                if (predInput) predInput.value = data.id;
+
+                showPredictToast('Selesai dihitung secara akurat oleh Juragan AI!');
+            } else {
+                showPredictToast('Gagal memproses simulasi: ' + (json.message || 'Terjadi kesalahan'));
+            }
+        } catch (err) {
+            console.error(err);
+            showPredictToast('Koneksi terganggu saat menghubungi AI engine.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalContent;
+        }
     }
 
     function openHistoryModal() {
-        document.getElementById('modal-predict-history').style.display = 'flex';
+        const modal = document.getElementById('modal-predict-history');
+        if (modal) modal.style.display = 'flex';
     }
 
     function closeHistoryModal() {
-        document.getElementById('modal-predict-history').style.display = 'none';
+        const modal = document.getElementById('modal-predict-history');
+        if (modal) modal.style.display = 'none';
     }
 
     function saveSimulationDraft() {
-        const prod = document.getElementById('productName').value || 'Produk Tanpa Nama';
-        showPredictToast(`Skenario simulasi "${prod}" berhasil disimpan ke riwayat Juragan!`);
+        const prod = document.getElementById('productName').value || 'Produk Baru';
+        showPredictToast(`Skenario "${prod}" berhasil disimpan ke riwayat toko!`);
     }
 
     function exportSimulationReport() {
-        const prod = document.getElementById('productName').value || 'Labubu Blind Box';
+        const prod = document.getElementById('productName').value || 'Pensil Labubu Blind Box';
         const cost = document.getElementById('costPrice').value;
         const sell = document.getElementById('sellPrice').value;
+        const score = document.getElementById('simScore') ? document.getElementById('simScore').innerText : '87';
+        const profit = document.getElementById('simProfit') ? document.getElementById('simProfit').innerText : 'Rp 650.000';
 
         let txt = `====================================================\n`;
-        txt += `   LARIS PREDICT - HASIL PROYEKSI SIMULASI BISNIS\n`;
+        txt += `   LARIS PREDICT - LAPORAN KELAYAKAN PRODUK BARU\n`;
         txt += `====================================================\n\n`;
-        txt += `Produk: ${prod}\n`;
-        txt += `HPP Modal: Rp ${parseInt(cost).toLocaleString('id-ID')}\n`;
+        txt += `Nama Produk      : ${prod}\n`;
+        txt += `Kategori Pasar   : ${document.getElementById('categorySelect').value}\n`;
+        txt += `Modal (HPP)      : Rp ${parseInt(cost).toLocaleString('id-ID')}\n`;
         txt += `Harga Jual Target: Rp ${parseInt(sell).toLocaleString('id-ID')}\n`;
-        txt += `Estimasi Demand: HIGH (Skor Potensi: 88/100)\n`;
-        txt += `Proyeksi Laba Bersih: Rp 1.560.000 / batch\n`;
-        txt += `Waktu Ekspor: ${new Date().toLocaleString('id-ID')}\n\n`;
-        txt += `Platform Didukung oleh LARIS Autonomous AI Engine 2026\n`;
+        txt += `Estimasi Laba    : ${profit}\n`;
+        txt += `Skor AI Peluang  : ${score} / 100 (Juragan AI Market Reality Engine)\n`;
+        txt += `Waktu Ekspor     : ${new Date().toLocaleString('id-ID')}\n\n`;
+        txt += `Dianalisis oleh LARIS Autonomous BI Platform 2026\n`;
 
         const blob = new Blob([txt], { type: 'text/plain' });
         const a = document.createElement('a');
@@ -973,17 +1378,26 @@
         a.click();
         document.body.removeChild(a);
 
-        showPredictToast('Laporan simulasi berhasil diunduh!');
+        showPredictToast('Laporan simulasi (.txt) berhasil diunduh!');
     }
 
-    function loadSimHistory(name, cost, sell, cat) {
+    function loadSimHistory(name, cost, sell, cat, imgUrl) {
         document.getElementById('productName').value = name;
         document.getElementById('costPrice').value = cost;
         document.getElementById('sellPrice').value = sell;
-        document.getElementById('productCategory').value = cat;
+        document.getElementById('categorySelect').value = cat;
+
+        const effectiveUrl = imgUrl || resolveClientImage(name, cat);
+        updateProductDisplayImage(effectiveUrl);
+
+        const nameEl = document.getElementById('simProductNameDisplay');
+        if (nameEl) nameEl.innerText = name;
+        const catEl = document.getElementById('simCategoryDisplay');
+        if (catEl) catEl.innerText = cat;
+
         calculateMargin();
         closeHistoryModal();
-        showPredictToast(`Parameter simulasi "${name}" dimuat kembali!`);
+        showPredictToast(`Parameter "${name}" berhasil dimuat!`);
     }
 
     function showPredictToast(msg) {
@@ -991,15 +1405,16 @@
         toast.style.position = 'fixed';
         toast.style.bottom = '24px';
         toast.style.right = '24px';
-        toast.style.background = '#0B1215';
+        toast.style.background = '#0B131B';
         toast.style.color = '#CCFF00';
-        toast.style.border = '1px solid #16A34A';
+        toast.style.border = '1px solid #10B981';
         toast.style.padding = '12px 20px';
-        toast.style.borderRadius = '10px';
-        toast.style.fontSize = '12px';
+        toast.style.borderRadius = '12px';
+        toast.style.fontSize = '12.5px';
         toast.style.fontWeight = '700';
         toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
         toast.style.zIndex = '9999';
+        toast.style.transition = 'all 0.3s ease';
         toast.textContent = msg;
 
         document.body.appendChild(toast);
@@ -1008,47 +1423,94 @@
             setTimeout(() => toast.remove(), 400);
         }, 3200);
     }
+
+    async function handleVisualLensUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('image', file);
+        formData.append('_token', '{{ csrf_token() }}');
+
+        const btnText = document.getElementById('lensUploadBtnText');
+        if (btnText) btnText.innerText = 'Memindai ' + file.name + '...';
+        await executeVisualLensAnalysis(formData);
+    }
+
+    async function promptImageUrl() {
+        const url = prompt('Masukkan URL gambar produk dari supplier / web:');
+        if (!url || !url.trim()) return;
+
+        const formData = new FormData();
+        formData.append('image_url', url.trim());
+        formData.append('_token', '{{ csrf_token() }}');
+
+        const btnText = document.getElementById('lensUploadBtnText');
+        if (btnText) btnText.innerText = 'Menganalisis URL gambar...';
+        await executeVisualLensAnalysis(formData);
+    }
+
+    async function executeVisualLensAnalysis(formData) {
+        try {
+            showPredictToast('AI Visual Trend Lens sedang menganalisis gambar produk...');
+            const res = await fetch("{{ route('predict.analyze_image') }}", {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            });
+
+            const data = await res.json();
+            if (data.status === 'success') {
+                // Pre-fill form fields
+                document.getElementById('productName').value = data.product_name;
+                document.getElementById('costPrice').value = data.cost_price;
+                document.getElementById('sellPrice').value = data.selling_price;
+                
+                // Set category
+                const catSelect = document.getElementById('categorySelect');
+                let foundCat = false;
+                for (let i = 0; i < catSelect.options.length; i++) {
+                    if (catSelect.options[i].text.toLowerCase().includes(data.category.toLowerCase().split(' ')[0])) {
+                        catSelect.selectedIndex = i;
+                        foundCat = true;
+                        break;
+                    }
+                }
+                if (!foundCat && catSelect.options.length > 0) {
+                    catSelect.options[0].text = data.category;
+                    catSelect.selectedIndex = 0;
+                }
+
+                // Update thumbnail image
+                if (data.image_url) {
+                    currentSelectedImageUrl = data.image_url;
+                    updateProductDisplayImage(data.image_url);
+                }
+
+                // Show Visual Lens result box
+                const resBox = document.getElementById('lensResultBox');
+                if (resBox) {
+                    resBox.style.display = 'block';
+                    document.getElementById('lensPreviewImg').src = data.image_url || 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=100&auto=format&fit=crop&q=80';
+                    document.getElementById('lensDetectedName').innerText = data.product_name;
+                    document.getElementById('lensDetectedRadar').innerText = `Radar: ${data.trend_velocity} • ${data.trend_radar_match}`;
+                    document.getElementById('lensDetectedDesc').innerHTML = `HPP: <strong>Rp ${Number(data.cost_price).toLocaleString('id-ID')}</strong> | Jual: <strong>Rp ${Number(data.selling_price).toLocaleString('id-ID')}</strong> (${data.margin_pct}% Margin). ${data.visual_summary}`;
+                }
+
+                calculateMargin();
+                showPredictToast(`Gambar terdeteksi: ${data.product_name}! Sesuai radar ${data.trend_radar_match}`);
+            } else {
+                showPredictToast('Gagal menganalisis gambar: ' + (data.message || 'Format tidak didukung'));
+            }
+        } catch (err) {
+            console.error(err);
+            showPredictToast('Terjadi kesalahan saat memproses gambar');
+        } finally {
+            const btnText = document.getElementById('lensUploadBtnText');
+            if (btnText) btnText.innerText = 'Pilih Foto Produk / Drag File Disini';
+        }
+    }
 </script>
 @endpush
-
-<!-- MODAL RIWAYAT SIMULASI -->
-<div id="modal-predict-history" class="laris-modal-overlay" style="position: fixed; inset: 0; background: rgba(11, 18, 21, 0.7); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px;">
-    <div style="background: #FFFFFF; border-radius: 16px; width: 100%; max-width: 560px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); overflow: hidden;">
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <svg width="18" height="18" fill="none" stroke="#0F172A" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
-                <h3 style="font-size: 16px; font-weight: 700; color: #0F172A; margin: 0;">Riwayat Simulasi Produk Terakhir</h3>
-            </div>
-            <button type="button" onclick="closeHistoryModal()" style="background: none; border: none; font-size: 22px; color: #64748B; cursor: pointer;">&times;</button>
-        </div>
-        <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; max-height: 400px; overflow-y: auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
-                <div>
-                    <strong style="font-size: 13px; color: #0F172A;">Pensil Labubu Blind Box</strong>
-                    <div style="font-size: 11px; color: #64748B;">HPP: Rp 22.000 | Jual: Rp 35.000 | Margin: 37%</div>
-                </div>
-                <button type="button" class="btn-dark" onclick="loadSimHistory('Pensil Labubu Blind Box', 22000, 35000, 'Stationery & Toys')" style="font-size: 11px; padding: 6px 12px;">Muat</button>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
-                <div>
-                    <strong style="font-size: 13px; color: #0F172A;">Kopi Drip Bag Arabika</strong>
-                    <div style="font-size: 11px; color: #64748B;">HPP: Rp 16.000 | Jual: Rp 28.000 | Margin: 42%</div>
-                </div>
-                <button type="button" class="btn-dark" onclick="loadSimHistory('Kopi Drip Bag Arabika', 16000, 28000, 'Food & Beverage')" style="font-size: 11px; padding: 6px 12px;">Muat</button>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px;">
-                <div>
-                    <strong style="font-size: 13px; color: #0F172A;">Botol Minum Motivasi 2L</strong>
-                    <div style="font-size: 11px; color: #64748B;">HPP: Rp 25.000 | Jual: Rp 45.000 | Margin: 44%</div>
-                </div>
-                <button type="button" class="btn-dark" onclick="loadSimHistory('Botol Minum Motivasi 2L', 25000, 45000, 'Lifestyle')" style="font-size: 11px; padding: 6px 12px;">Muat</button>
-            </div>
-        </div>
-        <div style="padding: 14px 24px; background: #F8FAFC; border-top: 1px solid #E2E8F0; display: flex; justify-content: flex-end;">
-            <button type="button" class="btn-outline" onclick="closeHistoryModal()">Tutup</button>
-        </div>
-    </div>
-</div>
-@endsection

@@ -16,29 +16,44 @@ class PosTelemetryService
     public function getTodayTelemetry(): array
     {
         $today = Carbon::today();
+        $user = auth()->user();
+        $storeId = ($user && $user->store_id) ? $user->store_id : 1;
 
-        $todayOrders = Order::whereDate('created_at', $today);
+        $todayOrders = Order::where('store_id', $storeId)->whereDate('created_at', $today);
         $todayRevenue = (float) $todayOrders->sum('total_amount');
         $todayProfit = (float) $todayOrders->sum('gross_profit');
         $ordersCount = $todayOrders->count();
 
-        // Baseline untuk demo dashboard jika transaksi baru sedikit
-        $baseRevenue = 45200000;
-        $baseProfit = 15800000;
+        // Data riil dari database (tanpa dummy baseline)
+        if ($ordersCount === 0) {
+            $recent24h = Order::where('store_id', $storeId)->where('created_at', '>=', Carbon::now()->subHours(24));
+            if ($recent24h->count() > 0) {
+                $todayRevenue = (float) $recent24h->sum('total_amount');
+                $todayProfit = (float) $recent24h->sum('gross_profit');
+                $ordersCount = $recent24h->count();
+            }
+        }
 
-        $finalRevenue = $todayRevenue > 0 ? ($baseRevenue + $todayRevenue) : $baseRevenue;
-        $finalProfit = $todayProfit > 0 ? ($baseProfit + $todayProfit) : $baseProfit;
-        $marginPct = $finalRevenue > 0 ? round(($finalProfit / $finalRevenue) * 100, 1) : 34.9;
+        $marginPct = $todayRevenue > 0 ? round(($todayProfit / $todayRevenue) * 100, 1) : 0;
 
-        // Channel breakdown
-        $channels = Order::selectRaw('channel, SUM(total_amount) as total, COUNT(*) as orders_count')
+        // Channel breakdown riil
+        $channels = Order::where('store_id', $storeId)
+            ->selectRaw('channel, SUM(total_amount) as total, COUNT(*) as orders_count')
             ->whereDate('created_at', $today)
             ->groupBy('channel')
             ->get();
 
+        if ($channels->isEmpty()) {
+            $channels = Order::where('store_id', $storeId)
+                ->selectRaw('channel, SUM(total_amount) as total, COUNT(*) as orders_count')
+                ->where('created_at', '>=', Carbon::now()->subHours(24))
+                ->groupBy('channel')
+                ->get();
+        }
+
         return [
-            'revenue_today' => $finalRevenue,
-            'net_profit_today' => $finalProfit,
+            'revenue_today' => $todayRevenue,
+            'net_profit_today' => $todayProfit,
             'margin_pct' => $marginPct,
             'orders_count' => $ordersCount,
             'channel_breakdown' => $channels,
@@ -52,9 +67,18 @@ class PosTelemetryService
     public function simulateMarketplaceWebhook(string $channel = 'Shopee'): Order
     {
         $orderService = app(OrderService::class);
-        $randomProduct = Product::where('current_stock', '>', 5)->inRandomOrder()->first() ?: Product::first();
+        $user = auth()->user();
+        $storeId = ($user && $user->store_id) ? $user->store_id : 1;
 
-        $randomQty = rand(1, 3);
+        $randomProduct = Product::where('store_id', $storeId)->where('current_stock', '>', 5)->inRandomOrder()->first() 
+            ?: Product::where('store_id', $storeId)->where('current_stock', '>', 0)->first()
+            ?: Product::where('current_stock', '>', 0)->first();
+
+        if (!$randomProduct) {
+            throw new \Exception("Tidak dapat mensimulasikan pesanan webhook: Semua produk di gerai sedang kehabisan stok.");
+        }
+
+        $randomQty = min($randomProduct->current_stock, rand(1, 3));
         $paymentMethods = ['ShopeePay', 'GoPay', 'BCA Virtual Account', 'QRIS'];
         $payment = $paymentMethods[array_rand($paymentMethods)];
 
