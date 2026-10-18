@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
   <img src="./banner.jpg" alt="LARIS - AI Business Intelligence Platform" width="100%"/>
   <br/><br/>
   <img src="./logo.png" alt="LARIS Logo" height="60"/>
@@ -348,14 +348,46 @@ Phase 2 — Coming Soon
 
 ## 👨‍💻 Tim Pengembang
 
+> **TIM DI BALIK INOVASI LARIS**
+
 <div align="center">
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="./team_nabil.jpg" width="120" style="border-radius:50%" alt="Nabil Aditia Putra"/>
+      <br/><br/>
+      <b>Nabil Aditia Putra</b>
+      <br/>
+      <sub><b>🏆 CEO / Project Lead</b></sub>
+      <br/><br/>
+      <sub>Strategi produk, koordinasi dan pengembangan bisnis.<br/>Memastikan LARIS menjawab kebutuhan nyata UMKM Indonesia.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="./team_sutan.jpg" width="120" style="border-radius:50%" alt="Sutan Irvan Aziz"/>
+      <br/><br/>
+      <b>Sutan Irvan Aziz</b>
+      <br/>
+      <sub><b>⚡ CTO / Developer</b></sub>
+      <br/><br/>
+      <a href="https://github.com/sutan789">@sutan789</a>
+      <br/>
+      <sub>Rancangan sistem dan implementasi aplikasi.<br/>AI integration, backend architecture, dan automated testing.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="./team_rasya.jpg" width="120" style="border-radius:50%" alt="M. Rasya Setiawan"/>
+      <br/><br/>
+      <b>M. Rasya Setiawan</b>
+      <br/>
+      <sub><b>📣 Marketing & Partnership</b></sub>
+      <br/><br/>
+      <sub>Akses pasar, komunikasi, dan pengembangan mitra.<br/>Menghubungkan LARIS dengan ekosistem UMKM Indonesia.</sub>
+    </td>
+  </tr>
+</table>
 
-|  | Nama | GitHub | Role |
-|--|------|--------|------|
-| <img src="./icon.png" width="40"/> | **Sutan Aziz Irvan** | [@sutan789](https://github.com/sutan789) | Lead Developer · AI Integration · Backend |
-| <img src="./icon.png" width="40"/> | **Napwoy** | [@Napwoy](https://github.com/Napwoy) | Backend Architecture · Database Design |
+<br/>
 
-*Dibuat dengan semangat untuk memajukan UMKM Indonesia melalui teknologi AI*
+> *"LARIS, memberdayakan UMKM dengan keputusan yang lebih cerdas."*
 
 </div>
 
